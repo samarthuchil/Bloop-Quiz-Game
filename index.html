@@ -1,0 +1,1427 @@
+<title>Quiz Dashboard</title>
+<style>
+  /* Deliberately single-theme: a dark broadcast "stage" is the concept,
+     not a light/dark toggle target — kept legible either way via high contrast. */
+  :root{
+    --stage-navy:#0a2233;
+    --stage-navy-2:#071824;
+    --marquee-gold:#f5b60e;
+    --card-cream:#fbf2d9;
+    --ink:#1c1408;
+    --buzz-red:#e2453c;
+    --team-a:#4fc3f7;
+    --team-b:#ff8a5c;
+    --team-c:#b39ddb;
+    --team-d:#81c995;
+    --team-e:#f48fb1;
+    --team-f:#4db6ac;
+    --line: rgba(245,182,14,0.18);
+    --display: "Arial Black", "Arial Bold", "Segoe UI Black", system-ui, sans-serif;
+    --body: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding: clamp(16px, 4vw, 48px) 16px;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #103349 0%, var(--stage-navy) 45%, var(--stage-navy-2) 100%);
+    font-family: var(--body);
+    color: var(--card-cream);
+  }
+
+  .stage{
+    width:100%;
+    max-width: 1180px;
+    display:flex;
+    flex-direction:column;
+    gap: 22px;
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding: 6px 4px;
+  }
+
+  .buzzer-mark{
+    flex: none;
+    width:52px; height:52px;
+    border-radius:50%;
+    background:
+      radial-gradient(circle at 35% 30%, #ff8a80 0%, var(--buzz-red) 55%, #9c231c 100%);
+    box-shadow: 0 0 0 4px rgba(226,69,60,0.15), 0 0 22px rgba(226,69,60,0.55);
+    position:relative;
+  }
+  .buzzer-mark::after{
+    content:"";
+    position:absolute; inset:-8px;
+    border-radius:50%;
+    border:2px solid rgba(226,69,60,0.4);
+    animation: pulse-ring 2.4s ease-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .buzzer-mark::after{ animation:none; }
+  }
+  @keyframes pulse-ring{
+    0%{ transform:scale(0.85); opacity:0.9; }
+    100%{ transform:scale(1.35); opacity:0; }
+  }
+
+  .marquee-text h1{
+    margin:0;
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--marquee-gold);
+    text-shadow: 0 0 18px rgba(245,182,14,0.35);
+    outline: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: -6px;
+  }
+  .marquee-text h1:hover, .marquee-text h1:focus{
+    background: rgba(245,182,14,0.08);
+  }
+  .marquee-sub{
+    margin: 2px 0 0;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: rgba(251,242,217,0.62);
+  }
+  .marquee-sub span{
+    font-variant-numeric: tabular-nums;
+    color: var(--marquee-gold);
+    font-weight:600;
+  }
+
+  /* ---------- Scoreboard ---------- */
+  .scoreboard{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+  }
+  .team-card{
+    position: relative;
+    overflow: hidden;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+    border: 1px solid rgba(251,242,217,0.14);
+    border-radius: 12px;
+    padding: 12px 18px;
+  }
+  .team-card::before{
+    content:"";
+    position:absolute; left:0; top:0; bottom:0;
+    width: 5px;
+    background: var(--team-color);
+  }
+  .team-card.team-a{ --team-color: var(--team-a); }
+  .team-card.team-b{ --team-color: var(--team-b); }
+  .team-card.team-c{ --team-color: var(--team-c); }
+  .team-card.team-d{ --team-color: var(--team-d); }
+  .team-card.team-e{ --team-color: var(--team-e); }
+  .team-card.team-f{ --team-color: var(--team-f); }
+
+  .team-main{
+    display:flex;
+    flex-direction:column;
+    gap: 2px;
+    min-width: 0;
+  }
+  .team-name{
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-size: clamp(12px, 1.6vw, 15px);
+    outline: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    margin-left: -6px;
+    cursor: text;
+  }
+  .team-name:hover, .team-name:focus{ background: rgba(251,242,217,0.08); }
+  .team-roster{
+    font-size: 11px;
+    color: rgba(251,242,217,0.5);
+    padding: 0 6px;
+    line-height:1.4;
+  }
+  .team-score{
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(24px, 4vw, 34px);
+    font-variant-numeric: tabular-nums;
+    color: var(--team-color);
+    outline: none;
+    border-radius: 6px;
+    padding: 0 6px;
+    cursor: text;
+    min-width: 1.3em;
+    text-align: right;
+    flex: none;
+  }
+  .team-score:hover, .team-score:focus{ background: rgba(251,242,217,0.08); }
+
+  .team-card.active-turn{
+    border-color: var(--team-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--team-color) 55%, transparent), 0 6px 16px rgba(0,0,0,0.3);
+  }
+
+  /* ---------- Turn banner ---------- */
+  .turn-banner{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    font-family: var(--display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: clamp(13px, 1.8vw, 16px);
+    color: var(--turn-color, var(--marquee-gold));
+    background: color-mix(in srgb, var(--turn-color, var(--marquee-gold)) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--turn-color, var(--marquee-gold)) 40%, transparent);
+    border-radius: 12px;
+    padding: 10px 18px;
+  }
+  .turn-banner::before{
+    content: "🎯";
+    font-size: 16px;
+  }
+  .turn-banner:empty{ display:none; }
+
+  /* ---------- Controls ---------- */
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    align-items:center;
+  }
+  button{
+    font-family: var(--body);
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--marquee-gold);
+    background: rgba(245,182,14,0.08);
+    border: 1.5px solid rgba(245,182,14,0.45);
+    border-radius: 999px;
+    padding: 9px 18px;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  button:hover{ background: rgba(245,182,14,0.18); }
+  button:active{ transform: scale(0.97); }
+  button:focus-visible{ outline: 2px solid var(--marquee-gold); outline-offset: 2px; }
+  button.danger{
+    color:#ffcfc9;
+    border-color: rgba(226,69,60,0.5);
+    background: rgba(226,69,60,0.1);
+  }
+  button.danger:hover{ background: rgba(226,69,60,0.2); }
+  button.ghost{
+    background:transparent;
+    color: rgba(251,242,217,0.7);
+    border-color: rgba(251,242,217,0.25);
+  }
+  .controls .spacer{ flex:1; }
+
+  /* ---------- Board ---------- */
+  .board{
+    display:grid;
+    grid-template-columns: repeat(var(--cols), minmax(0,1fr));
+    gap: 6px;
+    background: var(--stage-navy-2);
+    padding: 8px;
+    border-radius: 14px;
+    border: 1px solid rgba(245,182,14,0.15);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(0,0,0,0.3);
+  }
+
+  .topic-cell{
+    background: linear-gradient(180deg, #ffd23f 0%, var(--marquee-gold) 100%);
+    color: var(--ink);
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(11px, 1.5vw, 14px);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height: 64px;
+    padding: 8px 8px;
+    border-radius: 6px;
+    outline: none;
+    cursor: text;
+    border: 2px solid transparent;
+  }
+  .topic-cell:hover{ border-color: rgba(28,20,8,0.25); }
+  .topic-cell:focus{ border-color: var(--ink); background: linear-gradient(180deg, #ffe27a 0%, #ffd23f 100%); }
+
+  .tile{
+    position: relative;
+    background: var(--card-cream);
+    color: var(--ink);
+    font-family: var(--display);
+    font-weight: 900;
+    font-variant-numeric: tabular-nums;
+    font-size: clamp(20px, 3vw, 30px);
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    gap: 2px;
+    min-height: 68px;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+    width:100%;
+    box-shadow: inset 0 -3px 0 rgba(28,20,8,0.15);
+    transition: transform 0.08s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .tile:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35), inset 0 -3px 0 rgba(28,20,8,0.15);
+  }
+  .tile:focus-visible{ outline: 3px solid var(--buzz-red); outline-offset: 2px; }
+
+  .tile-edit{
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size: 12px;
+    line-height:1;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    background: rgba(28,20,8,0.08);
+    border: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.12s ease, background 0.12s ease;
+  }
+  .tile.has-content .tile-edit{ opacity: 0.55; }
+  .tile:hover .tile-edit, .tile-edit:focus-visible{ opacity: 1; }
+  .tile-edit:hover{ background: rgba(28,20,8,0.18); }
+
+  .tile.used{
+    background: linear-gradient(180deg, #3fbf74 0%, #1f8a4f 100%);
+    color: #ecfff3;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.18);
+    cursor: default;
+    font-size: 22px;
+  }
+  .tile.used:hover{ transform:none; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.18); }
+
+  .tile-award{
+    font-family: var(--body);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--ink);
+    padding: 1px 7px;
+    border-radius: 999px;
+  }
+  .tile-award.team-a{ background: var(--team-a); }
+  .tile-award.team-b{ background: var(--team-b); }
+  .tile-award.team-c{ background: var(--team-c); }
+  .tile-award.team-d{ background: var(--team-d); }
+  .tile-award.team-e{ background: var(--team-e); }
+  .tile-award.team-f{ background: var(--team-f); }
+
+  /* ---------- Progress strip ---------- */
+  .progress-strip{
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(251,242,217,0.08);
+    overflow: hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    background: linear-gradient(90deg, var(--buzz-red), var(--marquee-gold));
+    transition: width 0.35s ease;
+  }
+
+  /* ---------- Round complete banner ---------- */
+  .round-banner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: rgba(63,191,116,0.12);
+    border: 1px solid rgba(63,191,116,0.4);
+    border-radius: 12px;
+    padding: 14px 18px;
+  }
+  .round-banner[hidden]{ display:none; }
+  .round-banner-msg{
+    margin:0;
+    font-weight:700;
+    font-size: 14px;
+    color: #baf5cf;
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-overlay{
+    position: fixed; inset:0;
+    background: rgba(4,12,18,0.72);
+    backdrop-filter: blur(2px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 20px;
+    z-index: 10;
+  }
+  .modal-overlay[hidden]{ display:none; }
+  .modal{
+    width:100%;
+    max-width: 520px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background: linear-gradient(180deg, #0f3348 0%, var(--stage-navy-2) 100%);
+    border: 1px solid rgba(245,182,14,0.35);
+    border-radius: 14px;
+    padding: 26px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+  .modal-kicker{
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(251,242,217,0.55);
+    margin: 0 0 4px;
+  }
+  .modal-points{
+    font-family: var(--display);
+    font-size: 34px;
+    font-weight:900;
+    color: var(--marquee-gold);
+    margin: 0 0 16px;
+    font-variant-numeric: tabular-nums;
+  }
+  .field-label{
+    display:block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(251,242,217,0.55);
+    margin: 14px 0 6px;
+  }
+  .field-label:first-of-type{ margin-top:0; }
+  textarea, input[type="number"]{
+    width:100%;
+    font-family: var(--body);
+    font-size: 15px;
+    line-height:1.4;
+    color: var(--card-cream);
+    background: rgba(251,242,217,0.06);
+    border: 1px solid rgba(251,242,217,0.2);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  textarea{ min-height: 64px; resize: vertical; }
+  textarea:focus, input[type="number"]:focus{ outline: 2px solid var(--marquee-gold); border-color: transparent; }
+
+  .qa-text{
+    font-size: 17px;
+    line-height:1.5;
+    color: var(--card-cream);
+    margin: 0;
+  }
+  .answer-block{
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(245,182,14,0.3);
+  }
+  .answer-block .qa-text{ color: var(--marquee-gold); font-weight:600; }
+
+  .modal-actions{
+    display:flex;
+    gap:10px;
+    margin-top: 22px;
+    flex-wrap:wrap;
+  }
+  .modal-actions .spacer{ flex:1; }
+
+  .award-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .team-btn{
+    color: var(--btn-color);
+    border-color: var(--btn-color);
+    background: color-mix(in srgb, var(--btn-color) 14%, transparent);
+  }
+  .team-btn:hover{ background: color-mix(in srgb, var(--btn-color) 26%, transparent); }
+  .team-btn.team-a{ --btn-color: var(--team-a); }
+  .team-btn.team-b{ --btn-color: var(--team-b); }
+  .team-btn.team-c{ --btn-color: var(--team-c); }
+  .team-btn.team-d{ --btn-color: var(--team-d); }
+  .team-btn.team-e{ --btn-color: var(--team-e); }
+  .team-btn.team-f{ --btn-color: var(--team-f); }
+  .team-btn.minus{
+    background: transparent;
+    border-style: dashed;
+  }
+  .team-btn.active{
+    background: var(--btn-color);
+    border-style: solid;
+    color: var(--ink);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.25) inset;
+  }
+
+  .empty-hint{
+    font-size: 13px;
+    color: rgba(251,242,217,0.45);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 640px){
+    .board{ gap:4px; padding:6px; }
+    .topic-cell{ min-height:52px; font-size:10px; }
+    .tile{ min-height:52px; font-size:18px; }
+  }
+</style>
+
+<div class="stage">
+  <header class="marquee">
+    <div class="buzzer-mark" aria-hidden="true"></div>
+    <div class="marquee-text">
+      <h1 id="showTitle" contenteditable="true" spellcheck="false" aria-label="Quiz title, click to edit"></h1>
+      <p class="marquee-sub">Click a tile for the question, then show the answer and award or pass · <span id="progressLabel">0 / 25</span> played</p>
+    </div>
+  </header>
+
+  <div class="scoreboard" id="scoreboard"></div>
+
+  <div class="turn-banner" id="turnBanner"></div>
+
+  <div class="controls">
+    <button id="setupTeamsBtn" type="button">🎲 Setup teams</button>
+    <button id="addTopicBtn" type="button">+ Add topic</button>
+    <button id="removeTopicBtn" type="button" class="ghost">− Remove topic</button>
+    <span class="spacer"></span>
+    <button id="resetBtn" type="button" class="danger">Reset board</button>
+  </div>
+
+  <div class="board" id="board"></div>
+
+  <div class="progress-strip" aria-hidden="true">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <div class="round-banner" id="roundBanner" hidden>
+    <p class="round-banner-msg" id="roundBannerMsg"></p>
+    <button id="nextRoundBtn" type="button">Next round →</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" id="modalBody" role="dialog" aria-modal="true" aria-labelledby="modalPoints"></div>
+</div>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'quiz-dashboard-state-v7';
+  var DEFAULT_POINTS = [10,20,30,40,50];
+  var MIN_TOPICS = 3, MAX_TOPICS = 6;
+  var TEAM_LETTERS = ['a','b','c','d','e','f'];
+  var DEFAULT_PLAYERS = ["Robin","Ananya","Atul","Amol","Sherl","Kittu","Shijan","Tanu","Samarth"];
+
+  function teamLetter(idx){ return TEAM_LETTERS[idx] || 'a'; }
+
+  var ROUNDS = [
+    {
+      title: 'ROUND 1',
+      topics: ["Blockbuster Movies","Sports & Records","Mythology & Legends","Music & Bands","Logic Puzzles"],
+      questions: [
+        [
+          { q:"Satyajit Ray's Pather Panchali is the first installment of which acclaimed film trilogy?", a:"The Apu Trilogy" },
+          { q:"Which Stephen King novella was adapted into a 1994 film that topped IMDb's rankings for years, starring Tim Robbins and Morgan Freeman?", a:"The Shawshank Redemption" },
+          { q:"Which 1975 Ramesh Sippy film, considered one of the greatest Indian films ever made, stars Amitabh Bachchan as 'Jai'?", a:"Sholay" },
+          { q:"Which 1941 film, often cited as the greatest movie ever made, follows the rise and fall of publishing tycoon Charles Foster Kane?", a:"Citizen Kane" },
+          { q:"Which 1985 Akira Kurosawa film reimagines Shakespeare's King Lear in feudal Japan?", a:"Ran" }
+        ],
+        [
+          { q:"Who is the only cricketer to have scored 100 international centuries?", a:"Sachin Tendulkar" },
+          { q:"Which Indian chess player became the youngest ever undisputed World Chess Champion in December 2024, at age 18?", a:"D Gukesh" },
+          { q:"Which country has won the most Cricket World Cup titles in the ODI format?", a:"Australia" },
+          { q:"Which Indian badminton player won India's first Olympic silver medal in badminton, at the 2016 Rio Olympics?", a:"P. V. Sindhu" },
+          { q:"Which Indian wrestler won bronze in the 58kg freestyle category at the 2016 Rio Olympics, becoming the first Indian woman to win an Olympic wrestling medal?", a:"Sakshi Malik" }
+        ],
+        [
+          { q:"In the Mahabharata, which warrior, born with natural armor and earrings, was the secret eldest son of Kunti?", a:"Karna" },
+          { q:"In Greek mythology, which Titan is condemned to hold up the sky for eternity?", a:"Atlas" },
+          { q:"In the Samudra Manthan (churning of the ocean of milk), what deadly poison emerged first, which Shiva consumed to save creation?", a:"Halahala (Kalakuta)" },
+          { q:"In Egyptian mythology, which sky goddess is depicted as a star-covered woman arching over the earth god Geb?", a:"Nut" },
+          { q:"In Norse mythology, what is the name of the prophesied apocalyptic battle in which Odin, Thor, and many other gods are foretold to die?", a:"Ragnarök" }
+        ],
+        [
+          { q:"Which legendary Indian playback singer, awarded the Bharat Ratna and known as the 'Nightingale of India,' sang an estimated 25,000-plus songs across her career?", a:"Lata Mangeshkar" },
+          { q:"Which Indian sitar maestro, who collaborated with George Harrison and performed at Woodstock, is credited with popularizing Indian classical music in the West?", a:"Ravi Shankar" },
+          { q:"Which German composer, deaf in his later years, wrote the Ninth Symphony featuring 'Ode to Joy'?", a:"Ludwig van Beethoven" },
+          { q:"Which Indian tabla virtuoso, son of Ustad Alla Rakha, gained global fame collaborating with John McLaughlin in the fusion group Shakti?", a:"Zakir Hussain" },
+          { q:"Which experimental composer is famous for the 1952 piece 4′33″, consisting entirely of silence?", a:"John Cage" }
+        ],
+        [
+          { q:"If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?", a:"5 minutes" },
+          { q:"A snail at the bottom of a 10-metre well climbs 3 metres by day and slides back 2 metres each night. How many days does it take to reach the top?", a:"8 days" },
+          { q:"You have 8 identical-looking balls, one of which is heavier than the rest. Using a balance scale, what is the minimum number of weighings needed to guarantee finding the heavier ball?", a:"Two" },
+          { q:"In a room of 23 people, what is the probability, to the nearest whole percent, that at least two people share the same birthday?", a:"50%" },
+          { q:"A puzzle involving three gods — True, False, and Random — answerable with only three yes/no questions, created by philosopher George Boolos, is popularly known by what name?", a:"The Hardest Logic Puzzle Ever" }
+        ]
+      ]
+    },
+    {
+      title: 'ROUND 2',
+      topics: ["Science & Innovation","History's Turning Points","World Geography","Classic Literature","Mathematical Riddles"],
+      questions: [
+        [
+          { q:"Which Indian physicist won the 1930 Nobel Prize in Physics for his work on light scattering, the only Indian scientist to win a science Nobel while working in India?", a:"C. V. Raman" },
+          { q:"What is the SI unit of electrical resistance?", a:"Ohm" },
+          { q:"Which Austrian physicist proposed the thought experiment involving a cat that is simultaneously alive and dead until observed?", a:"Erwin Schrödinger" },
+          { q:"Which Indian-American astrophysicist, namesake of a NASA X-ray observatory, won the 1983 Nobel Prize for work on the structure and evolution of stars?", a:"Subrahmanyan Chandrasekhar" },
+          { q:"Which subatomic particle, predicted in 1964 and confirmed at CERN in 2012, is responsible for giving other particles mass?", a:"The Higgs boson" }
+        ],
+        [
+          { q:"In which year did India gain independence from British rule?", a:"1947" },
+          { q:"Which 1215 document first established that even the English king was subject to the law?", a:"The Magna Carta" },
+          { q:"Which 1919 event, in which British troops fired on unarmed civilians gathered at a public garden in Amritsar, galvanized the Indian independence movement?", a:"The Jallianwala Bagh massacre" },
+          { q:"Which treaty, signed in 1919, formally ended World War I and imposed heavy reparations on Germany?", a:"The Treaty of Versailles" },
+          { q:"Which 1526 battle, fought between Babur and Ibrahim Lodi, marked the founding of the Mughal Empire in India?", a:"The First Battle of Panipat" }
+        ],
+        [
+          { q:"Which is the highest mountain in the world, straddling the border of Nepal and Tibet?", a:"Mount Everest" },
+          { q:"Which strait separates Europe from Africa at its narrowest point, just 14 km wide?", a:"The Strait of Gibraltar" },
+          { q:"Which Indian state has the longest coastline in the country?", a:"Gujarat" },
+          { q:"Which small landlocked country is entirely surrounded by South Africa?", a:"Lesotho" },
+          { q:"Which Pacific island nation is the only country situated in all four hemispheres of the Earth?", a:"Kiribati" }
+        ],
+        [
+          { q:"Which Bengali polymath became the first non-European to win the Nobel Prize in Literature, in 1913, for Gitanjali?", a:"Rabindranath Tagore" },
+          { q:"Which Russian author wrote War and Peace and Anna Karenina?", a:"Leo Tolstoy" },
+          { q:"Which 19th-century novel by Mary Shelley, subtitled 'The Modern Prometheus,' is considered one of the first science fiction stories?", a:"Frankenstein" },
+          { q:"Which Colombian author wrote One Hundred Years of Solitude, a landmark of magical realism?", a:"Gabriel García Márquez" },
+          { q:"Which Irish novelist's 1922 modernist masterpiece Ulysses reimagines Homer's Odyssey over a single day in Dublin?", a:"James Joyce" }
+        ],
+        [
+          { q:"Take a number, multiply it by 3, add 6, divide by 3, then subtract the original number. What do you always get?", a:"Two" },
+          { q:"What is the next number in this sequence: 1, 1, 2, 3, 5, 8, 13, 21...?", a:"34" },
+          { q:"A man buys a horse for $60, sells it for $70, buys it back for $80, and sells it again for $90. How much profit did he make overall?", a:"$20" },
+          { q:"A bat and a ball together cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost?", a:"5 cents" },
+          { q:"A classic probability puzzle involves three doors, a car, a host who reveals a goat, and the counter-intuitive advantage of switching your choice. What is this puzzle called?", a:"The Monty Hall Problem" }
+        ]
+      ]
+    },
+    {
+      title: 'ROUND 3',
+      topics: ["Art & Artists","Space & Astronomy","Ancient Civilizations","TV & Pop Culture","Word Riddles"],
+      questions: [
+        [
+          { q:"Which Indian modernist painter, known for controversial nude depictions of Hindu deities that forced him into self-exile, was often called the 'Picasso of India'?", a:"M. F. Husain" },
+          { q:"Which Dutch painter, who cut off part of his own ear, painted The Starry Night?", a:"Vincent van Gogh" },
+          { q:"Which Spanish artist co-founded the Cubist movement alongside Georges Braque?", a:"Pablo Picasso" },
+          { q:"Which Bengal School painter, nephew of Rabindranath Tagore, is considered a pioneer of Indian modern art and painted 'Bharat Mata'?", a:"Abanindranath Tagore" },
+          { q:"Which Norwegian Expressionist painted 'The Scream,' one of the most recognized images in art history?", a:"Edvard Munch" }
+        ],
+        [
+          { q:"Which Indian space agency successfully landed the Chandrayaan-3 mission near the Moon's south pole in 2023?", a:"ISRO (Indian Space Research Organisation)" },
+          { q:"What is the name of the galaxy that contains our solar system?", a:"The Milky Way" },
+          { q:"Which dwarf planet, discovered in 1930 and reclassified in 2006, was formerly considered the ninth planet?", a:"Pluto" },
+          { q:"Which space telescope, launched in 2021 as Hubble's successor, observes the universe primarily in infrared?", a:"The James Webb Space Telescope" },
+          { q:"What is the term for the point of no return around a black hole, beyond which not even light can escape?", a:"The Event Horizon" }
+        ],
+        [
+          { q:"Which Bronze Age civilization, centered on cities like Mohenjo-daro and Harappa in the Indus Valley, had one of the world's earliest urban planning systems?", a:"The Indus Valley Civilization (Harappan Civilization)" },
+          { q:"Which ancient civilization built Machu Picchu high in the Andes Mountains?", a:"The Inca" },
+          { q:"Which ancient wonder, a giant statue, once stood at the entrance to the harbor of Rhodes?", a:"The Colossus of Rhodes" },
+          { q:"Which Mesoamerican civilization developed an early writing system and an accurate calendar, and built cities like Chichen Itza?", a:"The Maya" },
+          { q:"Which ancient Chinese emperor, who unified China and standardized writing and currency, is buried with the Terracotta Army near modern-day Xi'an?", a:"Qin Shi Huang" }
+        ],
+        [
+          { q:"Which 1987 Doordarshan television series, based on a Hindu epic, became so popular that streets reportedly emptied during its Sunday broadcasts?", a:"Ramayan (the Ramanand Sagar version)" },
+          { q:"Which HBO fantasy series, based on novels by George R. R. Martin, follows noble families fighting for the Iron Throne?", a:"Game of Thrones" },
+          { q:"Which British sci-fi series features a time-traveling alien known as 'The Doctor' who travels in the TARDIS?", a:"Doctor Who" },
+          { q:"Which prestige drama series, created by Vince Gilligan, follows chemistry teacher Walter White's transformation into a drug kingpin?", a:"Breaking Bad" },
+          { q:"Which Danish political-crime drama, credited with popularizing the term 'Scandi noir,' follows a murder investigation over 20 episodes, one per day?", a:"The Killing (Forbrydelsen)" }
+        ],
+        [
+          { q:"What English word has three consecutive double letters?", a:"Bookkeeper" },
+          { q:"What 7-letter word contains ten smaller words without rearranging any of its letters?", a:"Therein" },
+          { q:"What is the only number whose letters, when spelled out in English, are in alphabetical order?", a:"Forty" },
+          { q:"Famously, adding the prefix 'in-' to this word does NOT reverse its meaning — both forms mean 'capable of catching fire.' What is the word?", a:"Flammable (Inflammable)" },
+          { q:"What is the longest common English word that can be typed using only the letters found in the top row of a QWERTY keyboard?", a:"Typewriter" }
+        ]
+      ]
+    },
+    {
+      title: 'ROUND 4',
+      topics: ["Animal Kingdom","Video Games","Famous Quotes & Speeches","Inventions","Math & Number Puzzles"],
+      questions: [
+        [
+          { q:"Which big cat, found primarily in the Sundarbans and central India, is the national animal of India?", a:"The Bengal tiger" },
+          { q:"Which marine mammal has the largest brain of any animal on Earth?", a:"The sperm whale" },
+          { q:"Which flightless bird lays the largest egg relative to its body size of any living bird, sometimes up to 20% of the female's body weight?", a:"The kiwi" },
+          { q:"Which small mammal is one of the few venomous mammals, delivering venom through spurs on its hind legs, while also laying eggs?", a:"The platypus" },
+          { q:"Which deep-sea creature is believed to have the largest eyes in the animal kingdom, adapted for detecting bioluminescence in the deep ocean?", a:"The colossal squid" }
+        ],
+        [
+          { q:"Which sandbox game, made of blocks, became the best-selling video game of all time, surpassing 300 million copies sold?", a:"Minecraft" },
+          { q:"Which Japanese designer, often called the 'father of modern video games,' created Mario, The Legend of Zelda, and Donkey Kong?", a:"Shigeru Miyamoto" },
+          { q:"Which 2011 open-world role-playing game, part of a long-running fantasy series, is set in a fictional Nordic-inspired province of the same name?", a:"The Elder Scrolls V: Skyrim" },
+          { q:"Which battle royale mobile game was banned in India in 2020 amid a broader crackdown on Chinese-linked apps, later relaunching as 'BGMI'?", a:"PUBG Mobile" },
+          { q:"Which reclusive Japanese video game designer created Dark Souls and is known for pioneering the punishingly difficult 'Soulslike' genre?", a:"Hidetaka Miyazaki" }
+        ],
+        [
+          { q:"Which Indian freedom fighter said 'Give me blood, and I shall give you freedom' in a famous 1944 speech?", a:"Subhas Chandra Bose" },
+          { q:"Which civil rights leader delivered the 'I Have a Dream' speech in 1963?", a:"Martin Luther King Jr." },
+          { q:"Which Indian leader's speech, delivered at midnight on 14–15 August 1947, is remembered for the phrase 'a tryst with destiny'?", a:"Jawaharlal Nehru" },
+          { q:"Which South African leader said 'It always seems impossible until it's done' after decades of imprisonment?", a:"Nelson Mandela" },
+          { q:"Which ancient Roman orator's speeches against Catiline, opening with 'Quo usque tandem abutere, Catilina, patientia nostra?', are considered masterpieces of political rhetoric?", a:"Cicero" }
+        ],
+        [
+          { q:"Which Indian scientist invented the crescograph to measure plant growth and is considered a pioneer of radio wave research predating Marconi's public demonstration?", a:"Jagadish Chandra Bose" },
+          { q:"Which Scottish-born inventor is credited with patenting the first practical telephone?", a:"Alexander Graham Bell" },
+          { q:"Which German engineer is credited with building the first practical automobile powered by an internal combustion engine?", a:"Karl Benz" },
+          { q:"Which Serbian-American inventor pioneered alternating current (AC) electrical systems, rivaling Thomas Edison?", a:"Nikola Tesla" },
+          { q:"Which British computer scientist is credited with proposing the World Wide Web in 1989 while working at CERN?", a:"Tim Berners-Lee" }
+        ],
+        [
+          { q:"What do you call a number that can only be divided evenly by 1 and itself?", a:"A prime number" },
+          { q:"What is the next number in the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8...?", a:"13" },
+          { q:"What is the term for a number that equals the sum of its own proper divisors, such as 6 (1+2+3)?", a:"A perfect number" },
+          { q:"What is the value of pi to four decimal places?", a:"3.1416" },
+          { q:"What is the name for the number represented as a 1 followed by 100 zeros, popularized as the namesake (with a spelling change) of a major tech company?", a:"A googol" }
+        ]
+      ]
+    },
+    {
+      title: 'ROUND 5',
+      topics: ["Olympic History","World Festivals & Traditions","Comic Books & Superheroes","Famous Landmarks","Brain Teasers"],
+      questions: [
+        [
+          { q:"Which Indian javelin thrower won India's first-ever Olympic gold medal in athletics, at the Tokyo 2020 Olympics?", a:"Neeraj Chopra" },
+          { q:"Which sprinter, nicknamed 'Lightning Bolt,' holds the world records in the 100m and 200m?", a:"Usain Bolt" },
+          { q:"Which Indian shooter won bronze at the 2024 Paris Olympics, becoming the first Indian woman to win an Olympic medal in shooting?", a:"Manu Bhaker" },
+          { q:"At the 1936 Berlin Olympics, which American athlete won four gold medals, defying Nazi propaganda?", a:"Jesse Owens" },
+          { q:"Which Indian wrestler became the first Indian to win individual medals at two consecutive Olympics — bronze in 2008 and silver in 2012 — and was later honored with the Padma Bhushan?", a:"Sushil Kumar" }
+        ],
+        [
+          { q:"Which ten-day Hindu festival, celebrated with elaborate pandals and processions culminating in idol immersion, is especially prominent in West Bengal?", a:"Durga Puja" },
+          { q:"Which Mexican holiday, celebrated on November 1st and 2nd, honors deceased loved ones with altars and marigolds?", a:"Día de los Muertos (Day of the Dead)" },
+          { q:"Which Brazilian festival, famous for its parades, samba music, and elaborate costumes, takes place before Lent?", a:"Carnival (Carnaval)" },
+          { q:"Which Japanese tradition involves viewing and celebrating the fleeting bloom of cherry blossoms?", a:"Hanami" },
+          { q:"Which Jewish festival commemorates the rededication of the Second Temple in Jerusalem, marked by lighting a nine-branched menorah over eight nights?", a:"Hanukkah" }
+        ],
+        [
+          { q:"Which Indian comic book series, launched in 1967 by Anant Pai, adapted mythology, history, and folklore into illustrated form for young readers?", a:"Amar Chitra Katha" },
+          { q:"Which DC superhero, an alien from the planet Krypton, is also known as Clark Kent?", a:"Superman" },
+          { q:"Which Marvel team, including Iron Man, Captain America, and Thor, first assembled in 1963 comics?", a:"The Avengers" },
+          { q:"Which graphic novel by Alan Moore and Dave Gibbons, set in an alternate 1985, was the only graphic novel to appear on Time's '100 Best Novels' list?", a:"Watchmen" },
+          { q:"Which reclusive comic book creator wrote and drew Cerebus the Aardvark, an independent series that ran for 300 issues over 26 years?", a:"Dave Sim" }
+        ],
+        [
+          { q:"Which white marble mausoleum in Agra, India, was built by Emperor Shah Jahan for his wife Mumtaz Mahal?", a:"The Taj Mahal" },
+          { q:"Which ancient wall, built to protect Chinese states from invasions, stretches thousands of kilometers?", a:"The Great Wall of China" },
+          { q:"Which rock-cut complex in Maharashtra, comprising 34 monasteries and temples carved from basalt cliffs, spans Buddhist, Hindu, and Jain traditions?", a:"The Ellora Caves" },
+          { q:"Which statue, a gift from France, stands on Liberty Island in New York Harbor?", a:"The Statue of Liberty" },
+          { q:"Which prehistoric monument of standing stones, erected in stages between roughly 3000 and 1500 BCE, stands on Salisbury Plain in England?", a:"Stonehenge" }
+        ],
+        [
+          { q:"The person who makes it, sells it. The person who buys it never uses it. The person who uses it never knows they're using it. What is it?", a:"A coffin" },
+          { q:"I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost everybody. What am I?", a:"Pencil lead (graphite)" },
+          { q:"What can run but never walks, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?", a:"A river" },
+          { q:"Forward I am heavy, but backward I am not — what word am I?", a:"Ton (backwards spells 'not')" },
+          { q:"A man walks into a bar and asks the bartender for a glass of water. The bartender pulls out a gun and points it at him. The man says 'thank you' and leaves. Why?", a:"He had hiccups, and the shock cured them" }
+        ]
+      ]
+    }
+  ];
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i+1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function buildCellsForRound(idx){
+    var cells = {};
+    ROUNDS[idx].questions.forEach(function(colQuestions, col){
+      colQuestions.forEach(function(item, row){
+        cells[col + '-' + row] = { question: item.q, answer: item.a, used: false };
+      });
+    });
+    return cells;
+  }
+
+  function defaultTeams(){
+    return [
+      { name:'Team 1', score:0, players:["Samarth","Tanu","Sherl"] },
+      { name:'Team 2', score:0, players:["Kittu","Atul","Shijan"] },
+      { name:'Team 3', score:0, players:["Robin","Ananya","Amol"] }
+    ];
+  }
+
+  function defaultState(){
+    return {
+      roundIndex: 0,
+      currentTurn: 0,
+      title: ROUNDS[0].title,
+      topics: ROUNDS[0].topics.slice(),
+      teams: defaultTeams(),
+      cells: buildCellsForRound(0)
+    };
+  }
+
+  function load(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if(!raw) return defaultState();
+      var parsed = JSON.parse(raw);
+      if(!parsed.topics || !parsed.topics.length) return defaultState();
+      if(!parsed.teams || !parsed.teams.length) parsed.teams = defaultTeams();
+      if(typeof parsed.roundIndex !== 'number') parsed.roundIndex = 0;
+      if(typeof parsed.currentTurn !== 'number') parsed.currentTurn = 0;
+      return parsed;
+    }catch(e){ return defaultState(); }
+  }
+
+  function save(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  }
+
+  function cellKey(col,row){ return col+'-'+row; }
+
+  var state = load();
+
+  var boardEl = document.getElementById('board');
+  var scoreboardEl = document.getElementById('scoreboard');
+  var titleEl = document.getElementById('showTitle');
+  var progressLabel = document.getElementById('progressLabel');
+  var progressFill = document.getElementById('progressFill');
+  var roundBanner = document.getElementById('roundBanner');
+  var roundBannerMsg = document.getElementById('roundBannerMsg');
+  var nextRoundBtn = document.getElementById('nextRoundBtn');
+  var turnBanner = document.getElementById('turnBanner');
+  var overlay = document.getElementById('modalOverlay');
+  var modalBody = document.getElementById('modalBody');
+
+  function preventEnterNewline(e){
+    if(e.key === 'Enter'){ e.preventDefault(); e.target.blur(); }
+  }
+
+  titleEl.textContent = state.title;
+
+  titleEl.addEventListener('keydown', preventEnterNewline);
+  titleEl.addEventListener('blur', function(){
+    state.title = titleEl.textContent.trim() || 'QUIZ NIGHT';
+    titleEl.textContent = state.title;
+    save();
+  });
+
+  function renderScoreboard(){
+    scoreboardEl.innerHTML = '';
+    state.teams.forEach(function(team, idx){
+      var letter = teamLetter(idx);
+
+      var card = document.createElement('div');
+      card.className = 'team-card team-' + letter + (idx === state.currentTurn ? ' active-turn' : '');
+
+      var main = document.createElement('div');
+      main.className = 'team-main';
+
+      var name = document.createElement('div');
+      name.className = 'team-name';
+      name.contentEditable = 'true';
+      name.spellcheck = false;
+      name.textContent = team.name;
+      name.setAttribute('aria-label', 'Team ' + (idx+1) + ' name, click to rename');
+      name.addEventListener('keydown', preventEnterNewline);
+      name.addEventListener('blur', function(){
+        team.name = name.textContent.trim() || ('Team ' + (idx+1));
+        name.textContent = team.name;
+        save();
+        renderBoard();
+      });
+      main.appendChild(name);
+
+      if(team.players && team.players.length){
+        var roster = document.createElement('div');
+        roster.className = 'team-roster';
+        roster.textContent = team.players.join(' · ');
+        main.appendChild(roster);
+      }
+
+      var score = document.createElement('div');
+      score.className = 'team-score';
+      score.contentEditable = 'true';
+      score.spellcheck = false;
+      score.textContent = team.score;
+      score.setAttribute('aria-label', team.name + ' score, click to edit');
+      score.addEventListener('keydown', preventEnterNewline);
+      score.addEventListener('blur', function(){
+        var val = parseInt(score.textContent.replace(/[^-0-9]/g,''), 10);
+        if(isNaN(val)) val = 0;
+        team.score = val;
+        score.textContent = val;
+        save();
+      });
+
+      card.appendChild(main);
+      card.appendChild(score);
+      scoreboardEl.appendChild(card);
+    });
+
+    renderTurnBanner();
+  }
+
+  function renderTurnBanner(){
+    var team = state.teams[state.currentTurn];
+    if(!team){
+      turnBanner.textContent = '';
+      turnBanner.style.removeProperty('--turn-color');
+      return;
+    }
+    turnBanner.textContent = team.name + '’s turn';
+    turnBanner.style.setProperty('--turn-color', 'var(--team-' + teamLetter(state.currentTurn) + ')');
+  }
+
+  function advanceTurn(){
+    if(state.teams.length){
+      state.currentTurn = (state.currentTurn + 1) % state.teams.length;
+    }
+  }
+
+  function renderBoard(){
+    boardEl.style.setProperty('--cols', state.topics.length);
+    boardEl.innerHTML = '';
+
+    state.topics.forEach(function(topic, col){
+      var t = document.createElement('div');
+      t.className = 'topic-cell';
+      t.contentEditable = 'true';
+      t.spellcheck = false;
+      t.textContent = topic;
+      t.setAttribute('aria-label', 'Topic ' + (col+1) + ', click to rename');
+      t.addEventListener('keydown', preventEnterNewline);
+      t.addEventListener('blur', function(){
+        var val = t.textContent.trim() || ('Topic ' + (col+1));
+        state.topics[col] = val;
+        t.textContent = val;
+        save();
+      });
+      boardEl.appendChild(t);
+    });
+
+    DEFAULT_POINTS.forEach(function(points, row){
+      state.topics.forEach(function(topic, col){
+        var key = cellKey(col,row);
+        var cell = state.cells[key];
+        var used = cell && cell.used;
+        var hasContent = cell && cell.question;
+
+        var tile = document.createElement('div');
+        tile.className = 'tile' + (used ? ' used' : '') + (hasContent && !used ? ' has-content' : '');
+        tile.setAttribute('aria-label', topic + ' for ' + points + (used ? ', already played' : ''));
+
+        var num = document.createElement('span');
+        num.textContent = used ? '✓' : points;
+        tile.appendChild(num);
+
+        if(used){
+          tile.setAttribute('aria-disabled', 'true');
+          (cell.awards || []).forEach(function(award){
+            var team = state.teams[award.team];
+            var pill = document.createElement('span');
+            pill.className = 'tile-award team-' + teamLetter(award.team);
+            var sign = award.delta >= 0 ? '+' : '−';
+            pill.textContent = (team ? team.name : 'Team ' + (award.team+1)) + ' ' + sign + Math.abs(award.delta);
+            tile.appendChild(pill);
+          });
+        } else {
+          tile.tabIndex = 0;
+          tile.setAttribute('role', 'button');
+
+          var editBtn = document.createElement('button');
+          editBtn.type = 'button';
+          editBtn.className = 'tile-edit';
+          editBtn.textContent = '✎';
+          editBtn.setAttribute('aria-label', 'Add or edit question for ' + topic + ', ' + points + ' points');
+          editBtn.addEventListener('click', function(e){
+            e.stopPropagation();
+            openEdit(col,row,points,topic);
+          });
+          tile.appendChild(editBtn);
+
+          tile.addEventListener('click', function(){ openTile(col,row,points,topic); });
+          tile.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openTile(col,row,points,topic); }
+          });
+        }
+
+        boardEl.appendChild(tile);
+      });
+    });
+
+    updateProgress();
+  }
+
+  function finalizeAward(col,row,selections){
+    var key = cellKey(col,row);
+    var cell = state.cells[key] || { question:'', answer:'', used:false };
+    cell.used = true;
+    var awards = [];
+    Object.keys(selections).forEach(function(k){
+      var delta = selections[k];
+      if(delta){
+        var idx = parseInt(k,10);
+        awards.push({ team: idx, delta: delta });
+        state.teams[idx].score += delta;
+      }
+    });
+    cell.awards = awards;
+    state.cells[key] = cell;
+    advanceTurn();
+    save();
+    closeModal();
+    renderBoard();
+    renderScoreboard();
+  }
+
+  function updateProgress(){
+    var total = state.topics.length * DEFAULT_POINTS.length;
+    var used = 0;
+    Object.keys(state.cells).forEach(function(k){
+      var col = parseInt(k.split('-')[0],10);
+      if(col < state.topics.length && state.cells[k].used) used++;
+    });
+    progressLabel.textContent = used + ' / ' + total;
+    progressFill.style.width = (total ? (used/total*100) : 0) + '%';
+
+    if(total > 0 && used === total){
+      roundBanner.hidden = false;
+      var hasNext = state.roundIndex + 1 < ROUNDS.length;
+      if(hasNext){
+        roundBannerMsg.textContent = 'Round complete!';
+        nextRoundBtn.hidden = false;
+        nextRoundBtn.textContent = 'Start ' + ROUNDS[state.roundIndex+1].title + ' →';
+      } else {
+        roundBannerMsg.textContent = 'Round complete — that’s the last board ready. Ask for more questions to keep playing.';
+        nextRoundBtn.hidden = true;
+      }
+    } else {
+      roundBanner.hidden = true;
+    }
+  }
+
+  nextRoundBtn.addEventListener('click', function(){
+    var nextIdx = state.roundIndex + 1;
+    if(nextIdx >= ROUNDS.length) return;
+    state.roundIndex = nextIdx;
+    state.title = ROUNDS[nextIdx].title;
+    state.topics = ROUNDS[nextIdx].topics.slice();
+    state.cells = buildCellsForRound(nextIdx);
+    save();
+    titleEl.textContent = state.title;
+    renderBoard();
+    renderScoreboard();
+  });
+
+  function closeModal(){
+    overlay.hidden = true;
+    modalBody.innerHTML = '';
+  }
+
+  function openTile(col,row,points,topic){
+    var key = cellKey(col,row);
+    var cell = state.cells[key] || { question:'', answer:'', used:false };
+    renderPlayModal(col,row,points,topic,cell,false,{});
+    overlay.hidden = false;
+  }
+
+  function renderPlayModal(col,row,points,topic,cell,revealAnswer,selections){
+    selections = selections || {};
+    modalBody.className = 'modal';
+    modalBody.innerHTML = '';
+
+    var kicker = document.createElement('p');
+    kicker.className = 'modal-kicker';
+    kicker.textContent = topic;
+    modalBody.appendChild(kicker);
+
+    var pts = document.createElement('p');
+    pts.className = 'modal-points';
+    pts.id = 'modalPoints';
+    pts.textContent = points + ' points';
+    modalBody.appendChild(pts);
+
+    if(cell.question){
+      var qText = document.createElement('p');
+      qText.className = 'qa-text';
+      qText.textContent = cell.question;
+      modalBody.appendChild(qText);
+
+      if(revealAnswer){
+        var ansWrap = document.createElement('div');
+        ansWrap.className = 'answer-block';
+        var aText = document.createElement('p');
+        aText.className = 'qa-text';
+        aText.textContent = cell.answer || '(no answer set)';
+        ansWrap.appendChild(aText);
+        modalBody.appendChild(ansWrap);
+      } else {
+        var revealBtn = document.createElement('button');
+        revealBtn.type = 'button';
+        revealBtn.className = 'ghost';
+        revealBtn.textContent = 'Show answer';
+        revealBtn.addEventListener('click', function(){
+          renderPlayModal(col,row,points,topic,cell,true,selections);
+        });
+        modalBody.appendChild(revealBtn);
+      }
+    } else {
+      var hint = document.createElement('p');
+      hint.className = 'empty-hint';
+      hint.textContent = 'No question saved for this tile — use the ✎ on the tile to add one.';
+      modalBody.appendChild(hint);
+    }
+
+    var awardLabel = document.createElement('label');
+    awardLabel.className = 'field-label';
+    awardLabel.textContent = 'Award ' + points + ' points';
+    modalBody.appendChild(awardLabel);
+
+    var grid = document.createElement('div');
+    grid.className = 'award-grid';
+
+    state.teams.forEach(function(team, idx){
+      var letter = teamLetter(idx);
+      var isPlus = selections[idx] === points;
+      var isMinus = selections[idx] === -points;
+
+      var plusBtn = document.createElement('button');
+      plusBtn.type = 'button';
+      plusBtn.className = 'team-btn team-' + letter + (isPlus ? ' active' : '');
+      plusBtn.textContent = '+' + points + ' ' + team.name;
+      plusBtn.setAttribute('aria-pressed', isPlus ? 'true' : 'false');
+      plusBtn.addEventListener('click', function(){
+        var next = Object.assign({}, selections);
+        next[idx] = isPlus ? undefined : points;
+        renderPlayModal(col,row,points,topic,cell,revealAnswer,next);
+      });
+      grid.appendChild(plusBtn);
+
+      var minusBtn = document.createElement('button');
+      minusBtn.type = 'button';
+      minusBtn.className = 'team-btn minus team-' + letter + (isMinus ? ' active' : '');
+      minusBtn.textContent = '−' + points + ' ' + team.name;
+      minusBtn.setAttribute('aria-pressed', isMinus ? 'true' : 'false');
+      minusBtn.addEventListener('click', function(){
+        var next = Object.assign({}, selections);
+        next[idx] = isMinus ? undefined : -points;
+        renderPlayModal(col,row,points,topic,cell,revealAnswer,next);
+      });
+      grid.appendChild(minusBtn);
+    });
+
+    modalBody.appendChild(grid);
+
+    var multiHint = document.createElement('p');
+    multiHint.className = 'empty-hint';
+    multiHint.textContent = 'Select more than one team if several are scored on this question, e.g. docking two teams for a wrong buzz.';
+    modalBody.appendChild(multiHint);
+
+    var hasSelection = Object.keys(selections).some(function(k){ return selections[k]; });
+
+    var actions = document.createElement('div');
+    actions.className = 'modal-actions';
+
+    var applyBtn = document.createElement('button');
+    applyBtn.type = 'button';
+    applyBtn.textContent = hasSelection ? 'Award points' : 'Pass (no score)';
+    applyBtn.addEventListener('click', function(){ finalizeAward(col,row,selections); });
+    actions.appendChild(applyBtn);
+
+    var spacer = document.createElement('span');
+    spacer.className = 'spacer';
+    actions.appendChild(spacer);
+
+    var cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'ghost';
+    cancelBtn.textContent = 'Cancel';
+    cancelBtn.addEventListener('click', closeModal);
+    actions.appendChild(cancelBtn);
+
+    modalBody.appendChild(actions);
+  }
+
+  function openEdit(col,row,points,topic){
+    var key = cellKey(col,row);
+    var cell = state.cells[key] || { question:'', answer:'', used:false };
+    renderEditModal(col,row,points,topic,cell);
+    overlay.hidden = false;
+  }
+
+  function renderEditModal(col,row,points,topic,cell){
+    modalBody.className = 'modal';
+    modalBody.innerHTML = '';
+
+    var kicker = document.createElement('p');
+    kicker.className = 'modal-kicker';
+    kicker.textContent = topic;
+    modalBody.appendChild(kicker);
+
+    var pts = document.createElement('p');
+    pts.className = 'modal-points';
+    pts.id = 'modalPoints';
+    pts.textContent = points + ' points';
+    modalBody.appendChild(pts);
+
+    var qLabel = document.createElement('label');
+    qLabel.className = 'field-label';
+    qLabel.textContent = 'Question';
+    modalBody.appendChild(qLabel);
+
+    var qInput = document.createElement('textarea');
+    qInput.value = cell.question || '';
+    qInput.placeholder = 'What gets asked for ' + points + ' points…';
+    modalBody.appendChild(qInput);
+
+    var aLabel = document.createElement('label');
+    aLabel.className = 'field-label';
+    aLabel.textContent = 'Answer';
+    modalBody.appendChild(aLabel);
+
+    var aInput = document.createElement('textarea');
+    aInput.value = cell.answer || '';
+    aInput.placeholder = 'The correct response…';
+    modalBody.appendChild(aInput);
+
+    var actions = document.createElement('div');
+    actions.className = 'modal-actions';
+
+    var saveBtn = document.createElement('button');
+    saveBtn.type = 'button';
+    saveBtn.textContent = 'Save';
+    saveBtn.addEventListener('click', function(){
+      state.cells[cellKey(col,row)] = {
+        question: qInput.value.trim(),
+        answer: aInput.value.trim(),
+        used: cell.used || false,
+        awards: cell.awards
+      };
+      save();
+      closeModal();
+      renderBoard();
+    });
+
+    var cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'ghost';
+    cancelBtn.textContent = 'Cancel';
+    cancelBtn.addEventListener('click', closeModal);
+
+    actions.appendChild(saveBtn);
+    actions.appendChild(cancelBtn);
+    modalBody.appendChild(actions);
+  }
+
+  function randomizeTeams(count, playersRaw){
+    var players = playersRaw.split(/[,\n]/).map(function(s){ return s.trim(); }).filter(Boolean);
+    var shuffled = shuffle(players);
+    var teams = [];
+    for(var i = 0; i < count; i++){
+      teams.push({ name: 'Team ' + (i+1), score: 0, players: [] });
+    }
+    shuffled.forEach(function(p, i){ teams[i % count].players.push(p); });
+    return teams;
+  }
+
+  function openTeamSetup(){
+    renderTeamSetupModal();
+    overlay.hidden = false;
+  }
+
+  function renderTeamSetupModal(){
+    modalBody.className = 'modal';
+    modalBody.innerHTML = '';
+
+    var kicker = document.createElement('p');
+    kicker.className = 'modal-kicker';
+    kicker.textContent = 'New game';
+    modalBody.appendChild(kicker);
+
+    var heading = document.createElement('p');
+    heading.className = 'modal-points';
+    heading.textContent = 'Setup teams';
+    modalBody.appendChild(heading);
+
+    var countLabel = document.createElement('label');
+    countLabel.className = 'field-label';
+    countLabel.textContent = 'Number of teams';
+    modalBody.appendChild(countLabel);
+
+    var countInput = document.createElement('input');
+    countInput.type = 'number';
+    countInput.min = '2';
+    countInput.max = '6';
+    countInput.value = state.teams.length || 3;
+    modalBody.appendChild(countInput);
+
+    var playersLabel = document.createElement('label');
+    playersLabel.className = 'field-label';
+    playersLabel.textContent = 'Players';
+    modalBody.appendChild(playersLabel);
+
+    var existingPlayers = [];
+    state.teams.forEach(function(t){ if(t.players) existingPlayers = existingPlayers.concat(t.players); });
+    var playersInput = document.createElement('textarea');
+    playersInput.value = existingPlayers.length ? existingPlayers.join(', ') : DEFAULT_PLAYERS.join(', ');
+    playersInput.placeholder = 'One per line, or comma-separated…';
+    modalBody.appendChild(playersInput);
+
+    var hint = document.createElement('p');
+    hint.className = 'empty-hint';
+    hint.textContent = 'Randomize deals players evenly across the teams. Reopen this anytime to reshuffle.';
+    modalBody.appendChild(hint);
+
+    var actions = document.createElement('div');
+    actions.className = 'modal-actions';
+
+    var randomizeBtn = document.createElement('button');
+    randomizeBtn.type = 'button';
+    randomizeBtn.textContent = 'Randomize teams';
+    randomizeBtn.addEventListener('click', function(){
+      var count = Math.max(2, Math.min(6, parseInt(countInput.value, 10) || 3));
+      state.teams = randomizeTeams(count, playersInput.value);
+      state.currentTurn = 0;
+      save();
+      closeModal();
+      renderScoreboard();
+      renderBoard();
+    });
+    actions.appendChild(randomizeBtn);
+
+    var spacer = document.createElement('span');
+    spacer.className = 'spacer';
+    actions.appendChild(spacer);
+
+    var cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'ghost';
+    cancelBtn.textContent = 'Cancel';
+    cancelBtn.addEventListener('click', closeModal);
+    actions.appendChild(cancelBtn);
+
+    modalBody.appendChild(actions);
+  }
+
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && !overlay.hidden) closeModal();
+  });
+
+  document.getElementById('setupTeamsBtn').addEventListener('click', openTeamSetup);
+
+  document.getElementById('addTopicBtn').addEventListener('click', function(){
+    if(state.topics.length >= MAX_TOPICS) return;
+    state.topics.push('New Topic');
+    save();
+    renderBoard();
+  });
+
+  document.getElementById('removeTopicBtn').addEventListener('click', function(){
+    if(state.topics.length <= MIN_TOPICS) return;
+    var removedCol = state.topics.length - 1;
+    state.topics.pop();
+    Object.keys(state.cells).forEach(function(k){
+      if(parseInt(k.split('-')[0],10) === removedCol) delete state.cells[k];
+    });
+    save();
+    renderBoard();
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    modalBody.className = 'modal';
+    modalBody.innerHTML = '';
+
+    var kicker = document.createElement('p');
+    kicker.className = 'modal-kicker';
+    kicker.textContent = 'Reset board';
+    modalBody.appendChild(kicker);
+
+    var msg = document.createElement('p');
+    msg.className = 'qa-text';
+    msg.textContent = 'This clears all topics, questions, answers and scores, and cannot be undone.';
+    modalBody.appendChild(msg);
+
+    var actions = document.createElement('div');
+    actions.className = 'modal-actions';
+
+    var confirmBtn = document.createElement('button');
+    confirmBtn.type = 'button';
+    confirmBtn.className = 'danger';
+    confirmBtn.textContent = 'Reset everything';
+    confirmBtn.addEventListener('click', function(){
+      state = defaultState();
+      titleEl.textContent = state.title;
+      save();
+      closeModal();
+      renderBoard();
+      renderScoreboard();
+      openTeamSetup();
+    });
+    actions.appendChild(confirmBtn);
+
+    var spacer = document.createElement('span');
+    spacer.className = 'spacer';
+    actions.appendChild(spacer);
+
+    var cancelBtn = document.createElement('button');
+    cancelBtn.type = 'button';
+    cancelBtn.className = 'ghost';
+    cancelBtn.textContent = 'Cancel';
+    cancelBtn.addEventListener('click', closeModal);
+    actions.appendChild(cancelBtn);
+
+    modalBody.appendChild(actions);
+    overlay.hidden = false;
+  });
+
+  renderBoard();
+  renderScoreboard();
+})();
+</script>
