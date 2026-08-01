@@ -549,7 +549,7 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'quiz-dashboard-state-v9';
+  var STORAGE_KEY = 'quiz-dashboard-state-v10';
   var DEFAULT_POINTS = [10,20,30,40,50];
   var MIN_TOPICS = 3, MAX_TOPICS = 6;
   var TEAM_LETTERS = ['a','b','c','d','e','f'];
@@ -563,39 +563,39 @@
       topics: ["Bollywood","Indian History","Indian Mythology","Sports","Math & Logic"],
       questions: [
         [
-          { q:"Which 1995 film, starring Shah Rukh Khan and Kajol, has run continuously at Mumbai's Maratha Mandir cinema for over 1,000 weeks, the longest theatrical run in Indian film history?", a:"Dilwale Dulhania Le Jayenge (DDLJ)" },
-          { q:"Which composer, often called the 'Mozart of Madras,' won two Academy Awards for the score and song 'Jai Ho' from Slumdog Millionaire?", a:"A. R. Rahman" },
-          { q:"Which 1913 silent film, directed by Dadasaheb Phalke, is regarded as India's first full-length feature film?", a:"Raja Harishchandra" },
-          { q:"Which 1960 K. Asif magnum opus, starring Dilip Kumar and Madhubala, was the most expensive Indian film of its time and features the song 'Pyar Kiya Toh Darna Kya'?", a:"Mughal-e-Azam" },
-          { q:"Guru Dutt's 1959 film Kaagaz Ke Phool is notable in Indian film history as the first Indian film shot in which then-new widescreen format?", a:"CinemaScope" }
+          { q:"Two actors are tied for the most Filmfare Best Actor Award wins in history, with eight each — Shah Rukh Khan and which other legendary actor?", a:"Dilip Kumar" },
+          { q:"Which classic-era actress holds the record for the most Filmfare Best Actress Award wins, with five?", a:"Nutan" },
+          { q:"Which 1975 film, now hailed as a classic, was declared a box-office flop by trade papers in its first week, before word-of-mouth turned it into the highest-grossing Indian film for nearly two decades?", a:"Sholay" },
+          { q:"Which 1946 Chetan Anand film was the first Indian film to win a top prize — the Grand Prix — at the Cannes Film Festival?", a:"Neecha Nagar" },
+          { q:"Amitabh Bachchan's family surname was not originally 'Bachchan' — his father, poet Harivansh Rai, wrote under that pen name (meaning 'child'), which the family later adopted. What was their original surname?", a:"Shrivastava (Srivastava)" }
         ],
         [
-          { q:"Which Indian freedom fighter, known as the 'Iron Man of India,' is credited with unifying over 500 princely states into the Indian Union after independence?", a:"Sardar Vallabhbhai Patel" },
-          { q:"Which 1919 event, in which British troops fired on unarmed civilians gathered at a public garden in Amritsar, galvanized the Indian independence movement?", a:"The Jallianwala Bagh massacre" },
-          { q:"Which Indian freedom fighter founded the Indian National Army (Azad Hind Fauj) and famously declared 'Give me blood, and I shall give you freedom'?", a:"Subhas Chandra Bose" },
-          { q:"Which 1946 mutiny, involving Indian sailors of the Royal Indian Navy revolting against British officers, is considered a major factor that hastened Britain's decision to leave India?", a:"The Royal Indian Navy Mutiny (Bombay Mutiny)" },
-          { q:"Which last Mughal emperor, a figurehead of the 1857 Rebellion, was exiled by the British to Rangoon (Burma) after the revolt's suppression, marking the formal end of the Mughal dynasty?", a:"Bahadur Shah Zafar" }
+          { q:"Which city served as the capital of British India until 1911, before it was shifted to Delhi?", a:"Calcutta (Kolkata)" },
+          { q:"Which future Indian Prime Minister was born in the village of Gah, now located in present-day Pakistan, before Partition?", a:"Manmohan Singh" },
+          { q:"Roughly how many princely states existed in India at independence in 1947, which Sardar Patel had to persuade or pressure into joining the Indian Union?", a:"Over 560 (562)" },
+          { q:"In which year did Mahatma Gandhi receive his final Nobel Peace Prize nomination, just weeks before his assassination — a prize he was never awarded?", a:"1948" },
+          { q:"Which Indian state was the last former Himalayan kingdom to formally join the Indian Union, doing so only in 1975 via referendum, decades after most princely states acceded?", a:"Sikkim" }
         ],
         [
-          { q:"In the Mahabharata, who serves as Arjuna's charioteer and delivers the spiritual discourse known as the Bhagavad Gita?", a:"Krishna" },
-          { q:"In the Ramayana, which loyal brother of Ravana defects to Rama's side, providing crucial knowledge of Lanka's defenses?", a:"Vibhishana" },
-          { q:"Which avatar of Vishnu, a half-man half-lion form, was taken to destroy the demon king Hiranyakashipu?", a:"Narasimha" },
-          { q:"Which devoted disciple, from a famous Amar Chitra Katha tale, cut off his own thumb as guru-dakshina (a teacher's fee) to Dronacharya, sacrificing his archery skills?", a:"Ekalavya" },
-          { q:"In the Ramayana, which son of Ravana, a powerful sorcerer-warrior, nearly killed Lakshmana in battle before being slain with the aid of a rare celestial weapon?", a:"Indrajit (Meghnad)" }
+          { q:"How many chapters (adhyayas) does the Bhagavad Gita, Krishna's discourse to Arjuna on the battlefield, contain?", a:"18" },
+          { q:"Which Pandava brother was, according to the Mahabharata, the biological son of the wind god Vayu, granting him immense strength?", a:"Bhima" },
+          { q:"In the Ramayana, Sita is the daughter of King Janaka of Mithila — her name is traditionally said to mean what, referencing how he found her?", a:"Furrow (found while he was ploughing a field)" },
+          { q:"Karna, though raised by a charioteer, was secretly the son of which sun god, born to Kunti before her marriage through a divine boon?", a:"Surya" },
+          { q:"According to traditional Hindu cosmology, the current age — Kali Yuga — is the last of four Yugas in a cosmic cycle. How many years does a complete Kali Yuga last?", a:"432,000 years" }
         ],
         [
-          { q:"Which Indian cricket captain led the team to its first-ever T20 World Cup title in 2007?", a:"Mahendra Singh Dhoni (MS Dhoni)" },
-          { q:"In which year did India win its first Cricket World Cup, famously defeating the West Indies at Lord's under Kapil Dev's captaincy?", a:"1983" },
-          { q:"Which Indian batsman holds the record for the highest individual score in ODI cricket, scoring 264 against Sri Lanka in 2014?", a:"Rohit Sharma" },
-          { q:"Which Indian bowler is one of only two players ever to take all 10 wickets in a single Test innings, achieving the feat against Pakistan in 1999?", a:"Anil Kumble" },
-          { q:"Which Indian all-rounder took a famous running catch to dismiss Viv Richards, a turning point in the 1983 World Cup final against West Indies?", a:"Kapil Dev" }
+          { q:"Which West Indian batsman holds the record for the most runs scored off a single over in Test cricket — 28 runs, from four sixes and two fours, off England's Gareth Batty in 2004?", a:"Brian Lara" },
+          { q:"Which Indian batsman became the first player to hit six sixes in a single over in international T20 cricket, doing so against England's Stuart Broad at the 2007 T20 World Cup?", a:"Yuvraj Singh" },
+          { q:"Which Indian bowler holds the record for India's best-ever bowling figures in a single ODI innings, taking 6 wickets for just 4 runs against Bangladesh in 2014?", a:"Stuart Binny" },
+          { q:"Which Indian bowler achieved the unique feat of taking a Test hat-trick in the very first over of a match, against Pakistan in Karachi in 2006?", a:"Irfan Pathan" },
+          { q:"Which Indian cricketer became India's youngest-ever Test captain, leading the side at just 21 years old in 1962 after Nari Contractor's career-ending injury?", a:"Mansoor Ali Khan Pataudi ('Tiger' Pataudi)" }
         ],
         [
-          { q:"A farmer has 17 sheep, and all but 9 die. How many sheep does he have left?", a:"Nine" },
-          { q:"You have 8 identical-looking balls, one of which is heavier than the rest. Using a balance scale, what is the minimum number of weighings needed to guarantee finding the heavier ball?", a:"Two" },
-          { q:"A bat and a ball together cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost?", a:"5 cents" },
-          { q:"In a room of 23 people, what is the probability, to the nearest whole percent, that at least two people share the same birthday?", a:"50%" },
-          { q:"A classic puzzle involves three switches outside a room controlling three light bulbs inside, and you may enter the room only once. Besides sight, which physical property of the bulbs is the key to solving it?", a:"Heat (bulb warmth)" }
+          { q:"A rooster lays an egg on the very peak of a barn roof. Which side does the egg roll down — the left or the right?", a:"Neither — roosters don't lay eggs" },
+          { q:"If you overtake the runner in second place during a race, what position are you now in?", a:"Second place" },
+          { q:"A man looks at a painting and says, 'Brothers and sisters, I have none. But this man's father is my father's son.' Who is in the painting?", a:"His son" },
+          { q:"Two fathers and two sons go fishing. Each catches exactly one fish, yet they bring home only three fish in total. How is this possible?", a:"They are a grandfather, father, and son — three people, not four" },
+          { q:"A woman shoots her husband, then holds him underwater for five minutes, then hangs him. Five minutes later they enjoy a lovely dinner together. How is this possible?", a:"She's a photographer — she shot a photo, developed it in water, then hung it to dry" }
         ]
       ]
     },
