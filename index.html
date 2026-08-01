@@ -549,7 +549,7 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'quiz-dashboard-state-v7';
+  var STORAGE_KEY = 'quiz-dashboard-state-v8';
   var DEFAULT_POINTS = [10,20,30,40,50];
   var MIN_TOPICS = 3, MAX_TOPICS = 6;
   var TEAM_LETTERS = ['a','b','c','d','e','f'];
@@ -560,206 +560,206 @@
   var ROUNDS = [
     {
       title: 'ROUND 1',
-      topics: ["Blockbuster Movies","Sports & Records","Mythology & Legends","Music & Bands","Logic Puzzles"],
+      topics: ["Bollywood","Indian History","Indian Mythology","Sports","Math & Logic"],
       questions: [
         [
-          { q:"Satyajit Ray's Pather Panchali is the first installment of which acclaimed film trilogy?", a:"The Apu Trilogy" },
-          { q:"Which Stephen King novella was adapted into a 1994 film that topped IMDb's rankings for years, starring Tim Robbins and Morgan Freeman?", a:"The Shawshank Redemption" },
-          { q:"Which 1975 Ramesh Sippy film, considered one of the greatest Indian films ever made, stars Amitabh Bachchan as 'Jai'?", a:"Sholay" },
-          { q:"Which 1941 film, often cited as the greatest movie ever made, follows the rise and fall of publishing tycoon Charles Foster Kane?", a:"Citizen Kane" },
-          { q:"Which 1985 Akira Kurosawa film reimagines Shakespeare's King Lear in feudal Japan?", a:"Ran" }
+          { q:"Which Bollywood superstar, known as the 'Shahenshah' and 'Big B,' rose to fame in the 1970s with his 'angry young man' roles?", a:"Amitabh Bachchan" },
+          { q:"Which 1995 film, starring Shah Rukh Khan and Kajol, has run continuously at Mumbai's Maratha Mandir cinema for over 1,000 weeks, the longest theatrical run in Indian film history?", a:"Dilwale Dulhania Le Jayenge (DDLJ)" },
+          { q:"Which composer, often called the 'Mozart of Madras,' won two Academy Awards for the score and song 'Jai Ho' from Slumdog Millionaire?", a:"A. R. Rahman" },
+          { q:"Which 1913 silent film, directed by Dadasaheb Phalke, is regarded as India's first full-length feature film?", a:"Raja Harishchandra" },
+          { q:"Which 1960 K. Asif magnum opus, starring Dilip Kumar and Madhubala, was the most expensive Indian film of its time and features the song 'Pyar Kiya Toh Darna Kya'?", a:"Mughal-e-Azam" }
         ],
         [
-          { q:"Who is the only cricketer to have scored 100 international centuries?", a:"Sachin Tendulkar" },
-          { q:"Which Indian chess player became the youngest ever undisputed World Chess Champion in December 2024, at age 18?", a:"D Gukesh" },
-          { q:"Which country has won the most Cricket World Cup titles in the ODI format?", a:"Australia" },
-          { q:"Which Indian badminton player won India's first Olympic silver medal in badminton, at the 2016 Rio Olympics?", a:"P. V. Sindhu" },
-          { q:"Which Indian wrestler won bronze in the 58kg freestyle category at the 2016 Rio Olympics, becoming the first Indian woman to win an Olympic wrestling medal?", a:"Sakshi Malik" }
+          { q:"In which year did India gain independence from British rule?", a:"1947" },
+          { q:"Which Indian freedom fighter, known as the 'Iron Man of India,' is credited with unifying over 500 princely states into the Indian Union after independence?", a:"Sardar Vallabhbhai Patel" },
+          { q:"Which 1919 event, in which British troops fired on unarmed civilians gathered at a public garden in Amritsar, galvanized the Indian independence movement?", a:"The Jallianwala Bagh massacre" },
+          { q:"Which Indian freedom fighter founded the Indian National Army (Azad Hind Fauj) and famously declared 'Give me blood, and I shall give you freedom'?", a:"Subhas Chandra Bose" },
+          { q:"Which 1946 mutiny, involving Indian sailors of the Royal Indian Navy revolting against British officers, is considered a major factor that hastened Britain's decision to leave India?", a:"The Royal Indian Navy Mutiny (Bombay Mutiny)" }
         ],
         [
-          { q:"In the Mahabharata, which warrior, born with natural armor and earrings, was the secret eldest son of Kunti?", a:"Karna" },
-          { q:"In Greek mythology, which Titan is condemned to hold up the sky for eternity?", a:"Atlas" },
-          { q:"In the Samudra Manthan (churning of the ocean of milk), what deadly poison emerged first, which Shiva consumed to save creation?", a:"Halahala (Kalakuta)" },
-          { q:"In Egyptian mythology, which sky goddess is depicted as a star-covered woman arching over the earth god Geb?", a:"Nut" },
-          { q:"In Norse mythology, what is the name of the prophesied apocalyptic battle in which Odin, Thor, and many other gods are foretold to die?", a:"Ragnarök" }
+          { q:"In the Ramayana, who is the loyal monkey god who helps Rama rescue Sita from Ravana?", a:"Hanuman" },
+          { q:"In the Ramayana, which kingdom does the demon king Ravana rule, where he holds Sita captive?", a:"Lanka" },
+          { q:"In the Ramayana, which of Rama's brothers voluntarily accompanies him into 14 years of exile in the forest?", a:"Lakshmana" },
+          { q:"In the Ramayana, which loyal brother of Ravana defects to Rama's side, providing crucial knowledge of Lanka's defenses?", a:"Vibhishana" },
+          { q:"In the Ramayana, what is the name of the bridge built by Rama's vanara army to cross the ocean to Lanka?", a:"Rama Setu (Adam's Bridge)" }
         ],
         [
-          { q:"Which legendary Indian playback singer, awarded the Bharat Ratna and known as the 'Nightingale of India,' sang an estimated 25,000-plus songs across her career?", a:"Lata Mangeshkar" },
-          { q:"Which Indian sitar maestro, who collaborated with George Harrison and performed at Woodstock, is credited with popularizing Indian classical music in the West?", a:"Ravi Shankar" },
-          { q:"Which German composer, deaf in his later years, wrote the Ninth Symphony featuring 'Ode to Joy'?", a:"Ludwig van Beethoven" },
-          { q:"Which Indian tabla virtuoso, son of Ustad Alla Rakha, gained global fame collaborating with John McLaughlin in the fusion group Shakti?", a:"Zakir Hussain" },
-          { q:"Which experimental composer is famous for the 1952 piece 4′33″, consisting entirely of silence?", a:"John Cage" }
+          { q:"Who is the only cricketer to have scored 100 international centuries, often called the 'God of Cricket' in India?", a:"Sachin Tendulkar" },
+          { q:"Which Indian cricket captain led the team to its first-ever T20 World Cup title in 2007?", a:"Mahendra Singh Dhoni (MS Dhoni)" },
+          { q:"In which year did India win its first Cricket World Cup, famously defeating the West Indies at Lord's under Kapil Dev's captaincy?", a:"1983" },
+          { q:"Which Indian batsman holds the record for the highest individual score in ODI cricket, scoring 264 against Sri Lanka in 2014?", a:"Rohit Sharma" },
+          { q:"Which Indian bowler is one of only two players ever to take all 10 wickets in a single Test innings, achieving the feat against Pakistan in 1999?", a:"Anil Kumble" }
         ],
         [
           { q:"If it takes 5 machines 5 minutes to make 5 widgets, how long would it take 100 machines to make 100 widgets?", a:"5 minutes" },
-          { q:"A snail at the bottom of a 10-metre well climbs 3 metres by day and slides back 2 metres each night. How many days does it take to reach the top?", a:"8 days" },
+          { q:"A farmer has 17 sheep, and all but 9 die. How many sheep does he have left?", a:"Nine" },
           { q:"You have 8 identical-looking balls, one of which is heavier than the rest. Using a balance scale, what is the minimum number of weighings needed to guarantee finding the heavier ball?", a:"Two" },
-          { q:"In a room of 23 people, what is the probability, to the nearest whole percent, that at least two people share the same birthday?", a:"50%" },
-          { q:"A puzzle involving three gods — True, False, and Random — answerable with only three yes/no questions, created by philosopher George Boolos, is popularly known by what name?", a:"The Hardest Logic Puzzle Ever" }
+          { q:"A bat and a ball together cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost?", a:"5 cents" },
+          { q:"In a room of 23 people, what is the probability, to the nearest whole percent, that at least two people share the same birthday?", a:"50%" }
         ]
       ]
     },
     {
       title: 'ROUND 2',
-      topics: ["Science & Innovation","History's Turning Points","World Geography","Classic Literature","Mathematical Riddles"],
+      topics: ["Bollywood","Indian Mythology","Indian Geography","Indian Monuments","Math & Logic"],
       questions: [
         [
-          { q:"Which Indian physicist won the 1930 Nobel Prize in Physics for his work on light scattering, the only Indian scientist to win a science Nobel while working in India?", a:"C. V. Raman" },
-          { q:"What is the SI unit of electrical resistance?", a:"Ohm" },
-          { q:"Which Austrian physicist proposed the thought experiment involving a cat that is simultaneously alive and dead until observed?", a:"Erwin Schrödinger" },
-          { q:"Which Indian-American astrophysicist, namesake of a NASA X-ray observatory, won the 1983 Nobel Prize for work on the structure and evolution of stars?", a:"Subrahmanyan Chandrasekhar" },
-          { q:"Which subatomic particle, predicted in 1964 and confirmed at CERN in 2012, is responsible for giving other particles mass?", a:"The Higgs boson" }
+          { q:"Which Bollywood actress, crowned Miss World in 1994, starred in Devdas and Jodhaa Akbar?", a:"Aishwarya Rai (Bachchan)" },
+          { q:"Which 2001 sports drama, starring Aamir Khan, follows villagers in colonial India who challenge British officers to a cricket match to avoid a crushing tax, and was nominated for the Academy Award for Best Foreign Language Film?", a:"Lagaan" },
+          { q:"Which real-life screenwriting duo, credited with Sholay, Deewaar, and Zanjeer, revolutionized Hindi cinema in the 1970s?", a:"Salim–Javed (Salim Khan and Javed Akhtar)" },
+          { q:"Which music composer, son of S. D. Burman, was famous for the music of Sholay and countless 1970s hits, and is affectionately called 'Pancham Da'?", a:"R. D. Burman" },
+          { q:"Which 1957 Mehboob Khan film, starring Nargis, became the first Indian film nominated for the Academy Award for Best Foreign Language Film?", a:"Mother India" }
         ],
         [
-          { q:"In which year did India gain independence from British rule?", a:"1947" },
-          { q:"Which 1215 document first established that even the English king was subject to the law?", a:"The Magna Carta" },
-          { q:"Which 1919 event, in which British troops fired on unarmed civilians gathered at a public garden in Amritsar, galvanized the Indian independence movement?", a:"The Jallianwala Bagh massacre" },
-          { q:"Which treaty, signed in 1919, formally ended World War I and imposed heavy reparations on Germany?", a:"The Treaty of Versailles" },
-          { q:"Which 1526 battle, fought between Babur and Ibrahim Lodi, marked the founding of the Mughal Empire in India?", a:"The First Battle of Panipat" }
+          { q:"In the Mahabharata, the great war at Kurukshetra is fought between the Pandavas and which rival cousins?", a:"The Kauravas" },
+          { q:"In the Mahabharata, who serves as Arjuna's charioteer and delivers the spiritual discourse known as the Bhagavad Gita?", a:"Krishna" },
+          { q:"In the Mahabharata, which eldest Pandava brother, known for his unwavering commitment to truth, loses the kingdom in a game of dice?", a:"Yudhishthira" },
+          { q:"In the Mahabharata, which warrior, secretly the eldest son of Kunti before her marriage, was trained in archery by Dronacharya and fought on the Kaurava side?", a:"Karna" },
+          { q:"In the Mahabharata, which Kaurava prince's only vulnerability was his thighs, leading to his death at Bhima's hands in a blow considered against the rules of the war?", a:"Duryodhana" }
         ],
         [
-          { q:"Which is the highest mountain in the world, straddling the border of Nepal and Tibet?", a:"Mount Everest" },
-          { q:"Which strait separates Europe from Africa at its narrowest point, just 14 km wide?", a:"The Strait of Gibraltar" },
+          { q:"Which is India's longest river, originating in the Himalayas and considered sacred in Hinduism?", a:"The Ganga (Ganges)" },
           { q:"Which Indian state has the longest coastline in the country?", a:"Gujarat" },
-          { q:"Which small landlocked country is entirely surrounded by South Africa?", a:"Lesotho" },
-          { q:"Which Pacific island nation is the only country situated in all four hemispheres of the Earth?", a:"Kiribati" }
+          { q:"Which mountain range forms India's northern border and contains the world's highest peaks?", a:"The Himalayas" },
+          { q:"Which Indian state, a former Portuguese colony known for its beaches, is India's smallest state by area?", a:"Goa" },
+          { q:"Which desert, covering much of Rajasthan, is one of the largest hot deserts in the world and is also known as the Great Indian Desert?", a:"The Thar Desert" }
         ],
         [
-          { q:"Which Bengali polymath became the first non-European to win the Nobel Prize in Literature, in 1913, for Gitanjali?", a:"Rabindranath Tagore" },
-          { q:"Which Russian author wrote War and Peace and Anna Karenina?", a:"Leo Tolstoy" },
-          { q:"Which 19th-century novel by Mary Shelley, subtitled 'The Modern Prometheus,' is considered one of the first science fiction stories?", a:"Frankenstein" },
-          { q:"Which Colombian author wrote One Hundred Years of Solitude, a landmark of magical realism?", a:"Gabriel García Márquez" },
-          { q:"Which Irish novelist's 1922 modernist masterpiece Ulysses reimagines Homer's Odyssey over a single day in Dublin?", a:"James Joyce" }
+          { q:"Which white marble mausoleum in Agra was built by Emperor Shah Jahan for his wife Mumtaz Mahal?", a:"The Taj Mahal" },
+          { q:"Which massive fort in Delhi, built by Shah Jahan, is where India's Prime Minister delivers the Independence Day speech every year?", a:"The Red Fort (Lal Qila)" },
+          { q:"Which UNESCO World Heritage temple in Odisha, dedicated to the Sun God, is designed as a giant stone chariot with 24 wheels?", a:"The Konark Sun Temple" },
+          { q:"Which victory tower in Delhi, built in the 12th–13th century, is the tallest brick minaret in the world?", a:"The Qutub Minar" },
+          { q:"Which rock-cut cave complex on an island near Mumbai, dedicated to Shiva, is famous for its massive Trimurti sculpture and takes its name from the Portuguese word for 'elephant'?", a:"The Elephanta Caves" }
         ],
         [
           { q:"Take a number, multiply it by 3, add 6, divide by 3, then subtract the original number. What do you always get?", a:"Two" },
           { q:"What is the next number in this sequence: 1, 1, 2, 3, 5, 8, 13, 21...?", a:"34" },
+          { q:"A snail at the bottom of a 10-metre well climbs 3 metres by day and slides back 2 metres each night. How many days does it take to reach the top?", a:"8 days" },
           { q:"A man buys a horse for $60, sells it for $70, buys it back for $80, and sells it again for $90. How much profit did he make overall?", a:"$20" },
-          { q:"A bat and a ball together cost $1.10. The bat costs $1.00 more than the ball. How much does the ball cost?", a:"5 cents" },
           { q:"A classic probability puzzle involves three doors, a car, a host who reveals a goat, and the counter-intuitive advantage of switching your choice. What is this puzzle called?", a:"The Monty Hall Problem" }
         ]
       ]
     },
     {
       title: 'ROUND 3',
-      topics: ["Art & Artists","Space & Astronomy","Ancient Civilizations","TV & Pop Culture","Word Riddles"],
+      topics: ["Indian History","Indian Mythology","Sports","Indian Monuments","Math & Logic"],
       questions: [
         [
-          { q:"Which Indian modernist painter, known for controversial nude depictions of Hindu deities that forced him into self-exile, was often called the 'Picasso of India'?", a:"M. F. Husain" },
-          { q:"Which Dutch painter, who cut off part of his own ear, painted The Starry Night?", a:"Vincent van Gogh" },
-          { q:"Which Spanish artist co-founded the Cubist movement alongside Georges Braque?", a:"Pablo Picasso" },
-          { q:"Which Bengal School painter, nephew of Rabindranath Tagore, is considered a pioneer of Indian modern art and painted 'Bharat Mata'?", a:"Abanindranath Tagore" },
-          { q:"Which Norwegian Expressionist painted 'The Scream,' one of the most recognized images in art history?", a:"Edvard Munch" }
+          { q:"Who is widely regarded as the 'Father of the Nation' in India, known for leading the independence movement through nonviolent civil disobedience?", a:"Mahatma Gandhi" },
+          { q:"Which 1930 protest march, led by Gandhi to the Arabian Sea coast, was a direct action campaign against the British salt tax?", a:"The Salt March (Dandi March)" },
+          { q:"Which Indian queen, ruler of Jhansi, became a symbol of resistance during the 1857 Rebellion and died fighting British forces?", a:"Rani Lakshmibai" },
+          { q:"Which 1526 battle, fought between Babur and Ibrahim Lodi, marked the founding of the Mughal Empire in India?", a:"The First Battle of Panipat" },
+          { q:"Which revolutionary, executed by the British in 1931 at age 23, is remembered for the phrase 'Inquilab Zindabad' and the Central Legislative Assembly bombing?", a:"Bhagat Singh" }
         ],
         [
-          { q:"Which Indian space agency successfully landed the Chandrayaan-3 mission near the Moon's south pole in 2023?", a:"ISRO (Indian Space Research Organisation)" },
-          { q:"What is the name of the galaxy that contains our solar system?", a:"The Milky Way" },
-          { q:"Which dwarf planet, discovered in 1930 and reclassified in 2006, was formerly considered the ninth planet?", a:"Pluto" },
-          { q:"Which space telescope, launched in 2021 as Hubble's successor, observes the universe primarily in infrared?", a:"The James Webb Space Telescope" },
-          { q:"What is the term for the point of no return around a black hole, beyond which not even light can escape?", a:"The Event Horizon" }
+          { q:"Which avatar of Vishnu took the form of a dwarf Brahmin who grew to cosmic size to reclaim the three worlds from King Bali?", a:"Vamana" },
+          { q:"Which avatar of Vishnu, a half-man half-lion form, was taken to destroy the demon king Hiranyakashipu?", a:"Narasimha" },
+          { q:"Which avatar of Vishnu took the form of a giant tortoise to support Mount Mandara during the churning of the ocean of milk?", a:"Kurma" },
+          { q:"Which avatar of Vishnu, a warrior sage who wields an axe, is said to have rid the earth of corrupt kshatriya rulers 21 times?", a:"Parashurama" },
+          { q:"According to tradition, which is the tenth and final avatar of Vishnu, prophesied to appear at the end of the current age (Kali Yuga) riding a white horse?", a:"Kalki" }
         ],
         [
-          { q:"Which Bronze Age civilization, centered on cities like Mohenjo-daro and Harappa in the Indus Valley, had one of the world's earliest urban planning systems?", a:"The Indus Valley Civilization (Harappan Civilization)" },
-          { q:"Which ancient civilization built Machu Picchu high in the Andes Mountains?", a:"The Inca" },
-          { q:"Which ancient wonder, a giant statue, once stood at the entrance to the harbor of Rhodes?", a:"The Colossus of Rhodes" },
-          { q:"Which Mesoamerican civilization developed an early writing system and an accurate calendar, and built cities like Chichen Itza?", a:"The Maya" },
-          { q:"Which ancient Chinese emperor, who unified China and standardized writing and currency, is buried with the Terracotta Army near modern-day Xi'an?", a:"Qin Shi Huang" }
+          { q:"Which Indian cricketer, nicknamed 'Captain Cool,' famously finished the 2011 World Cup final with a six?", a:"MS Dhoni" },
+          { q:"Which format of cricket, lasting a maximum of 20 overs per side, gave rise to the Indian Premier League (IPL) starting in 2008?", a:"Twenty20 (T20)" },
+          { q:"Which Indian cricketer scored his maiden Test century at age 17 against England at Old Trafford in 1990?", a:"Sachin Tendulkar" },
+          { q:"Which Indian cricket team, under Virat Kohli's captaincy, achieved a historic Test series win in Australia in 2018–19, India's first-ever Test series victory there?", a:"The Indian cricket team" },
+          { q:"Which Indian all-rounder captained India to its historic 1983 World Cup triumph and is considered one of the greatest all-rounders in cricket history?", a:"Kapil Dev" }
         ],
         [
-          { q:"Which 1987 Doordarshan television series, based on a Hindu epic, became so popular that streets reportedly emptied during its Sunday broadcasts?", a:"Ramayan (the Ramanand Sagar version)" },
-          { q:"Which HBO fantasy series, based on novels by George R. R. Martin, follows noble families fighting for the Iron Throne?", a:"Game of Thrones" },
-          { q:"Which British sci-fi series features a time-traveling alien known as 'The Doctor' who travels in the TARDIS?", a:"Doctor Who" },
-          { q:"Which prestige drama series, created by Vince Gilligan, follows chemistry teacher Walter White's transformation into a drug kingpin?", a:"Breaking Bad" },
-          { q:"Which Danish political-crime drama, credited with popularizing the term 'Scandi noir,' follows a murder investigation over 20 episodes, one per day?", a:"The Killing (Forbrydelsen)" }
+          { q:"Which UNESCO World Heritage complex of temples in Khajuraho, Madhya Pradesh, is famous for its intricate nagara-style sculptures?", a:"The Khajuraho Group of Monuments" },
+          { q:"Which grand palace in Jaipur, known as the 'Palace of Winds,' has a distinctive honeycomb facade with 953 small windows?", a:"Hawa Mahal" },
+          { q:"Which rock-cut complex in Maharashtra, comprising 34 monasteries and temples carved from basalt cliffs, spans Buddhist, Hindu, and Jain traditions?", a:"The Ellora Caves" },
+          { q:"Which ancient university and monastery complex in Bihar, a UNESCO World Heritage Site, was one of the world's earliest centers of higher learning before being destroyed in the 12th century?", a:"Nalanda" },
+          { q:"Which Mysore palace, rebuilt in Indo-Saracenic style in the early 20th century, is famously illuminated with nearly 100,000 lights during the Dasara festival?", a:"The Mysore Palace" }
         ],
         [
-          { q:"What English word has three consecutive double letters?", a:"Bookkeeper" },
-          { q:"What 7-letter word contains ten smaller words without rearranging any of its letters?", a:"Therein" },
-          { q:"What is the only number whose letters, when spelled out in English, are in alphabetical order?", a:"Forty" },
-          { q:"Famously, adding the prefix 'in-' to this word does NOT reverse its meaning — both forms mean 'capable of catching fire.' What is the word?", a:"Flammable (Inflammable)" },
-          { q:"What is the longest common English word that can be typed using only the letters found in the top row of a QWERTY keyboard?", a:"Typewriter" }
+          { q:"What is the sum of the interior angles of any triangle, in degrees?", a:"180 degrees" },
+          { q:"A clock shows 3:15. What is the angle, in degrees, between the hour and minute hands?", a:"7.5 degrees" },
+          { q:"Two coins add up to 30 cents, and one of them is not a nickel. What are the two coins?", a:"A quarter and a nickel" },
+          { q:"If you rearrange the letters of 'CIFAIPC,' what ocean's name do you get?", a:"Pacific" },
+          { q:"A man is found dead in a locked room with no windows, with only a puddle of water and a chair. How did he die?", a:"He stood on a block of ice, which melted" }
         ]
       ]
     },
     {
       title: 'ROUND 4',
-      topics: ["Animal Kingdom","Video Games","Famous Quotes & Speeches","Inventions","Math & Number Puzzles"],
+      topics: ["Bollywood","Indian Mythology","Sports","Indian Geography","Math & Logic"],
       questions: [
         [
-          { q:"Which big cat, found primarily in the Sundarbans and central India, is the national animal of India?", a:"The Bengal tiger" },
-          { q:"Which marine mammal has the largest brain of any animal on Earth?", a:"The sperm whale" },
-          { q:"Which flightless bird lays the largest egg relative to its body size of any living bird, sometimes up to 20% of the female's body weight?", a:"The kiwi" },
-          { q:"Which small mammal is one of the few venomous mammals, delivering venom through spurs on its hind legs, while also laying eggs?", a:"The platypus" },
-          { q:"Which deep-sea creature is believed to have the largest eyes in the animal kingdom, adapted for detecting bioluminescence in the deep ocean?", a:"The colossal squid" }
+          { q:"Which Bollywood actor, nicknamed 'Mr. Perfectionist,' starred in 3 Idiots, Dangal, and PK?", a:"Aamir Khan" },
+          { q:"Which iconic Bollywood villain, remembered for the line 'Mogambo khush hua,' played the antagonist in the 1987 film Mr. India?", a:"Amrish Puri (as Mogambo)" },
+          { q:"Which director, known for opulent visuals in films like Devdas, Bajirao Mastani, and Padmaavat, is famous for his elaborate period dramas?", a:"Sanjay Leela Bhansali" },
+          { q:"In which 1975 film does the villain Gabbar Singh, played by Amjad Khan, deliver the iconic line 'Kitne aadmi the?'", a:"Sholay" },
+          { q:"Which 1957 Guru Dutt film, considered a landmark of Hindi cinema depicting a struggling poet's disillusionment with society, features the song 'Yeh Duniya Agar Mil Bhi Jaaye'?", a:"Pyaasa" }
         ],
         [
-          { q:"Which sandbox game, made of blocks, became the best-selling video game of all time, surpassing 300 million copies sold?", a:"Minecraft" },
-          { q:"Which Japanese designer, often called the 'father of modern video games,' created Mario, The Legend of Zelda, and Donkey Kong?", a:"Shigeru Miyamoto" },
-          { q:"Which 2011 open-world role-playing game, part of a long-running fantasy series, is set in a fictional Nordic-inspired province of the same name?", a:"The Elder Scrolls V: Skyrim" },
-          { q:"Which battle royale mobile game was banned in India in 2020 amid a broader crackdown on Chinese-linked apps, later relaunching as 'BGMI'?", a:"PUBG Mobile" },
-          { q:"Which reclusive Japanese video game designer created Dark Souls and is known for pioneering the punishingly difficult 'Soulslike' genre?", a:"Hidetaka Miyazaki" }
+          { q:"Which legendary Amar Chitra Katha princess, in a classic tale, follows and outwits Yama, the god of death, through clever argument to win back her husband Satyavan's life?", a:"Savitri" },
+          { q:"Which devoted disciple, from a famous Amar Chitra Katha tale, cut off his own thumb as guru-dakshina (a teacher's fee) to Dronacharya, sacrificing his archery skills?", a:"Ekalavya" },
+          { q:"Which young boy-devotee, protected by Vishnu despite his demon father Hiranyakashipu's persecution, is celebrated in a popular Amar Chitra Katha story of unwavering faith?", a:"Prahlad" },
+          { q:"Which legendary king, featured in a well-known Amar Chitra Katha tale, offers his own flesh to save a dove from a hawk, upholding his vow of protection?", a:"King Shibi" },
+          { q:"Which sage, author of the Mahabharata and also a character within the epic, is also credited with compiling the Vedas and is known by the title 'Vyasa'?", a:"Ved Vyasa (Krishna Dvaipayana Vyasa)" }
         ],
         [
-          { q:"Which Indian freedom fighter said 'Give me blood, and I shall give you freedom' in a famous 1944 speech?", a:"Subhas Chandra Bose" },
-          { q:"Which civil rights leader delivered the 'I Have a Dream' speech in 1963?", a:"Martin Luther King Jr." },
-          { q:"Which Indian leader's speech, delivered at midnight on 14–15 August 1947, is remembered for the phrase 'a tryst with destiny'?", a:"Jawaharlal Nehru" },
-          { q:"Which South African leader said 'It always seems impossible until it's done' after decades of imprisonment?", a:"Nelson Mandela" },
-          { q:"Which ancient Roman orator's speeches against Catiline, opening with 'Quo usque tandem abutere, Catilina, patientia nostra?', are considered masterpieces of political rhetoric?", a:"Cicero" }
+          { q:"Which Indian cricketer is widely regarded as one of the greatest modern Test batsmen, ranks second only to Tendulkar in international centuries, and is known for his aggressive captaincy?", a:"Virat Kohli" },
+          { q:"In which year was the Indian Premier League (IPL) founded?", a:"2008" },
+          { q:"Which Indian leg-spin bowler was part of India's famous 1960s–70s spin quartet alongside Bishan Bedi, Erapalli Prasanna, and Srinivas Venkataraghavan?", a:"Bhagwath Chandrasekhar" },
+          { q:"Which Indian cricketer holds the record for the most ODI double centuries (three), more than any other player in history?", a:"Rohit Sharma" },
+          { q:"Which historic 2001 Test match at Eden Gardens, Kolkata, saw India, following on, stage one of the greatest comebacks in cricket history to beat Australia, driven by a marathon partnership between V. V. S. Laxman and Rahul Dravid?", a:"The 2001 Eden Gardens Test (Kolkata)" }
         ],
         [
-          { q:"Which Indian scientist invented the crescograph to measure plant growth and is considered a pioneer of radio wave research predating Marconi's public demonstration?", a:"Jagadish Chandra Bose" },
-          { q:"Which Scottish-born inventor is credited with patenting the first practical telephone?", a:"Alexander Graham Bell" },
-          { q:"Which German engineer is credited with building the first practical automobile powered by an internal combustion engine?", a:"Karl Benz" },
-          { q:"Which Serbian-American inventor pioneered alternating current (AC) electrical systems, rivaling Thomas Edison?", a:"Nikola Tesla" },
-          { q:"Which British computer scientist is credited with proposing the World Wide Web in 1989 while working at CERN?", a:"Tim Berners-Lee" }
+          { q:"Which is the highest mountain peak in India, and the third-highest in the world?", a:"Kangchenjunga" },
+          { q:"Which Indian city, on the banks of the Yamuna, is home to the Taj Mahal?", a:"Agra" },
+          { q:"Which archipelago of India, located in the Bay of Bengal, includes Port Blair as its capital?", a:"The Andaman and Nicobar Islands" },
+          { q:"Which major river of India, forming one of the world's largest deltas together with the Ganga in Bangladesh and West Bengal, originates in Tibet?", a:"The Brahmaputra" },
+          { q:"Which Indian state, bordering China, Myanmar, and Bhutan, is known as the 'land of the rising sun' for being the first Indian state to see sunrise?", a:"Arunachal Pradesh" }
         ],
         [
           { q:"What do you call a number that can only be divided evenly by 1 and itself?", a:"A prime number" },
           { q:"What is the next number in the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8...?", a:"13" },
           { q:"What is the term for a number that equals the sum of its own proper divisors, such as 6 (1+2+3)?", a:"A perfect number" },
-          { q:"What is the value of pi to four decimal places?", a:"3.1416" },
-          { q:"What is the name for the number represented as a 1 followed by 100 zeros, popularized as the namesake (with a spelling change) of a major tech company?", a:"A googol" }
+          { q:"If two's company and three's a crowd, what are four and five?", a:"Nine" },
+          { q:"A puzzle involving three gods — True, False, and Random — answerable with only three yes/no questions, created by philosopher George Boolos, is popularly known by what name?", a:"The Hardest Logic Puzzle Ever" }
         ]
       ]
     },
     {
       title: 'ROUND 5',
-      topics: ["Olympic History","World Festivals & Traditions","Comic Books & Superheroes","Famous Landmarks","Brain Teasers"],
+      topics: ["Bollywood","Indian History","Indian Geography","Indian Monuments","Math & Logic"],
       questions: [
         [
-          { q:"Which Indian javelin thrower won India's first-ever Olympic gold medal in athletics, at the Tokyo 2020 Olympics?", a:"Neeraj Chopra" },
-          { q:"Which sprinter, nicknamed 'Lightning Bolt,' holds the world records in the 100m and 200m?", a:"Usain Bolt" },
-          { q:"Which Indian shooter won bronze at the 2024 Paris Olympics, becoming the first Indian woman to win an Olympic medal in shooting?", a:"Manu Bhaker" },
-          { q:"At the 1936 Berlin Olympics, which American athlete won four gold medals, defying Nazi propaganda?", a:"Jesse Owens" },
-          { q:"Which Indian wrestler became the first Indian to win individual medals at two consecutive Olympics — bronze in 2008 and silver in 2012 — and was later honored with the Padma Bhushan?", a:"Sushil Kumar" }
+          { q:"Which Bollywood actress, called the 'Dhak Dhak Girl,' starred in Hum Aapke Hain Koun and Dil To Pagal Hai?", a:"Madhuri Dixit" },
+          { q:"Which 1977 Manmohan Desai 'masala' film follows three brothers, separated in childhood, who grow up as a Hindu, a Muslim, and a Christian?", a:"Amar Akbar Anthony" },
+          { q:"Which actress, sometimes called Bollywood's first female superstar, starred in Mr. India and Chandni, and passed away in 2018?", a:"Sridevi" },
+          { q:"Which 2001 film, directed by Farhan Akhtar in his directorial debut, is often credited with modernizing urban Hindi cinema through its portrayal of three friends on a road trip?", a:"Dil Chahta Hai" },
+          { q:"Which 1931 film, directed by Ardeshir Irani, was India's first talkie (sound film)?", a:"Alam Ara" }
         ],
         [
-          { q:"Which ten-day Hindu festival, celebrated with elaborate pandals and processions culminating in idol immersion, is especially prominent in West Bengal?", a:"Durga Puja" },
-          { q:"Which Mexican holiday, celebrated on November 1st and 2nd, honors deceased loved ones with altars and marigolds?", a:"Día de los Muertos (Day of the Dead)" },
-          { q:"Which Brazilian festival, famous for its parades, samba music, and elaborate costumes, takes place before Lent?", a:"Carnival (Carnaval)" },
-          { q:"Which Japanese tradition involves viewing and celebrating the fleeting bloom of cherry blossoms?", a:"Hanami" },
-          { q:"Which Jewish festival commemorates the rededication of the Second Temple in Jerusalem, marked by lighting a nine-branched menorah over eight nights?", a:"Hanukkah" }
+          { q:"Who became independent India's first Prime Minister in 1947?", a:"Jawaharlal Nehru" },
+          { q:"What is the popular name given to Jawaharlal Nehru's midnight speech of 14–15 August 1947, taken from a phrase used within it?", a:"'Tryst with Destiny'" },
+          { q:"Which war, fought in 1971 between India and Pakistan, led to the creation of Bangladesh?", a:"The 1971 Indo-Pakistani War (Bangladesh Liberation War)" },
+          { q:"Which Indian Prime Minister ordered the country's first nuclear weapons test, codenamed 'Smiling Buddha,' in 1974?", a:"Indira Gandhi" },
+          { q:"Which ancient Mauryan emperor renounced violence and embraced Buddhism after witnessing the bloodshed of the Kalinga War?", a:"Ashoka" }
         ],
         [
-          { q:"Which Indian comic book series, launched in 1967 by Anant Pai, adapted mythology, history, and folklore into illustrated form for young readers?", a:"Amar Chitra Katha" },
-          { q:"Which DC superhero, an alien from the planet Krypton, is also known as Clark Kent?", a:"Superman" },
-          { q:"Which Marvel team, including Iron Man, Captain America, and Thor, first assembled in 1963 comics?", a:"The Avengers" },
-          { q:"Which graphic novel by Alan Moore and Dave Gibbons, set in an alternate 1985, was the only graphic novel to appear on Time's '100 Best Novels' list?", a:"Watchmen" },
-          { q:"Which reclusive comic book creator wrote and drew Cerebus the Aardvark, an independent series that ran for 300 issues over 26 years?", a:"Dave Sim" }
+          { q:"Which is the southernmost tip of mainland India, where the Arabian Sea, Bay of Bengal, and Indian Ocean meet?", a:"Kanyakumari" },
+          { q:"Which Indian state is the largest by area?", a:"Rajasthan" },
+          { q:"Which lake, located in Kashmir, is famous for its houseboats and Mughal gardens surrounding it?", a:"Dal Lake" },
+          { q:"Which strait separates India from Sri Lanka?", a:"The Palk Strait" },
+          { q:"Which major river of peninsular India, originating in Maharashtra and known as the 'Dakshin Ganga' (Ganges of the South), is one of the longest rivers in the country?", a:"The Godavari" }
         ],
         [
-          { q:"Which white marble mausoleum in Agra, India, was built by Emperor Shah Jahan for his wife Mumtaz Mahal?", a:"The Taj Mahal" },
-          { q:"Which ancient wall, built to protect Chinese states from invasions, stretches thousands of kilometers?", a:"The Great Wall of China" },
-          { q:"Which rock-cut complex in Maharashtra, comprising 34 monasteries and temples carved from basalt cliffs, spans Buddhist, Hindu, and Jain traditions?", a:"The Ellora Caves" },
-          { q:"Which statue, a gift from France, stands on Liberty Island in New York Harbor?", a:"The Statue of Liberty" },
-          { q:"Which prehistoric monument of standing stones, erected in stages between roughly 3000 and 1500 BCE, stands on Salisbury Plain in England?", a:"Stonehenge" }
+          { q:"Which grand fort in Rajasthan, built primarily of yellow sandstone, is often called the 'Golden Fort' and rises from the Thar Desert?", a:"Jaisalmer Fort" },
+          { q:"Which intricately carved stepwell in Gujarat, built to conserve water and depicted on the Indian 100-rupee note, is a UNESCO World Heritage Site?", a:"Rani ki Vav" },
+          { q:"Which ancient Buddhist stupa in Madhya Pradesh, commissioned by Emperor Ashoka in the 3rd century BCE, is one of the oldest stone structures in India?", a:"The Great Stupa at Sanchi" },
+          { q:"Which South Indian temple town in Tamil Nadu is home to the Brihadeeswarar Temple, a UNESCO World Heritage Site built by the Chola king Raja Raja I?", a:"Thanjavur" },
+          { q:"Which Mughal-era fort in Agra, built primarily by Akbar, served as the main residence of Mughal emperors until 1638?", a:"The Agra Fort" }
         ],
         [
-          { q:"The person who makes it, sells it. The person who buys it never uses it. The person who uses it never knows they're using it. What is it?", a:"A coffin" },
-          { q:"I am taken from a mine, and shut up in a wooden case, from which I am never released, and yet I am used by almost everybody. What am I?", a:"Pencil lead (graphite)" },
-          { q:"What can run but never walks, has a mouth but never talks, has a head but never weeps, has a bed but never sleeps?", a:"A river" },
-          { q:"Forward I am heavy, but backward I am not — what word am I?", a:"Ton (backwards spells 'not')" },
-          { q:"A man walks into a bar and asks the bartender for a glass of water. The bartender pulls out a gun and points it at him. The man says 'thank you' and leaves. Why?", a:"He had hiccups, and the shock cured them" }
+          { q:"What is the value of pi to two decimal places?", a:"3.14" },
+          { q:"What is the term for a triangle with all three sides of different lengths?", a:"A scalene triangle" },
+          { q:"What is the name for the number represented as a 1 followed by 100 zeros, popularized as the namesake (with a spelling change) of a major tech company?", a:"A googol" },
+          { q:"If 5 cats can catch 5 mice in 5 minutes, how many cats are needed to catch 100 mice in 100 minutes?", a:"5 cats" },
+          { q:"What is the only number whose letters, when spelled out in English, are in alphabetical order?", a:"Forty" }
         ]
       ]
     }
