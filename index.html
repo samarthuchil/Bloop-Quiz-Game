@@ -1,7 +1,7 @@
 <title>Quiz Dashboard</title>
 <style>
   /* Deliberately single-theme: a dark broadcast "stage" is the concept,
-     not a light/dark toggle target — kept legible either way via high contrast. */
+     not a light/dark toggle target - kept legible either way via high contrast. */
   :root{
     --stage-navy:#0a2233;
     --stage-navy-2:#071824;
@@ -565,7 +565,7 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'quiz-dashboard-state-v15';
+  var STORAGE_KEY = 'quiz-dashboard-state-v16';
   var DEFAULT_POINTS = [10,20,30,40,50];
   var MIN_TOPICS = 3, MAX_TOPICS = 6;
   var TEAM_LETTERS = ['a','b','c','d','e','f'];
@@ -576,42 +576,42 @@
   var ROUNDS = [
     {
       title: 'ROUND 1',
-      topics: ["Origins of English Words","Bollywood","Harry Potter","Guess the Actor","Guess the Brand"],
+      topics: ["Origins of English Words","Bollywood Theme","Indian Sports","Guess the Actor","Guess the Brand"],
       questions: [
         [
-          { q:"Which English word for a rigid decorative bracelet comes from a Hindi word for a colored glass ring worn on the wrist?", a:"Bangle", e:"The Hindi word is 'bangri.'" },
-          { q:"Which English word for a dense, tangled forest comes from a Hindi and Sanskrit word originally meaning 'wasteland' or 'uncultivated ground,' rather than referring to trees at all?", a:"Jungle", e:"The word is 'jangal'; its meaning shifted in English to specifically describe dense tropical vegetation." },
-          { q:"Which English word for a small, portable bed comes from a Hindi word for a simple woven bedstead?", a:"Cot", e:"The Hindi word is 'khat.'" },
-          { q:"Which English word for a short written note or voucher comes from a Hindi word simply meaning 'letter'?", a:"Chit", e:"The Hindi word is 'chitthi.'" },
-          { q:"Which English word for a mixed alcoholic beverage is widely believed to come from a Sanskrit and Hindi word meaning 'five,' referencing the traditional number of ingredients used to make it?", a:"Punch", e:"The five traditional ingredients were spirit, water, lemon, sugar, and spice." }
+          { q:"Which English word for a dull brownish-yellow fabric, first adopted for uniforms by a British Indian Army unit in the 1840s, comes from an Urdu word that itself comes from the Persian word for 'dust'?", a:"Khaki", e:"The Persian word is 'khak' (dust). The Corps of Guides adopted dust-colored uniforms for better camouflage on the frontier." },
+          { q:"Which English word for a plain, coarse cotton cloth takes its name from an Indian port city on the Malabar coast from which the fabric was exported to Europe?", a:"Calico", e:"The port is Calicut (Kozhikode) in Kerala." },
+          { q:"Which English word for a broad sash worn around the waist, now associated with formal dinner wear, comes from a Hindi and Urdu word combining the Persian words for 'waist' and 'something that binds'?", a:"Cummerbund", e:"The Urdu word is 'kamarband' (kamar: waist, band: tie). British officers in India adopted it as a cooler alternative to a waistcoat." },
+          { q:"Which English word for a lightweight, puckered, striped fabric comes from a Persian phrase meaning 'milk and sugar,' describing the contrast between its smooth and bumpy stripes?", a:"Seersucker", e:"The Persian phrase 'shir o shakar' reached English via Hindi." },
+          { q:"Which English word for a spiced soup created for British diners in colonial India comes from a Tamil phrase meaning 'pepper water'?", a:"Mulligatawny", e:"The Tamil phrase is 'milagu-thanni.'" }
         ],
         [
-          { q:"Which actress, nicknamed the 'Dhak Dhak Girl' after one of her most famous dance numbers, is widely regarded as one of the finest dancers in Bollywood history?", a:"Madhuri Dixit", e:"The nickname comes from her song 'Ek Do Teen' from the film Tezaab, though 'Dhak Dhak' itself refers to a later hit song." },
-          { q:"Which actress, often called Indian cinema's first female superstar for commanding solo box-office pull, died unexpectedly in Dubai in 2018 from accidental drowning?", a:"Sridevi", e:"She had acted across both South Indian and Hindi cinema for decades before her death." },
-          { q:"Which actress holds the record for the most Filmfare Best Actress awards won by a single performer, a record that stood unmatched for decades?", a:"Nutan", e:"She won the award five times between the 1950s and 1970s." },
-          { q:"Which actor, the youngest of three acting brothers in his generation, became known internationally for a series of collaborations with Merchant Ivory Productions alongside his Hindi film work?", a:"Shashi Kapoor", e:"His brothers were Raj Kapoor and Shammi Kapoor." },
-          { q:"Which leading actor abruptly walked away from Bollywood stardom at the height of his career to live for several years at an ashram in Oregon, USA, before eventually returning to acting?", a:"Vinod Khanna", e:"He later also had a political career, serving as a Member of Parliament." }
+          { q:"Which 2007 film follows an eight-year-old whose struggles with reading are mistaken for laziness, until a new art teacher recognizes an undiagnosed learning difficulty?", a:"Taare Zameen Par", e:"It was Aamir Khan's directorial debut, and it brought dyslexia into mainstream conversation in India." },
+          { q:"Which 2013 comedy-drama follows a young woman from Delhi who, after her fiance calls off the wedding days before the ceremony, decides to take her honeymoon trip alone?", a:"Queen", e:"The journey takes her to Paris and Amsterdam, and the film won a National Award for its lead performance." },
+          { q:"Which 2012 film, set in 1970s Darjeeling and Kolkata, is built around a cheerful man who cannot hear or speak and the two very different women who love him?", a:"Barfi!", e:"It was India's official submission to the 85th Academy Awards." },
+          { q:"Which 2018 black-comedy thriller revolves around a pianist who claims to be blind and ends up entangled in a murder he witnessed?", a:"Andhadhun", e:"Directed by Sriram Raghavan, it won the National Award for Best Hindi Film." },
+          { q:"Which 1983 satire follows two struggling photographers who stumble onto evidence of corruption, and climaxes with a chaotic stage performance of a scene from an ancient epic?", a:"Jaane Bhi Do Yaaro", e:"Directed by Kundan Shah, it is a cult classic of Indian comedy, and the climax stages a scene from the Mahabharata." }
         ],
         [
-          { q:"Which centuries-old alchemist, a historical figure as well as a character in the first book of a famous series, was renowned for creating the only known Sorcerer's/Philosopher's Stone in existence?", a:"Nicolas Flamel", e:"The real Nicolas Flamel was a 14th-century French scribe later mythologized as an alchemist who discovered the secret to immortality." },
-          { q:"Which ghost has haunted a second-floor girls' bathroom since her death in 1943, killed after looking directly into a Basilisk's eyes when the Chamber of Secrets was first opened?", a:"Moaning Myrtle", e:"She died after Tom Riddle first opened the Chamber of Secrets in 1943, decades before Harry's time at Hogwarts." },
-          { q:"Which phoenix, belonging to Hogwarts' headmaster, saves a student's life in the Chamber of Secrets by supplying healing tears and blinding a giant serpent?", a:"Fawkes", e:"Phoenixes are known for their healing tears and their ability to be reborn from their own ashes." },
-          { q:"Which Defense Against the Dark Arts professor, forced to resign after his condition was revealed to the school, was bitten as a child by a dangerous creature later revealed to be working for the story's main antagonist?", a:"Remus Lupin", e:"He was bitten by Fenrir Greyback, a werewolf who later served Voldemort." },
-          { q:"Which house-elf, initially devoted to a wealthy pure-blood family, ultimately turns against his abusive former masters and rallies Hogwarts' other house-elves to fight in the Battle of Hogwarts?", a:"Kreacher", e:"He originally served the Black family, particularly Sirius Black's mother." }
+          { q:"Which captain removed his shirt and swung it above his head on the Lord's balcony after his team chased down 326 in a 2002 one-day final?", a:"Sourav Ganguly", e:"India beat England by two wickets in the NatWest Series final on 13 July 2002." },
+          { q:"Which opening batsman became the first to score 10,000 Test runs, reaching the milestone against Pakistan at Ahmedabad in 1987?", a:"Sunil Gavaskar", e:"He retired with 10,122 Test runs and 34 centuries, which was then a world record." },
+          { q:"Which athlete, teased as a child about his weight, won India's first Olympic gold in athletics with a throw of 87.58 metres in Tokyo?", a:"Neeraj Chopra", e:"He was sent to a gym in Panipat at around age 11 and later took up the javelin." },
+          { q:"Which tennis player, whose father won an Olympic hockey bronze in 1972, won India's first individual Olympic medal in 44 years at Atlanta in 1996?", a:"Leander Paes", e:"His father, Vece Paes, played in the 1972 bronze-winning team. Leander later won 18 Grand Slam doubles and mixed titles." },
+          { q:"Which All England badminton champion, who reportedly turned down a lucrative soft-drink endorsement because he did not want to promote it to children, later became a renowned coach?", a:"Pullela Gopichand", e:"He won the All England title in 2001 and runs an academy in Hyderabad that has trained several Olympic medallists." }
         ],
         [
-          { q:"Which actor, known by the nickname 'Bhaijaan,' has been embroiled in a long-running hit-and-run legal case dating back to 2002, and also runs a charitable trust supporting causes like education and healthcare?", a:"Salman Khan", e:"The trust is called Being Human." },
-          { q:"Which actor was born with a congenital condition affecting his hands, corrected through surgery as an infant, and went on to become one of Bollywood's most celebrated dancers?", a:"Hrithik Roshan", e:"He was born with a rare congenital condition affecting one hand, corrected surgically shortly after birth." },
-          { q:"Which actor, nicknamed 'Mr. Perfectionist,' is known for undergoing extreme physical transformations for his roles, including significant weight and muscle changes between different films?", a:"Aamir Khan", e:"He gained significant weight for one film and later built a competitive-athlete physique for another, within just a few years." },
-          { q:"Which actor, celebrated for his comic timing and energetic dance numbers through the 1990s, took a break from acting to serve a term as an elected Member of Parliament?", a:"Govinda", e:"He was elected to the Lok Sabha from Mumbai North in 2004, representing the Indian National Congress." },
-          { q:"Which actor has appeared in more than 500 films across a career spanning four decades, and also founded his own acting school?", a:"Anupam Kher", e:"The school is called Actor Prepares." }
+          { q:"Which actor holds an engineering degree and worked as an assistant director on a two-part crime saga before acting, and is the son of a veteran stunt coordinator?", a:"Vicky Kaushal", e:"He assisted on Gangs of Wasseypur. His father, Sham Kaushal, is a well-known action director." },
+          { q:"Which actor, after studying at a university in the United States, worked as a junior copywriter at an advertising agency before auditioning for his debut film?", a:"Ranveer Singh", e:"His debut was Band Baaja Baaraat (2010), made by Yash Raj Films." },
+          { q:"Which actress made her screen debut in the mid-1990s on a long-running sitcom about a mother of five daughters, years before her first film role?", a:"Vidya Balan", e:"The sitcom was Hum Paanch. Her film debut came with Parineeta (2005)." },
+          { q:"Which actor, the son of a celebrated character actor, was a background dancer in a 1997 romantic musical before moving on to leading roles?", a:"Shahid Kapoor", e:"He danced in Dil To Pagal Hai and Taal. His father is Pankaj Kapur." },
+          { q:"Which actor with an engineering degree worked as a public-speaking trainer before acting, and later wrote, directed and starred in a film about a rocket scientist who was falsely accused of espionage?", a:"R. Madhavan", e:"The film is Rocketry: The Nambi Effect (2022)." }
         ],
         [
-          { q:"Which brand's tagline is 'I'm Lovin' It'?", a:"McDonald's", e:"The tagline launched in 2003 and was also turned into a jingle recorded by Justin Timberlake." },
-          { q:"Which brand's tagline is 'The Ultimate Driving Machine'?", a:"BMW", e:"The line has run in the brand's US advertising since the 1970s." },
-          { q:"Which brand's tagline is 'Because You're Worth It'?", a:"L'Oréal", e:"The line was originally written in 1971 as 'Because I'm Worth It.'" },
-          { q:"Which brand's tagline is 'Melts in Your Mouth, Not in Your Hands'?", a:"M&M's", e:"The tagline dates back to 1954 and refers to the candy's sugar shell coating." },
-          { q:"Which brand's tagline is 'A Diamond Is Forever'?", a:"De Beers", e:"Coined in 1947, it's often cited as one of the most successful advertising slogans of the 20th century." }
+          { q:"Which brand's tagline is 'Taste the Rainbow'?", a:"Skittles", e:"The campaign began in the mid-1990s and has run for decades." },
+          { q:"Which brand's tagline is 'Have It Your Way'?", a:"Burger King", e:"Introduced in 1974, it reflects the chain's promise to customize orders." },
+          { q:"Which brand's tagline is 'The Quicker Picker-Upper'?", a:"Bounty", e:"The paper-towel brand's slogan dates to the 1970s and was voiced in TV ads by actress Nancy Walker." },
+          { q:"Which brand's tagline is 'Breakfast of Champions'?", a:"Wheaties", e:"The line dates to the 1930s, and athletes have appeared on its cereal boxes ever since." },
+          { q:"Which brand's tagline is 'Don't Leave Home Without It'?", a:"American Express", e:"The slogan was popularized in 1970s TV ads featuring actor Karl Malden." }
         ]
       ]
     },
@@ -620,121 +620,121 @@
       topics: ["Indian History","Women of India","F.R.I.E.N.D.S","Guess the Sportsman","Game of Thrones"],
       questions: [
         [
-          { q:"Which Mughal emperor, having commissioned one of the world's most famous mausoleums for his late wife, spent his own final years imprisoned in a fort by his son, reportedly able to see the very monument only from a small window?", a:"Shah Jahan", e:"He was imprisoned in Agra Fort by his son Aurangzeb; the monument is the Taj Mahal." },
-          { q:"Which Indian king, defeated but deeply respected for his courage after a hard-fought battle against Alexander the Great in 326 BCE, was reportedly reinstated to rule his own kingdom by Alexander himself, impressed by his conduct?", a:"Porus (King Porus)", e:"The battle was fought at the Hydaspes River, in present-day Punjab." },
-          { q:"Which 15th-century spiritual teacher, whose hymns and teachings emphasizing equality and devotion to one God laid the foundation for a major world religion, is regarded as its first Guru?", a:"Guru Nanak", e:"He founded Sikhism, and his teachings were later compiled into the Guru Granth Sahib." },
-          { q:"Which 19th-century ruler, known as the 'Lion of Punjab,' built a powerful Sikh empire in northwest India and once possessed the Kohinoor diamond, which was later seized by the British?", a:"Ranjit Singh", e:"The diamond was taken by the British East India Company in 1849, after his death, following the Anglo-Sikh Wars." },
-          { q:"Which 16th-century Rajput king refused to submit to Mughal authority even after a major defeat at the Battle of Haldighati, continuing a guerrilla resistance from the hills for years afterward?", a:"Maharana Pratap", e:"He fought against forces led by Akbar's general, Man Singh." }
+          { q:"Which Mughal emperor, believed never to have learned to read or write, built a royal library of tens of thousands of manuscripts and had books read aloud to him daily?", a:"Akbar", e:"He ruled from 1556 to 1605 and founded a short-lived syncretic faith called Din-i Ilahi." },
+          { q:"Which revolutionary, executed in March 1931 at the age of 23, threw non-lethal bombs in the Central Legislative Assembly in 1929 and later asked to be shot rather than hanged?", a:"Bhagat Singh", e:"His request for a firing squad was refused. He was hanged in Lahore along with Sukhdev and Rajguru." },
+          { q:"Which 1764 battle, fought against the combined forces of the Nawab of Awadh, the deposed Nawab of Bengal and the Mughal emperor, led to the East India Company winning the right to collect revenue in Bengal the following year?", a:"The Battle of Buxar", e:"The 1765 Treaty of Allahabad granted the Company the diwani rights." },
+          { q:"Which Delhi sultan controlled the market prices of grain and cloth by decree, and repelled several Mongol invasions in the early 1300s?", a:"Alauddin Khilji", e:"He also began building the Alai Minar, which was never completed." },
+          { q:"Which Gupta ruler, whose conquests are recorded on an inscribed pillar at Allahabad, was nicknamed the 'Napoleon of India' by a British historian?", a:"Samudragupta", e:"The historian was Vincent Smith. The pillar carries a long Sanskrit inscription by the court poet Harishena." }
         ],
         [
-          { q:"Which former Prime Minister was arrested and briefly jailed in December 1978, a few years after the controversial Emergency period her own government had imposed, over a parliamentary privileges violation?", a:"Indira Gandhi", e:"She was released within days, and the arrest is widely seen as having boosted public sympathy ahead of her political comeback." },
-          { q:"Which astronaut grew up in Karnal, Haryana, where she had to push back against strong family and social skepticism to pursue a field almost no Indian women entered at the time: aeronautical engineering?", a:"Kalpana Chawla", e:"She later moved to the US for further study, eventually being selected by NASA in 1994." },
-          { q:"Which playback singer reportedly refused any payment for recording a patriotic song so moving that Prime Minister Jawaharlal Nehru was brought to tears hearing it performed live in 1963?", a:"Lata Mangeshkar", e:"The song was 'Ae Mere Watan Ke Logo,' performed on Republic Day, 26 January 1963." },
-          { q:"Which Nobel Peace Prize laureate, closely associated with humanitarian work in Kolkata, was actually born in Skopje, in what is now North Macedonia, rather than in India?", a:"Mother Teresa", e:"She moved to India in 1929 and was later canonized as a saint by the Catholic Church in 2016." },
-          { q:"Which boxer returned to the ring after giving birth to twins, going on to win an Olympic bronze medal in a weight category above the one she normally competed in?", a:"Mary Kom", e:"She won bronze at the 2012 London Olympics in the 51kg flyweight category." }
+          { q:"Which tennis player, at 17, became the first Indian woman to win a WTA singles title, doing so in her home city in 2004?", a:"Sania Mirza", e:"She later reached world No. 1 in women's doubles and won six Grand Slam titles." },
+          { q:"Which author and philanthropist became the first woman engineer hired at TELCO after sending a postcard to its chairman, protesting a job advertisement that sought only male candidates?", a:"Sudha Murty", e:"She later chaired the Infosys Foundation. Her daughter Akshata is married to former UK Prime Minister Rishi Sunak." },
+          { q:"Which singer, who owns a chain of restaurants in the Gulf and the UK, was cited by Guinness as the most recorded artist in music history?", a:"Asha Bhosle", e:"Guinness counted more than 11,000 songs, in over twenty languages." },
+          { q:"Which former CEO of a global beverage and snacks company played guitar in an all-girl rock band as a student in Chennai?", a:"Indra Nooyi", e:"Her college band was called Logical Fallacies. She led PepsiCo from 2006 to 2018." },
+          { q:"Which novelist, who trained as an architect and once acted in a film, won the Booker Prize in 1997 for her debut novel?", a:"Arundhati Roy", e:"She acted in Massey Sahib (1985). Her debut novel is The God of Small Things." }
         ],
         [
-          { q:"What was the name of the pet Capuchin monkey that one of the characters owned during the show's early seasons, before giving it up when it grew too large and unpredictable for apartment life?", a:"Marcel", e:"He belonged to Ross, and was given up to a zoo." },
-          { q:"Which band wrote and performed the show's theme song, 'I'll Be There for You,' which became a hit single in its own right after the show's success drove radio stations to seek out the full-length version?", a:"The Rembrandts", e:"The full-length version only existed as an afterthought until listener demand forced the band to release it as a single." },
-          { q:"Which actress originally auditioned for the role of Rachel, before producers decided she was better suited to play Monica instead?", a:"Courteney Cox", e:"She had also previously appeared in a Bruce Springsteen music video, 'Dancing in the Dark,' years before the show." },
-          { q:"Which spin-off series, centered on one of the show's supporting-turned-lead characters relocating to Los Angeles, launched immediately after the original series ended but was cancelled after two underwhelming seasons?", a:"Joey", e:"It starred Matt LeBlanc and ran from 2004 to 2006." },
-          { q:"At which real-world studio lot, rather than in New York City itself, was the entire series filmed?", a:"Warner Bros. Studios", e:"It was filmed on a soundstage in Burbank, California, despite the show being set in Manhattan." }
+          { q:"Which working title did the pilot script carry before it became the show's final title?", a:"Insomnia Cafe", e:"It was also developed as 'Six of One' and 'Friends Like Us' before the final title was chosen." },
+          { q:"In which year did the show win its only Emmy for Outstanding Comedy Series?", a:"2002", e:"It had been nominated several times before. One of its leads also won Outstanding Lead Actress that year." },
+          { q:"Which actor, later the director of a 2008 superhero film, played a wealthy man who dated Monica and wanted to become an Ultimate Fighting competitor?", a:"Jon Favreau", e:"He played Pete Becker across several episodes, and later directed Iron Man." },
+          { q:"Which Oscar-nominated actress played Chandler's father, a Las Vegas drag performer?", a:"Kathleen Turner", e:"She was nominated for the Best Actress Oscar for Peggy Sue Got Married." },
+          { q:"In which episode do the six lead characters play a trivia game with their apartments at stake?", a:"The One with the Embryos", e:"It is season 4, episode 12, and pits Monica and Rachel against Chandler and Joey." }
         ],
         [
-          { q:"Which footballer holds the record for the most official goals scored in the history of professional football, combining club and international appearances, a tally that surpassed 900 in his career?", a:"Cristiano Ronaldo", e:"He plays for Portugal and has represented clubs including Manchester United, Real Madrid, and Al Nassr." },
-          { q:"Which footballer holds the record for the most goals scored in a single calendar year in football history, netting 91 for club and country in 2012?", a:"Lionel Messi", e:"He surpassed the previous record, held by Pele, during a season split between Barcelona and Argentina's national team." },
-          { q:"Which athlete holds the record for the most Olympic medals ever won by a single competitor, with 28 total across four Games?", a:"Michael Phelps", e:"23 of those medals are gold, also an all-time record." },
-          { q:"Which athlete holds the record for the most world championship medals won by any gymnast in history, male or female?", a:"Simone Biles", e:"She has combined artistry with a level of difficulty that has led to several skills being named after her." },
-          { q:"Which athlete holds the current world records in both the 100m and 200m sprints, times that have stood unbroken since 2009?", a:"Usain Bolt", e:"His 100m time of 9.58 seconds and 200m time of 19.19 seconds were both set at the 2009 World Championships in Berlin." }
+          { q:"Which footballer is the only player to have won three FIFA World Cups, collecting his first at the age of 17?", a:"Pelé", e:"He won in 1958, 1962 and 1970, and remains the youngest World Cup winner." },
+          { q:"Which tennis player has spent more than 400 weeks ranked world No. 1, the most in men's history?", a:"Novak Djokovic", e:"He passed Steffi Graf's all-time mark of 377 weeks in 2021." },
+          { q:"Which golfer equalled Sam Snead's record of 82 PGA Tour wins at a tournament in Japan in 2019?", a:"Tiger Woods", e:"He won the Zozo Championship, held near Tokyo." },
+          { q:"Which driver holds the Formula 1 record for the most Grand Prix victories, with more than 100?", a:"Lewis Hamilton", e:"He also shares the record of seven world titles with Michael Schumacher." },
+          { q:"Which squash player went unbeaten for more than five years, winning 555 consecutive matches?", a:"Jahangir Khan", e:"The streak ran from April 1981 to November 1986 and is widely cited as the longest in professional sport." }
         ],
         [
-          { q:"Which character's entire vocabulary is eventually revealed to stem from a single traumatic phrase he heard himself repeatedly speaking during a vision that merged his past and future selves?", a:"Hodor", e:"The phrase was 'hold the door,' which slurred over time into his name." },
-          { q:"Which character's chosen champion, seeking vengeance for his sister's death decades earlier, nearly wins a trial by combat before being fatally struck down, his skull crushed by his opponent's bare hands?", a:"Tyrion Lannister", e:"His champion was Oberyn Martell, fighting Gregor Clegane ('The Mountain') on Tyrion's behalf." },
-          { q:"Which character survives walking into a funeral pyre unburned, emerging afterward with three creatures that had been nothing more than fossilized stone for centuries?", a:"Daenerys Targaryen", e:"Her dragon eggs hatched in the flames of her husband Khal Drogo's funeral pyre." },
-          { q:"Which character loses his sword hand as a captive, an injury that forces him to relearn combat with his off hand and significantly reshapes his character arc for the rest of the story?", a:"Jaime Lannister", e:"His hand was cut off by a captor named Locke while he was held prisoner with Brienne of Tarth." },
-          { q:"Which character, raised as a ward in a rival family's household after his own family's rebellion failed, later betrays his adoptive family by seizing their ancestral home, only to be tortured and psychologically broken by a sadistic captor?", a:"Theon Greyjoy", e:"He was raised by the Starks, betrayed them by taking Winterfell, and was later tortured by Ramsay Bolton." }
+          { q:"Which character is stabbed repeatedly by fellow members of his own order at a northern fortress, and is later brought back to life by a priestess of a foreign fire god?", a:"Jon Snow", e:"After returning, he is eventually named Lord Commander and later King in the North." },
+          { q:"Which character, after repeatedly boasting that he will win back the Iron Throne with an army bought through his sister's marriage, is killed when molten metal is poured over his head?", a:"Viserys Targaryen", e:"Khal Drogo killed him with a pot of molten gold." },
+          { q:"Which character, sent to the Night's Watch by a father who threatened to kill him, later heals a knight's greyscale at the Citadel using a forbidden treatment?", a:"Samwell Tarly", e:"He also steals his family's Valyrian steel sword, Heartsbane, when he leaves." },
+          { q:"Which would-be king burns his own daughter at the stake after being convinced it will turn the tide of his campaign?", a:"Stannis Baratheon", e:"A priestess of the Lord of Light had told him the sacrifice would bring victory." },
+          { q:"Which character promised his dying sister, at a remote tower, that he would keep a secret about her child for the rest of his life?", a:"Ned Stark", e:"The place is called the Tower of Joy, and the child's true parentage is only revealed years later." }
         ]
       ]
     },
     {
       title: 'ROUND 3',
-      topics: ["Origins of English Words","Indian Brands","Harry Potter","F.R.I.E.N.D.S","Guess the Singer"],
+      topics: ["Origins of English Words","Indian Brands","Indian Sports","F.R.I.E.N.D.S","Guess the Singer"],
       questions: [
         [
-          { q:"Which English word for a type of sturdy work trousers comes from a Hindi word for a coarse cotton cloth, originally woven in a district of Mumbai?", a:"Dungarees", e:"The district was Dongri, in present-day Mumbai." },
-          { q:"Which English word for a cigar with both ends cut flat comes from a Tamil word literally meaning 'rolled'?", a:"Cheroot", e:"The Tamil word is 'curuttu.'" },
-          { q:"Which English word for a warm alcoholic drink also refers to the fermented sap of certain palm trees, taking its name from a Hindi word for that same sap?", a:"Toddy", e:"The Hindi word is 'tari.'" },
-          { q:"Which English word for a sweet, flavored drink or frozen dessert comes from an Arabic word for a beverage, entering English via Turkish and Persian?", a:"Sherbet", e:"The Arabic word is 'sharbat,' also related to the word 'syrup.'" },
-          { q:"Which English word for a small passenger cart, originally pulled by a runner, comes from a Japanese word that literally translates to 'human-powered vehicle'?", a:"Rickshaw", e:"The Japanese word is 'jinrikisha.'" }
+          { q:"Which English word for an overland expedition to observe wildlife comes from a Swahili word that was itself borrowed from an Arabic word meaning 'journey'?", a:"Safari", e:"The Arabic word is 'safar.'" },
+          { q:"Which English word for a common sweetener traces back, through Persian and Arabic, to a Sanskrit word that originally meant 'grit' or 'gravel'?", a:"Sugar", e:"The Sanskrit word is 'sharkara,' and sugar crystallization techniques were developed in India." },
+          { q:"Which English word for the number that holds a place with no value comes, through Arabic and Italian, from the Sanskrit word for 'empty' or 'void'?", a:"Zero", e:"The Sanskrit word is 'shunya.' Arabic rendered it as 'sifr,' which also gave English 'cipher.'" },
+          { q:"Which English word for a step-by-step procedure for solving a problem comes from the Latinized name of a ninth-century Persian scholar whose book on calculation introduced Hindu-Arabic numerals to Europe?", a:"Algorithm", e:"He was Muhammad ibn Musa al-Khwarizmi. The word 'algebra' also traces to the title of one of his books." },
+          { q:"Which English word for a killer who targets a prominent person, usually for political reasons, is widely believed to come from an Arabic word linked to a medieval Ismaili sect and the drug hashish?", a:"Assassin", e:"It is believed to derive from 'hashishin,' a name applied to the Nizari Ismailis, though the link to the drug is debated by historians." }
         ],
         [
-          { q:"Which Indian FMCG brand, co-founded by a yoga guru, grew explosively in the 2010s by marketing itself around Ayurvedic and 'swadeshi' (nationally self-reliant) principles, disrupting established players across categories from toothpaste to instant noodles?", a:"Patanjali", e:"It was co-founded by Baba Ramdev and Acharya Balkrishna." },
-          { q:"Which Indian personal care brand became famous in the 1980s and 90s for turmeric-based skincare and ayurvedic toothpaste products, memorable for advertising jingles that ran almost unchanged for decades?", a:"Vicco", e:"It was founded by Keshav Pendharkar in 1952." },
-          { q:"Which Indian industrial conglomerate, founded in 1888 by an engineer who started out repairing bicycles, grew into one of the country's oldest manufacturers of pumps, engines, and machine tools?", a:"Kirloskar", e:"The founder was Laxmanrao Kirloskar." },
-          { q:"Which Indian textile brand, part of a business group founded by a Parsi industrialist family, has been a household name for bedsheets and furnishings since the 19th century?", a:"Bombay Dyeing", e:"It's part of the Wadia Group." },
-          { q:"Which Indian consumer electronics conglomerate, once a major manufacturer of televisions and appliances, collapsed into one of the country's largest corporate bankruptcy cases in the late 2010s?", a:"Videocon", e:"It was founded by the Dhoot family and once ranked among India's largest consumer electronics manufacturers before its financial collapse." }
+          { q:"Which Indian coffee chain opened its first outlet on Bengaluru's Brigade Road in 1996, backed by a family of coffee planters?", a:"Cafe Coffee Day", e:"It was founded by V. G. Siddhartha, whose family owned coffee estates in Chikmagalur." },
+          { q:"Which bottled-water brand, begun by an Italian businessman, was bought by an Indian soft-drink company in 1969?", a:"Bisleri", e:"It was originally sold in glass bottles in Mumbai." },
+          { q:"Which motorcycle brand, founded in England in 1901, is regarded as the world's oldest still in continuous production, and is now made in Chennai?", a:"Royal Enfield", e:"Its Indian arm began assembling motorcycles in Madras in 1955." },
+          { q:"Which soap brand traces its origin to a sandalwood oil factory set up by a princely state after World War I disrupted its exports?", a:"Mysore Sandal Soap", e:"The princely state of Mysore set up its sandalwood oil factory in the late 1910s, and the soap followed soon after." },
+          { q:"Which cosmetics brand, launched by a Tata company in 1952 at the prime minister's urging to stem imports of foreign beauty products, takes its name from a French opera?", a:"Lakme", e:"Its name is the French form of Lakshmi. The opera is Leo Delibes's Lakme." }
         ],
         [
-          { q:"Which of the three Deathly Hallows changes ownership through combat defeat rather than gift or inheritance, meaning its allegiance transfers to whoever disarms or kills its previous master?", a:"The Elder Wand", e:"Whoever last defeated its previous owner, even accidentally, becomes its true master." },
-          { q:"Which character's Patronus, a doe, is later revealed to match that of a deceased classmate he loved for most of his life, confirming his true loyalties only after his own death?", a:"Severus Snape", e:"The doe matches Lily Potter's Patronus." },
-          { q:"Which character was originally considered by a prophecy to potentially be the story's chosen protagonist, before the villain's own choice of target determined which of two possible boys the prophecy would apply to?", a:"Neville Longbottom", e:"The prophecy could have applied to either Neville or Harry Potter; Voldemort chose to target Harry." },
-          { q:"Which magical object, confiscated by a caretaker for years before being handed over to the protagonist, was originally created by four students, one of whom would later become the protagonist's father?", a:"The Marauder's Map", e:"It was created by James Potter, Sirius Black, Remus Lupin, and Peter Pettigrew." },
-          { q:"Which house-elf, freed after being tricked into receiving an article of clothing from his former master, dies protecting the protagonist and his friends during an escape from a family of dark wizards?", a:"Dobby", e:"He was freed via a sock hidden inside a book, and died at Malfoy Manor." }
+          { q:"Which Indian batsman has faced more balls in Test cricket than anyone else in history, over 31,000?", a:"Rahul Dravid", e:"He faced 31,258 balls and retired with 13,288 Test runs." },
+          { q:"Which hockey legend, whose birthday on 29 August is observed as National Sports Day, won Olympic golds in 1928, 1932 and 1936?", a:"Dhyan Chand", e:"India won all three of those Olympic hockey finals, including 8-1 against Germany in 1936." },
+          { q:"Which chess player became India's first grandmaster in 1988, and has held the world title in knockout, tournament and match formats?", a:"Viswanathan Anand", e:"He was undisputed world champion from 2007 to 2013." },
+          { q:"Which cricketer, trained in classical dance as a child, became the first woman to score 7,000 runs in one-day internationals?", a:"Mithali Raj", e:"She trained in Bharatanatyam and captained India for over a decade." },
+          { q:"Which wrestler became the first Indian to win individual Olympic medals at two successive Games, bronze at Beijing 2008 and silver at London 2012?", a:"Sushil Kumar", e:"It was a feat later matched by a badminton player." }
         ],
         [
-          { q:"Which real-life Oscar-winning actor, married at the time to one of the show's lead actresses, guest-starred as a former high-school classmate who nursed a years-long grudge against her character?", a:"Brad Pitt", e:"He played Will Colbert opposite his then-wife Jennifer Aniston's character, Rachel, in a season 8 episode." },
-          { q:"Which of the six lead actors was the only one to win a lead-actor Emmy Award for their role on the show, taking home Outstanding Lead Actress in a Comedy Series in 2002?", a:"Jennifer Aniston", e:"Lisa Kudrow separately won a Supporting Actress Emmy for the show in 1998." },
-          { q:"By the show's final two seasons, following a landmark collective salary negotiation among the cast, how much was each of the six lead actors reportedly paid per episode?", a:"$1 million", e:"The deal was, at the time, unprecedented for a half-hour sitcom." },
-          { q:"How many total episodes did the series produce across its entire original ten-season run?", a:"236", e:"The show aired from 1994 to 2004 across ten seasons." },
-          { q:"Which two actors, then starring together on a different hit medical drama, made cameo appearances as doctors treating one of the characters in a first-season episode?", a:"George Clooney and Noah Wyle", e:"Both were starring on ER at the time, which premiered the same year as this show, in 1994." }
+          { q:"Which cast member was originally cast as the radio producer Roz on Frasier, but was let go from that show before it aired?", a:"Lisa Kudrow", e:"She was soon cast in this sitcom instead, and won a Supporting Actress Emmy for it in 1998." },
+          { q:"Which cast member directed ten episodes of the series?", a:"David Schwimmer", e:"He directed episodes across several seasons in addition to starring in the show." },
+          { q:"Which actor, first hired as an uncredited extra, played the Central Perk manager across most of the show's run?", a:"James Michael Tyler", e:"His character began as a background figure before becoming a recurring role." },
+          { q:"Roughly how many millions of US viewers tuned in to watch the series finale in May 2004?", a:"About 52.5 million", e:"It ranks among the most-watched TV finales in US history." },
+          { q:"In which season 3 episode does the central couple's famous dispute, over whether they were separated at the time of a certain betrayal, reach its climax?", a:"The One with the Morning After", e:"It is season 3, episode 15." }
         ],
         [
-          { q:"Which artist's operatic breakout hit opens by asking whether the moment unfolding is real life or merely illusion, before cycling through operatic vocals, a hard-rock middle section, and a slow piano-driven finale?", a:"Queen", e:"The song is 'Bohemian Rhapsody,' written by Freddie Mercury." },
-          { q:"Which artist's breakout hit describes a relationship ending in betrayal, repeatedly warning a former partner that they'll regret losing someone so devoted, set to a driving, percussive arrangement built around handclaps?", a:"Adele", e:"The song is 'Rolling in the Deep,' from her album 21." },
-          { q:"Which artist's most commercially successful single describes a chaotic backstage moment before a major performance, repeatedly describing sweaty palms and a heavy stomach as a wave of nerves takes hold?", a:"Eminem", e:"The song is 'Lose Yourself,' from the film 8 Mile." },
-          { q:"Which artist's version of a song originally written and recorded by Dolly Parton became so definitively associated with her that many listeners assume she wrote it herself, its chorus built around a promise to always care for someone despite a breakup?", a:"Whitney Houston", e:"The song is 'I Will Always Love You,' originally written and recorded by Dolly Parton in 1973." },
-          { q:"Which artist's cover of a Nine Inch Nails song, recorded near the end of his life, reflects on regret and mortality so powerfully that the original songwriter said the track no longer felt like his own?", a:"Johnny Cash", e:"The song is 'Hurt,' originally written by Trent Reznor of Nine Inch Nails." }
+          { q:"Which artist's 2008 single reimagines a famous Shakespearean romance with a happy ending, with the narrator pleading with a disapproving father not to send her suitor away?", a:"Taylor Swift", e:"The song is 'Love Story,' from her 2008 album Fearless." },
+          { q:"Which British band's 2000 breakthrough single has a narrator who would do anything for a loved one beneath a sky of stars, and was filmed with its singer walking along a beach in one continuous take?", a:"Coldplay", e:"The song is 'Yellow,' and the video was shot at Studland Bay in Dorset." },
+          { q:"Which band's 1979 single, a UK Christmas number one, features a choir of north London schoolchildren protesting against rigid teaching and thought control?", a:"Pink Floyd", e:"The song is 'Another Brick in the Wall (Part 2),' from the album The Wall, with the Islington Green School choir." },
+          { q:"Which band's eight-minute 1971 epic, never released as a single, begins as a gentle acoustic and recorder piece about a woman convinced she can buy her way to heaven, before erupting into a hard-rock finale?", a:"Led Zeppelin", e:"The song is 'Stairway to Heaven,' from the band's untitled fourth album." },
+          { q:"Which artist's song, best known through a live recording from a 1975 London concert, recalls evenings in a poor Kingston neighbourhood and comforts a woman, telling her to stop weeping?", a:"Bob Marley", e:"The song is 'No Woman, No Cry,' recorded live at the Lyceum Theatre with the Wailers." }
         ]
       ]
     },
     {
       title: 'ROUND 4',
-      topics: ["Bollywood","Who is X","Game of Thrones","Guess the Actor","Guess the Sportsman"],
+      topics: ["Bollywood Theme","Who is X","Game of Thrones","Guess the Actor","Guess the Sportsman"],
       questions: [
         [
-          { q:"Which actress, one of Hindi cinema's first openly 'bold' leading ladies in the 1970s, rose to fame starring in a film about the hippie counterculture movement in India?", a:"Zeenat Aman", e:"The film was Hare Rama Hare Krishna." },
-          { q:"Which actor starred in a 1987 blockbuster about a scientist's invisibility device, decades before crossing over into Hollywood with an Academy Award-winning ensemble film?", a:"Anil Kapoor", e:"The films were Mr. India and Slumdog Millionaire." },
-          { q:"Which actor worked as a chemist and a night-shift security guard before moving to Mumbai, spending years in small and uncredited film roles before breaking through with a gritty crime saga set in a coal-mining town?", a:"Nawazuddin Siddiqui", e:"The film was Gangs of Wasseypur." },
-          { q:"Which acclaimed actor, known for crossing over into major Hollywood productions, passed away in 2020 after a battle with a rare form of cancer?", a:"Irrfan Khan", e:"He appeared in Life of Pi, Jurassic World, and Slumdog Millionaire, among other international productions." },
-          { q:"Which South Indian actress, famous for glamorous and controversial roles in the 1980s, became the subject of a widely acclaimed 2011 biographical drama starring Vidya Balan?", a:"Silk Smitha", e:"The film was The Dirty Picture." }
+          { q:"Which 2006 film follows a group of college friends in Delhi who are cast in a British filmmaker's documentary about independence-era revolutionaries, and later take up the cause themselves after a personal tragedy?", a:"Rang De Basanti", e:"Directed by Rakeysh Omprakash Mehra, it was chosen as India's entry for the Best Foreign Language Film Oscar." },
+          { q:"Which 2013 film is set in Mumbai and begins with a delivery error by the city's tiffin-carrier network, leading a housewife and a soon-to-retire accountant to exchange handwritten notes?", a:"The Lunchbox", e:"Directed by Ritesh Batra, it stars Irrfan Khan and Nimrat Kaur." },
+          { q:"Which 2012 thriller follows a pregnant woman from London who searches Kolkata for her missing husband?", a:"Kahaani", e:"Directed by Sujoy Ghosh, it is famous for its final twist, set during Durga Puja." },
+          { q:"Which 2012 biographical film tells the story of a champion steeplechase runner from the Indian Army who takes to banditry in the Chambal ravines after a land dispute?", a:"Paan Singh Tomar", e:"Irrfan Khan won the National Award for Best Actor for the title role." },
+          { q:"Which 2003 crime drama transplants a famous tragedy about a Scottish nobleman's rise and fall into the Mumbai underworld?", a:"Maqbool", e:"Directed by Vishal Bhardwaj, it was followed by his Shakespeare adaptations Omkara and Haider." }
         ],
         [
-          { q:"Which toy company's name comes from a Danish phrase meaning 'play well,' a fitting coincidence given that in Latin the same word also happens to mean 'I put together'?", a:"LEGO", e:"The Latin connection is a coincidence the company itself has embraced over the years." },
-          { q:"Which company, now known for mobile phones, was founded in 1865 as a wood-pulp and paper mill in Finland, only entering the electronics and telecommunications industry roughly a century later?", a:"Nokia", e:"It later became one of the world's dominant mobile phone brands before losing ground to smartphone competitors." },
-          { q:"Which disposable-pen company was founded by a Baron who shortened his own surname by one letter, believing the simplified version would be easier for international customers to pronounce and remember?", a:"Bic", e:"The founder was Baron Marcel Bich." },
-          { q:"Which music-identifying app takes its name from the magic word shouted by a DC Comics superhero to transform from an ordinary boy into a costumed hero?", a:"Shazam", e:"The word is an acronym drawing on the powers of Solomon, Hercules, Atlas, Zeus, Achilles, and Mercury." },
-          { q:"Which spicy sauce takes its name from a coastal town in Thailand, where it was first created as a homemade condiment before becoming a global condiment brand?", a:"Sriracha", e:"The town is Si Racha, in Chonburi Province." }
+          { q:"Which email service, launched in 1996 by two engineers, originally capitalized letters in its name to highlight the markup language it was built on?", a:"Hotmail", e:"It was styled HoTMaiL. Microsoft bought it in 1997 for a reported 400 million US dollars, and co-founder Sabeer Bhatia was born in Chandigarh." },
+          { q:"Which snack's inventor, a food-storage chemist, asked for some of his ashes to be buried inside the tall can he designed for it?", a:"Pringles", e:"Fredric Baur designed the stackable crisp's can, and his family honored his request." },
+          { q:"Which tissue brand's original material, cellucotton, was developed during World War I as a cheaper substitute for cotton in wound dressings?", a:"Kleenex", e:"It was relaunched in 1924 as a disposable cold-cream remover." },
+          { q:"Which candy's name comes from the first, middle and last letters of the German word for peppermint, and was originally marketed to adult smokers?", a:"Pez", e:"It was launched in Austria in 1927, and the character-topped dispensers came decades later." },
+          { q:"Which skincare staple's inventor, a chemist who had noticed oil-rig workers using a waxy residue on their cuts, reportedly swallowed a spoonful of it every day to prove it was safe?", a:"Vaseline", e:"Robert Chesebrough patented the process in 1872 and lived to the age of 96." }
         ],
         [
-          { q:"Which character, sworn to protect Catelyn Stark's daughters as part of a deathbed promise, wields a Valyrian steel sword gifted to her by Jaime Lannister and eventually becomes the first woman to serve in the Kingsguard?", a:"Brienne of Tarth", e:"The sword, Oathkeeper, was forged from melted-down Valyrian steel that once belonged to Ned Stark." },
-          { q:"Which character, disfigured as a child after being held to a burning brazier by an older sibling, developed a lifelong terror of fire as a result?", a:"Sandor Clegane (\"The Hound\")", e:"He was burned by his brother, Gregor Clegane, 'The Mountain.'" },
-          { q:"Which character, humiliated as a young man after losing a duel over his love for a noblewoman who saw him as nothing more than a little brother, spends decades quietly maneuvering the Seven Kingdoms toward war and chaos?", a:"Petyr Baelish (\"Littlefinger\")", e:"The duel was with Brandon Stark, over Catelyn Tully." },
-          { q:"Which character, pushed from a tower window early in the story and left unable to walk, ultimately ends up chosen as ruler of the Six Kingdoms specifically because his role as a keeper of stories makes him uniquely suited to the position?", a:"Bran Stark", e:"He was pushed by Jaime Lannister." },
-          { q:"Which character, born illegitimate before being legitimized by royal decree after his father's betrayal of Robb Stark helped end the War of the Five Kings, is known for keeping a pack of hunting dogs he deliberately starves to keep vicious?", a:"Ramsay Bolton (Ramsay Snow)", e:"His legitimization came from Tywin Lannister, as a reward for his father Roose Bolton's role in orchestrating the Red Wedding." }
+          { q:"Which character learns to wear other people's faces while training with a guild of assassins, and is told she must give up her own name?", a:"Arya Stark", e:"She trained at the House of Black and White in Braavos." },
+          { q:"Which exiled knight secretly reports on a young queen's movements to a spymaster back in Westeros, and is banished by her when she discovers it?", a:"Jorah Mormont", e:"He first reported to Varys, and later became fiercely loyal to her." },
+          { q:"Which character gives birth to a shadow that assassinates a claimant to the throne inside his own tent?", a:"Melisandre", e:"The shadow killed Renly Baratheon." },
+          { q:"Which patriarch, said to be the wealthiest man in the realm, is killed by his own son while sitting on a privy?", a:"Tywin Lannister", e:"He was shot with a crossbow by Tyrion Lannister." },
+          { q:"Which Dornish prince, nicknamed after a venomous snake, uses a poisoned spear in a duel to avenge his sister's murder?", a:"Oberyn Martell", e:"He fought Gregor Clegane, and was killed when his opponent crushed his skull." }
         ],
         [
-          { q:"Which actor worked as a professional photographer and a waiter before breaking into films relatively late, in his forties?", a:"Boman Irani", e:"His film career began with Munna Bhai M.B.B.S. in 2003." },
-          { q:"Which actor worked selling vegetables and driving a catering van before pursuing acting, later becoming known for his roles in acclaimed crime dramas and web series?", a:"Pankaj Tripathi", e:"He grew up in a small village in Bihar and moved to Mumbai with very little money before finding steady acting work." },
-          { q:"Which actor began his career as a radio jockey and reality television host before transitioning to films built around socially unconventional subjects?", a:"Ayushmann Khurrana", e:"He won the reality shows MTV Roadies and Fame Gurukul, both in 2004, before starting his radio and TV hosting career." },
-          { q:"Which actor served time in prison over an illegal weapons possession case connected to the 1993 Mumbai bombings, a chapter of his life later dramatized in a biographical film?", a:"Sanjay Dutt", e:"The film was Sanju (2018), starring Ranbir Kapoor." },
-          { q:"Which actor, known for his versatility in low-budget and independent cinema, grew up in a lower-middle-class household in Gurgaon before training at India's Film and Television Institute?", a:"Rajkummar Rao", e:"He's known for films like Newton, Stree, and Shakeela, often praised for disappearing fully into unconventional roles." }
+          { q:"Which actor, the son of a stunt choreographer, made his 1991 debut with a scene in which he stood with each foot on a separate moving motorcycle?", a:"Ajay Devgn", e:"The film was Phool Aur Kaante. His father was action director Veeru Devgan." },
+          { q:"Which actress, the daughter of a former All England badminton champion, played the sport at national level as a junior before turning to modelling?", a:"Deepika Padukone", e:"She has also spoken openly about mental health and founded a foundation on the subject." },
+          { q:"Which actor trained at a New York institute known for method acting, and worked as an assistant director on a 2005 Sanjay Leela Bhansali film before his own debut?", a:"Ranbir Kapoor", e:"He assisted on Black before debuting in Saawariya (2007), and trained at the Lee Strasberg Theatre and Film Institute." },
+          { q:"Which actress, whose parents hoped she would become a doctor, left home for Delhi at 16 to pursue modelling before turning to acting?", a:"Kangana Ranaut", e:"She later also moved into directing." },
+          { q:"Which actor won the 'Sword of Honour' at his Delhi school, and was later made a Chevalier of France's Legion of Honour?", a:"Shah Rukh Khan", e:"He studied economics at Hansraj College before moving to Mumbai, and France awarded him the Legion of Honour in 2014." }
         ],
         [
-          { q:"Which boxer is the only fighter in history to win the world heavyweight title on three separate occasions?", a:"Muhammad Ali", e:"He won the title in 1964, 1974, and 1978." },
-          { q:"Which tennis player holds the all-time record for the most Grand Slam singles titles won by any player, male or female, with 24?", a:"Margaret Court", e:"Most of her titles were won before the sport's 1968 Open Era began." },
-          { q:"Which basketball player holds the record for the most total points scored in NBA history, having surpassed a record that had stood for nearly four decades?", a:"LeBron James", e:"He surpassed Kareem Abdul-Jabbar's record in 2023." },
-          { q:"Which rower won a gold medal at five consecutive Olympic Games spanning 20 years, a feat matched by very few athletes in any endurance sport?", a:"Steve Redgrave", e:"He competed in rowing at five consecutive Olympics from 1984 to 2000, winning gold at each one." },
-          { q:"Which swimmer set a record, unmatched for 36 years, by winning seven gold medals at a single Olympic Games?", a:"Mark Spitz", e:"The record was set at the 1972 Munich Olympics, and stood until Michael Phelps won eight golds in 2008." }
+          { q:"Which boxer became the youngest heavyweight world champion in history, winning the WBC title in 1986 at the age of 20?", a:"Mike Tyson", e:"He was 20 years and 4 months old when he beat Trevor Berbick." },
+          { q:"Which baseball player hit safely in 56 consecutive games in 1941, a record that still stands?", a:"Joe DiMaggio", e:"The streak ran from 15 May to 16 July 1941, with the New York Yankees." },
+          { q:"Which gymnast held the record for most Olympic medals ever, with 18, for 48 years until it was broken in 2012?", a:"Larisa Latynina", e:"Her haul included nine golds across the 1956, 1960 and 1964 Games. Michael Phelps broke the record." },
+          { q:"Which pole vaulter became the first to clear six metres, and went on to set 35 world records?", a:"Sergey Bubka", e:"He cleared 6.00 m in 1985, and his outdoor record of 6.14 m stood until 2014." },
+          { q:"Which chess player reached the highest rating in history, 2882, in 2014?", a:"Magnus Carlsen", e:"He became world champion in 2013 and held the title until he declined to defend it in 2023." }
         ]
       ]
     },
@@ -743,39 +743,39 @@
       topics: ["Indian History","Women of India","Cars & Racing","Guess the Brand","Guess the Singer"],
       questions: [
         [
-          { q:"Which 12th-century king, ruler of Delhi and Ajmer, defeated an invading Central Asian ruler in battle once, only to be decisively defeated and captured by the same rival the following year?", a:"Prithviraj Chauhan", e:"The rival was Muhammad of Ghor; the battles were the First and Second Battles of Tarain, in 1191 and 1192." },
-          { q:"Which former slave-general became the first Sultan of Delhi, founding a new ruling dynasty and beginning construction of a towering victory minaret that still stands in the city today?", a:"Qutub-ud-din Aibak", e:"The tower is the Qutub Minar." },
-          { q:"Which 14th-century Moroccan traveler, having journeyed across nearly the entire known Islamic world, spent several years serving as a judge in Delhi under Sultan Muhammad bin Tughlaq?", a:"Ibn Battuta", e:"He later recorded his travels in a book known as the Rihla." },
-          { q:"Which 1761 battle resulted in a catastrophic defeat for the Maratha Empire at the hands of an Afghan invader, a loss so devastating it significantly weakened Maratha power in North India for years?", a:"The Third Battle of Panipat", e:"The Afghan invader was Ahmad Shah Abdali (Durrani)." },
-          { q:"Which legendary queen of a Rajput kingdom is said to have committed jauhar, a mass ritual self-immolation, alongside the women of her court to avoid capture during a Sultanate ruler's siege of her fortress?", a:"Rani Padmini (Padmavati)", e:"The siege, of Chittor by Alauddin Khilji, and Padmini's existence itself are debated by historians, drawn largely from a 16th-century epic poem written centuries later." }
+          { q:"Which Mughal emperor, who reigned for nearly 50 years and took the empire to its greatest extent, is said to have funded his personal needs by sewing caps and copying the Quran?", a:"Aurangzeb", e:"He ruled from 1658 to 1707." },
+          { q:"Which seventh-century north Indian emperor, himself the author of the play Ratnavali, hosted a grand assembly at Kannauj attended by the Chinese pilgrim Xuanzang?", a:"Harsha (Harshavardhana)", e:"His court poet Banabhatta wrote his biography, the Harshacharita." },
+          { q:"Which Delhi sultan moved his capital roughly 1,100 km south to Daulatabad and issued token coins of brass and copper?", a:"Muhammad bin Tughlaq", e:"Both experiments ultimately failed, and the capital moved back to Delhi." },
+          { q:"Which ruler of Ghazni launched about seventeen raids into northern India, plundering the Somnath temple in 1025?", a:"Mahmud of Ghazni", e:"He raided repeatedly but did not establish lasting rule in India." },
+          { q:"Which princely state, ruled by a Nizam once counted among the world's richest men, was absorbed into India after a five-day military operation in September 1948?", a:"Hyderabad", e:"The operation was codenamed Operation Polo." }
         ],
         [
-          { q:"Which police officer, India's first woman to join the IPS, once reportedly had the Prime Minister's own official car towed away for illegal parking near a Delhi market?", a:"Kiran Bedi", e:"The car is said to have belonged to Indira Gandhi, and the incident became one of the most retold stories about Bedi's uncompromising reputation, earning her the nickname 'Crane Bedi.'" },
-          { q:"Which actress, after establishing herself in Bollywood, launched an English-language pop music career in the United States, releasing singles alongside American artists including will.i.am?", a:"Priyanka Chopra", e:"Her English-language singles included 'In My City' and 'Exotic,' released around 2012-2013." },
-          { q:"Which 1857 rebellion leader was described by the British general who ultimately defeated her as 'the bravest and best' of all the rebel commanders he had faced?", a:"Rani Lakshmibai", e:"The general was Sir Hugh Rose; she died in battle at Kotah-ki-Serai, reportedly disguised in soldier's clothing." },
-          { q:"Which poet and freedom fighter became the first woman to serve as Governor of an Indian state after independence, taking charge of the United Provinces (now Uttar Pradesh) in 1947?", a:"Sarojini Naidu", e:"She's also widely known as the 'Nightingale of India' for her poetry." },
-          { q:"Which badminton champion was awarded India's second-highest civilian honor, the Padma Bhushan, before she had even turned 25 years old?", a:"P.V. Sindhu", e:"She later also received the Padma Shri and the Rajiv Gandhi Khel Ratna, among India's highest sporting honors." }
+          { q:"Which actress, born Mumtaz Jehan Dehlavi, kept a congenital heart defect secret during her career and died in 1969 at the age of 36?", a:"Madhubala", e:"She played Anarkali in Mughal-E-Azam (1960)." },
+          { q:"Which chief minister, who stood first in her state in school exams and trained as a Bharatanatyam dancer, acted in more than 140 films before entering politics?", a:"Jayalalithaa", e:"She served several terms as Chief Minister of Tamil Nadu between 1991 and 2016." },
+          { q:"Which mathematical prodigy multiplied two randomly chosen 13-digit numbers in 28 seconds in London in 1980, and later contested a Lok Sabha seat against Indira Gandhi?", a:"Shakuntala Devi", e:"The feat took place at Imperial College London and was recorded by Guinness." },
+          { q:"Which filmmaker used earnings from her 1988 Oscar-nominated debut feature about Mumbai street children to set up a charity for street kids?", a:"Mira Nair", e:"The film was Salaam Bombay!, and the charity is the Salaam Baalak Trust." },
+          { q:"Which entrepreneur trained as a master brewer in Australia but, unable to find a brewing job in India as a woman, started a biotechnology company in a garage with Rs 10,000?", a:"Kiran Mazumdar-Shaw", e:"The company is Biocon, founded in Bengaluru in 1978." }
         ],
         [
-          { q:"Which British 4x4 brand's very first model was reportedly sketched directly into the sand of a Welsh beach by its designer, inspired by a US Army Jeep his company had been using on its own farm?", a:"Land Rover", e:"The designer was Maurice Wilks; the sketch was made at Red Wharf Bay, Anglesey." },
-          { q:"Which British car brand, known today for its leaping-cat logo, operated for its first two decades under a name later abandoned after WWII because its abbreviated initials had taken on an unfortunate wartime association?", a:"Jaguar", e:"It was originally the Swallow Sidecar Company, abbreviated 'SS.'" },
-          { q:"Which Formula 1 driver, a two-time World Champion in the mid-2000s, holds one of the longest active careers of any driver in the sport's history, still competing more than two decades after his debut?", a:"Fernando Alonso", e:"He made his F1 debut in 2001 and has continued racing at the top level for over two decades since." },
-          { q:"Which Swedish hypercar manufacturer, founded by an entrepreneur inspired as a child by a Norwegian animated film about a cobbler who built his own tiny race car, has repeatedly broken world speed records with extremely limited-production vehicles?", a:"Koenigsegg", e:"The founder is Christian von Koenigsegg; the film is Flåklypa Grand Prix." },
-          { q:"Which car company's name literally translates to 'people's car' in German, originally commissioned in the 1930s to produce an affordable vehicle for ordinary German families?", a:"Volkswagen", e:"The project was commissioned under Germany's 'Strength Through Joy' program in the 1930s, with the design led by Ferdinand Porsche." }
+          { q:"Which car, launched in Japan in December 1997, was the world's first mass-produced hybrid?", a:"Toyota Prius", e:"'Prius' is Latin for 'to go before.'" },
+          { q:"Which compact car, designed by Alec Issigonis and launched in 1959, mounted its engine sideways to leave about 80 percent of its floorplan for passengers and luggage?", a:"The original Mini", e:"The layout became the template for most small front-wheel-drive cars." },
+          { q:"Which racing circuit near Greater Noida hosted India's only three Formula 1 Grands Prix, from 2011 to 2013?", a:"Buddh International Circuit", e:"Sebastian Vettel won all three races there." },
+          { q:"Which Chennai-born driver became the first Indian to start a Formula 1 Grand Prix, making his debut in Australia in 2005?", a:"Narain Karthikeyan", e:"He drove for Jordan that season." },
+          { q:"Which Formula 1 car, fitted with a large rear fan that pulled it down onto the track, raced only once in 1978, winning before being withdrawn?", a:"Brabham BT46B (the 'fan car')", e:"Niki Lauda won the 1978 Swedish Grand Prix in it, after which the team withdrew it under pressure from rivals." }
         ],
         [
-          { q:"Which brand's tagline is 'Finger Lickin' Good'?", a:"KFC", e:"The slogan was quietly paused in some markets during the COVID-19 pandemic, for obvious reasons." },
-          { q:"Which brand's tagline is 'The Happiest Place on Earth'?", a:"Disneyland", e:"It's been associated with the park since its 1955 opening in Anaheim, California." },
-          { q:"Which brand's tagline is 'Gives You Wiiings'?", a:"Red Bull", e:"The German original is 'Red Bull verleiht Flugel.'" },
-          { q:"Which brand's tagline is 'The Best a Man Can Get'?", a:"Gillette", e:"The line has run since 1989." },
-          { q:"Which brand's German-language tagline translates to 'Progress through Technology'?", a:"Audi", e:"The original phrase, 'Vorsprung durch Technik,' is often used untranslated even in English-speaking markets." }
+          { q:"Which brand's tagline is 'Betcha Can't Eat Just One'?", a:"Lay's", e:"The slogan dates to the 1960s and was famously fronted by actor Bert Lahr." },
+          { q:"Which brand's tagline is 'Think Outside the Bun'?", a:"Taco Bell", e:"The campaign launched in the late 1990s, alongside its famous chihuahua mascot." },
+          { q:"Which brand's tagline is 'Where's the Beef?'", a:"Wendy's", e:"The 1984 campaign starred Clara Peller and became a national catchphrase, even turning up in a presidential debate." },
+          { q:"Which brand's tagline is 'When It Absolutely, Positively Has to Be There Overnight'?", a:"FedEx", e:"The slogan launched in 1978, when the company was still called Federal Express." },
+          { q:"Which brand's tagline is 'The Best or Nothing'?", a:"Mercedes-Benz", e:"It echoes a motto of co-founder Gottlieb Daimler, 'Das Beste oder nichts.'" }
         ],
         [
-          { q:"Which artist's most famous protest song repeatedly poses a series of unanswerable rhetorical questions about war, freedom, and human suffering, with each verse ending on the same line about an answer floating just out of reach?", a:"Bob Dylan", e:"The song is 'Blowin' in the Wind,' released in 1963." },
-          { q:"Which artist's biggest-selling single warns a specific woman that a child is not his responsibility, insisting repeatedly across the chorus that he is not the father in question?", a:"Michael Jackson", e:"The song is 'Billie Jean,' from the album Thriller." },
-          { q:"Which group's song describes a narrator confessing that seeing a former partner again makes all their resolve crumble instantly, admitting that since the breakup there's been an empty ache, and wondering how they could ever have let them go?", a:"ABBA", e:"The song is 'Mamma Mia.'" },
-          { q:"Which artist's most famous tribute song was originally written about a Hollywood icon in 1973, then rewritten with entirely new lyrics for a British royal's funeral in 1997, becoming one of the best-selling singles in chart history?", a:"Elton John", e:"The song, 'Candle in the Wind,' was originally about Marilyn Monroe before being rewritten for Princess Diana." },
-          { q:"Which artist's hit song addresses a woman dancing nearby with the narrator's ex-boyfriend, pointing out that no real commitment was ever made to her, before repeatedly urging her to make sure any future partner formalizes things properly?", a:"Beyoncé", e:"The song is 'Single Ladies (Put a Ring on It).'" }
+          { q:"Which singer's 1969 chartbuster was filmed with a man in an open jeep serenading a woman reading on a toy train in the hills, asking when his dream woman will finally appear?", a:"Kishore Kumar", e:"The song is 'Mere Sapnon Ki Rani' from Aradhana, composed by S. D. Burman." },
+          { q:"Which singer's haunting 1964 song from a suspense film pleads for an embrace because the narrator cannot be sure such a night will ever come again?", a:"Lata Mangeshkar", e:"The song is 'Lag Ja Gale' from Woh Kaun Thi?, composed by Madan Mohan." },
+          { q:"Which singer's 1998 song was filmed with dancers atop a moving steam train in the Nilgiri hills, with words inspired by a Sufi poem from Punjab?", a:"Sukhwinder Singh", e:"The song is 'Chaiyya Chaiyya' from Dil Se.., composed by A. R. Rahman with lyrics by Gulzar." },
+          { q:"Which singer's 2003 title track urges listeners to live each day fully because tomorrow is never guaranteed?", a:"Sonu Nigam", e:"The song is 'Kal Ho Naa Ho,' with music by Shankar-Ehsaan-Loy and lyrics by Javed Akhtar." },
+          { q:"Which singer's 2013 ballad, from a film about a troubled musician and a young aspiring singer, declares that the beloved has become the narrator's whole reason for living?", a:"Arijit Singh", e:"The song is 'Tum Hi Ho,' from Aashiqui 2, which made him a household name." }
         ]
       ]
     }
@@ -1052,7 +1052,7 @@
         nextRoundBtn.hidden = false;
         nextRoundBtn.textContent = 'Start ' + ROUNDS[state.roundIndex+1].title + ' →';
       } else {
-        roundBannerMsg.textContent = 'Round complete — that’s the last board ready. Ask for more questions to keep playing.';
+        roundBannerMsg.textContent = 'Round complete - that’s the last board ready. Ask for more questions to keep playing.';
         nextRoundBtn.hidden = true;
       }
     } else {
@@ -1141,7 +1141,7 @@
     } else {
       var hint = document.createElement('p');
       hint.className = 'empty-hint';
-      hint.textContent = 'No question saved for this tile — use the ✎ on the tile to add one.';
+      hint.textContent = 'No question saved for this tile - use the ✎ on the tile to add one.';
       modalBody.appendChild(hint);
     }
 
@@ -1274,7 +1274,7 @@
 
     var imgInput = document.createElement('textarea');
     imgInput.value = cell.image || '';
-    imgInput.placeholder = '<svg viewBox="0 0 100 100">…</svg> — shown above the question';
+    imgInput.placeholder = '<svg viewBox="0 0 100 100">…</svg> - shown above the question';
     modalBody.appendChild(imgInput);
 
     var actions = document.createElement('div');
