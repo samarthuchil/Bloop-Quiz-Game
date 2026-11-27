@@ -565,7 +565,7 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'quiz-dashboard-state-v19';
+  var STORAGE_KEY = 'quiz-dashboard-state-v20';
   var DEFAULT_POINTS = [10,20,30,40,50];
   var MIN_TOPICS = 3, MAX_TOPICS = 6;
   var TEAM_LETTERS = ['a','b','c','d','e','f'];
@@ -576,124 +576,82 @@
   var ROUNDS = [
     {
       title: 'ROUND 1',
-      topics: ["Cricket Records","Indian History","Indian Brand Campaigns","Famous Books","Legendary Movie Quotes"],
+      topics: ["Iconic Sports Moments","Iconic Brand Jingles","Famous Quotes"],
       questions: [
         [
-          { q:"Which England bowler, who retired in 2024, became the first fast bowler to take 700 Test wickets?", a:"James Anderson", e:"He finished with 704 Test wickets in 188 Tests, the most by any fast bowler." },
-          { q:"Which opener became the first Indian to score a Test triple century, making 309 against Pakistan at Multan in 2004?", a:"Virender Sehwag", e:"The innings earned him the nickname 'the Sultan of Multan'. He scored a second triple century, 319, against South Africa in 2008." },
-          { q:"Which Sri Lankan pair hold the record for the highest partnership in Test cricket, 624 for the third wicket against South Africa in 2006?", a:"Mahela Jayawardene and Kumar Sangakkara", e:"The stand came at the SSC in Colombo. Jayawardene made 374 and Sangakkara 287." },
-          { q:"Which South African hit the fastest century in one-day internationals, reaching 100 off just 31 balls against the West Indies in 2015?", a:"AB de Villiers", e:"He went on to make 149 off 44 balls in Johannesburg, with 16 sixes." },
-          { q:"Which English batsman, known as 'The Master', holds the records for the most runs and the most centuries in first-class cricket?", a:"Jack Hobbs", e:"He scored over 61,000 first-class runs and around 199 centuries, and was the first professional cricketer to be knighted." }
+          { q:"Which team did India beat in the 1983 Cricket World Cup final at Lord's?", a:"The West Indies", e:"India defended just 183 and won by 43 runs, ending the West Indies' run of two straight titles." },
+          { q:"In which city's stadium did MS Dhoni finish the 2011 World Cup final with a six?", a:"Mumbai (Wankhede Stadium)", e:"India beat Sri Lanka by six wickets to win their first World Cup in 28 years." },
+          { q:"Which American long jumper leapt 8.90 metres at the 1968 Mexico City Olympics, a world record that stood for almost 23 years?", a:"Bob Beamon", e:"He beat the old record by 55 cm. Mike Powell finally broke it in 1991, but it is still the Olympic record." },
+          { q:"Which two American sprinters raised black-gloved fists on the 200 m podium at the 1968 Olympics?", a:"Tommie Smith and John Carlos", e:"Smith won gold and Carlos bronze. Australian silver medallist Peter Norman wore a human-rights badge in support." },
+          { q:"Which Ethiopian runner won the 1960 Olympic marathon in Rome running barefoot?", a:"Abebe Bikila", e:"He became the first Black African Olympic champion, and won the marathon again in Tokyo in 1964, this time in shoes." }
         ],
         [
-          { q:"Which Mughal emperor's garden tomb in Delhi, completed in the early 1570s, is often called an inspiration for the Taj Mahal?", a:"Humayun", e:"His widow, Hamida Banu Begum, commissioned it. It was the first garden tomb on the Indian subcontinent." },
-          { q:"Which Portuguese explorer reached Calicut in 1498, opening a sea route from Europe to India?", a:"Vasco da Gama", e:"He sailed around the Cape of Good Hope and landed at Kappad, near Calicut (Kozhikode)." },
-          { q:"Which 1916 agreement saw the Indian National Congress and the Muslim League agree on joint demands for self-government?", a:"The Lucknow Pact", e:"Bal Gangadhar Tilak and Muhammad Ali Jinnah played key roles in it." },
-          { q:"Which Afghan ruler, who defeated Humayun in 1540, introduced the silver coin called the 'rupiya' and rebuilt the Grand Trunk Road?", a:"Sher Shah Suri", e:"His coin is the ancestor of today's rupee." },
-          { q:"Which Kalinga king's Hathigumpha inscription, carved into a cave near Bhubaneswar, records his military campaigns in the first century BCE?", a:"Kharavela", e:"The inscription is in the Udayagiri caves and is one of the most important records of ancient Odisha." }
+          { q:"Which instant noodle brand's ads promised it would be ready in just '2 minute'?", a:"Maggi", e:"Nestlé launched it in India in 1983, and the '2-minute noodles' line became part of everyday speech." },
+          { q:"Which toothpaste brand's ads famously asked 'Kya aapke toothpaste mein namak hai?'", a:"Colgate", e:"The line was used to launch Colgate Active Salt." },
+          { q:"Which toffee's ads ask why it is so chocolaty, and tell you to eat one to find out?", a:"Melody (Parle)", e:"The question-and-answer jingle has run in Parle's ads for decades." },
+          { q:"Which soap's 1975 ad showed a woman in a green bikini, laughing under a waterfall to a 'la-la-la' jingle?", a:"Liril", e:"Alyque Padamsee's agency, Lintas, made it, with model Karen Lunel. It was shot at a waterfall near Kodaikanal." },
+          { q:"Which cooking oil's ad showed a little boy running away from home, until an uncle tempts him back with a jalebi?", a:"Dhara", e:"The boy's family has made jalebis with Dhara, so he decides to go home. It is one of India's most loved ads." }
         ],
         [
-          { q:"Which chocolate brand's 'Kuch Meetha Ho Jaaye' campaign pitched it as the sweet for every Indian celebration?", a:"Cadbury Dairy Milk", e:"Amitabh Bachchan fronted the campaign in the 2000s, and it is still one of India's best-known taglines." },
-          { q:"Which detergent brand's 'Daag Achhe Hain' campaign argued that getting dirty is good if it comes from doing good?", a:"Surf Excel", e:"Its ads usually show children getting messy while helping someone." },
-          { q:"Which mobile network's 2003 campaign showed a pug following a little boy everywhere, with the line 'Wherever you go, our network follows'?", a:"Hutch", e:"The pug became so famous that sales of pugs reportedly shot up in India. The brand later became Vodafone." },
-          { q:"Which soft-drink concentrate's 1980s TV jingle had a little girl saying 'I love you' followed by the brand name?", a:"Rasna", e:"The girl was child actor Ankita Jhaveri, and the line became a catchphrase for a generation." },
-          { q:"Which cola brand, launched in 1977 after Coca-Cola left India, uses the tagline 'Taste the Thunder'?", a:"Thums Up", e:"Parle created it. Coca-Cola bought it in 1993 when it returned to India, and it is still one of the company's biggest brands in India." }
-        ],
-        [
-          { q:"Which George Orwell novel introduced 'Big Brother', 'Room 101' and 'doublethink'?", a:"Nineteen Eighty-Four", e:"It was published in 1949, the year before Orwell died." },
-          { q:"Which Harper Lee novel is narrated by a girl called Scout Finch, whose father defends a Black man accused of a crime in Alabama?", a:"To Kill a Mockingbird", e:"It won the Pulitzer Prize for Fiction in 1961." },
-          { q:"Which novel opens with the words 'Call me Ishmael'?", a:"Moby-Dick", e:"Herman Melville published it in 1851. It sold poorly in his lifetime." },
-          { q:"Which 1958 Chinua Achebe novel follows Okonkwo, a proud Igbo wrestler and leader, as colonial rule arrives?", a:"Things Fall Apart", e:"Its title comes from W. B. Yeats's poem 'The Second Coming'." },
-          { q:"Which 1993 Vikram Seth novel, one of the longest single-volume novels in English, follows a mother's search for a husband for her daughter, Lata?", a:"A Suitable Boy", e:"It runs to roughly 1,350 pages, and Mira Nair adapted it for the BBC in 2020." }
-        ],
-        [
-          { q:"Which film series made the line 'May the Force be with you' famous?", a:"Star Wars", e:"It was first heard in the original 1977 film." },
-          { q:"In which 1972 film does a character promise to make someone 'an offer he can't refuse'?", a:"The Godfather", e:"Marlon Brando's Vito Corleone says it, and Al Pacino's Michael later repeats it." },
-          { q:"In which 1942 film does Humphrey Bogart say, 'Here's looking at you, kid'?", a:"Casablanca", e:"Bogart's character, Rick Blaine, runs a nightclub in Morocco." },
-          { q:"In which 1975 Hindi film does Shashi Kapoor answer his brother's boast with 'Mere paas Maa hai'?", a:"Deewaar", e:"Salim-Javed wrote it, and Yash Chopra directed." },
-          { q:"In which 1995 film does a character say 'The greatest trick the devil ever pulled was convincing the world he didn't exist'?", a:"The Usual Suspects", e:"Kevin Spacey's character says it about the mysterious crime lord Keyser Söze." }
+          { q:"Who said 'That's one small step for man, one giant leap for mankind'?", a:"Neil Armstrong", e:"He said it as he stepped onto the Moon on 20 July 1969 (21 July in India)." },
+          { q:"Which freedom fighter declared 'Swaraj is my birthright, and I shall have it'?", a:"Bal Gangadhar Tilak", e:"He was called 'Lokmanya', meaning 'accepted by the people'." },
+          { q:"Which US president said in his inaugural address, 'Ask not what your country can do for you'?", a:"John F. Kennedy", e:"The rest of the line asks what you can do for your country. He gave the speech in January 1961." },
+          { q:"Which French philosopher wrote 'I think, therefore I am'?", a:"René Descartes", e:"It first appeared in French, as 'Je pense, donc je suis', in his Discourse on the Method (1637)." },
+          { q:"Which Roman general reported 'Veni, vidi, vici' ('I came, I saw, I conquered') after a five-day campaign in 47 BCE?", a:"Julius Caesar", e:"He wrote it after defeating Pharnaces II of Pontus at the Battle of Zela." }
         ]
       ]
     },
     {
       title: 'ROUND 2',
-      topics: ["Cars & Racing","Harry Potter Quotes","Famous Artists","Logic","Ancient Mythology"],
+      topics: ["Famous Sitcom Quotes","Food Dish Origins","Historical Indian Moments"],
       questions: [
         [
-          { q:"Which Italian car brand's logo is a trident, inspired by the Fountain of Neptune in Bologna?", a:"Maserati", e:"The company was founded in Bologna in 1914 by the Maserati brothers." },
-          { q:"Which Swedish car maker's name is Latin for 'I roll'?", a:"Volvo", e:"It began as a ball-bearing company's subsidiary, which explains the name." },
-          { q:"Which race became Formula 1's first night race in 2008, on the Marina Bay Street Circuit?", a:"The Singapore Grand Prix", e:"The track is lit by more than 1,500 floodlights." },
-          { q:"Which British driver won the 2009 Formula 1 world title with Brawn GP, a team that only existed for one season?", a:"Jenson Button", e:"Brawn GP rose out of Honda's withdrawal and was sold to Mercedes after winning both titles." },
-          { q:"Which Scottish driver won three Formula 1 world titles, in 1969, 1971 and 1973, and became a leading campaigner for safety?", a:"Jackie Stewart", e:"He was nicknamed 'the Flying Scot' and retired at the end of the 1973 season." }
+          { q:"Which Big Bang Theory character's catchphrase is 'Bazinga!'?", a:"Sheldon Cooper", e:"Jim Parsons played him and won four Emmys for the role." },
+          { q:"In the US version of The Office, which character can't resist saying 'That's what she said'?", a:"Michael Scott", e:"Steve Carell played the Scranton branch manager for seven seasons." },
+          { q:"In which Hindi sitcom does Maya call things 'so middle class' while her son Rosesh recites terrible poems?", a:"Sarabhai vs Sarabhai", e:"It first aired in 2004, set in a wealthy Mumbai family's home." },
+          { q:"Which How I Met Your Mother character's catchphrases include 'Suit up!' and 'Legendary'?", a:"Barney Stinson", e:"Neil Patrick Harris played him, and he usually stretches 'legendary' out with 'wait for it' in the middle." },
+          { q:"Which hotel owner keeps telling his staff 'Don't mention the war!' before mentioning it himself, in front of German guests?", a:"Basil Fawlty", e:"John Cleese played him in Fawlty Towers. The episode is called 'The Germans' (1975)." }
         ],
         [
-          { q:"Who tells Harry, 'You're a wizard, Harry'?", a:"Rubeus Hagrid", e:"He says it on Harry's eleventh birthday, in the hut on the rock." },
-          { q:"Who tells Harry, 'It does not do to dwell on dreams and forget to live'?", a:"Albus Dumbledore", e:"He says it after finding Harry in front of the Mirror of Erised." },
-          { q:"Which character barks 'Constant vigilance!' at his students?", a:"Mad-Eye Moody", e:"In Goblet of Fire it is actually Barty Crouch Jr in disguise, using Polyjuice Potion." },
-          { q:"Which teacher offers Harry a biscuit, saying 'Have a biscuit, Potter', after Umbridge sends him to her office with a note?", a:"Professor McGonagall", e:"In Order of the Phoenix, Harry had shouted at Umbridge in class that Voldemort was back. McGonagall then warns him to keep his head down." },
-          { q:"Who tells Harry that 'things we lose have a way of coming back to us in the end'?", a:"Luna Lovegood", e:"She says it in Order of the Phoenix, about the belongings other students have hidden from her." }
+          { q:"Pizza Margherita is said to be named after an Italian queen who visited which city in 1889?", a:"Naples", e:"Legend says pizzaiolo Raffaele Esposito used tomato, mozzarella and basil to match the Italian flag." },
+          { q:"Which layered rice-and-meat dish is believed to have reached India with Persian cooks and the Mughals?", a:"Biryani", e:"Its name is often traced to the Persian 'birinj' (rice) or 'biryan' (fried or roasted)." },
+          { q:"Which dish is credited to Kundan Lal Gujral of Delhi's Moti Mahal restaurant, made to use up leftover tandoori chicken?", a:"Butter chicken (murgh makhani)", e:"The credit is now being disputed in court by the family behind the rival Daryaganj restaurant chain." },
+          { q:"Which meringue dessert is named after a Russian ballerina who toured Australia and New Zealand in the 1920s?", a:"Pavlova", e:"It is named after Anna Pavlova. Australia and New Zealand still argue over who invented it." },
+          { q:"Which Goan dish gets its name from the Portuguese 'carne de vinha d'alhos', meaning meat in wine and garlic?", a:"Vindaloo", e:"In Goa the wine was replaced with vinegar, and local chillies were added." }
         ],
         [
-          { q:"Which American pop artist made '32 Campbell's Soup Cans' in 1962?", a:"Andy Warhol", e:"He also made famous silkscreen portraits of Marilyn Monroe." },
-          { q:"Which French Impressionist painted around 250 'Water Lilies' pictures of his garden pond at Giverny?", a:"Claude Monet", e:"His painting 'Impression, Sunrise' gave Impressionism its name." },
-          { q:"Which Dutch artist painted 'Girl with a Pearl Earring'?", a:"Johannes Vermeer", e:"Only about 35 paintings are firmly credited to him." },
-          { q:"Which Indian painter, famous for his oil paintings of Hindu gods and scenes from the epics, set up a printing press so ordinary people could buy copies?", a:"Raja Ravi Varma", e:"His press opened near Bombay in the 1890s, and his images shaped how many Indians picture the gods." },
-          { q:"Which Spanish court painter made 'Las Meninas' in 1656, including himself at his easel in the picture?", a:"Diego Velázquez", e:"It hangs in the Prado in Madrid. Picasso painted 58 variations of it." }
-        ],
-        [
-          { q:"What number comes next in this sequence: 1, 4, 9, 16, 25, ...?", a:"36", e:"They are the square numbers: 1×1, 2×2, 3×3 and so on, so next is 6×6." },
-          { q:"A farmer must cross a river with a wolf, a goat and a cabbage. His boat holds him and one item, and he can't leave the wolf with the goat, or the goat with the cabbage. What does he take across first?", a:"The goat", e:"Then the wolf, bringing the goat back; then the cabbage; then the goat again." },
-          { q:"A patch of lily pads doubles in size every day. If it takes 48 days to cover the whole lake, how many days does it take to cover half of it?", a:"47 days", e:"It doubles every day, so it is half-covered the day before it is fully covered." },
-          { q:"You have a 3-litre jug and a 5-litre jug, and unlimited water. How do you measure exactly 4 litres?", a:"Fill the 5, pour into the 3 (leaving 2), empty the 3, pour the 2 into it, refill the 5, then top up the 3. The 5-litre jug is left with 4.", e:"Topping up the 3-litre jug takes exactly 1 litre from the full 5." },
-          { q:"Using only a 7-minute and an 11-minute sand timer, how can you time exactly 15 minutes?", a:"Start both. When the 7 runs out, flip it. When the 11 runs out, flip the 7 again: it runs 4 more minutes, ending at 15.", e:"At 11 minutes, the 7-minute timer has 4 minutes of sand in its bottom half, so flipping it gives exactly 4 more." }
-        ],
-        [
-          { q:"Which Greek hero was invulnerable everywhere except his heel?", a:"Achilles", e:"His mother dipped him in the River Styx, holding him by the heel. Paris killed him with an arrow at Troy." },
-          { q:"In Norse mythology, what is the name of Thor's hammer?", a:"Mjölnir", e:"It was forged by dwarves and always came back to Thor's hand after he threw it." },
-          { q:"Which jackal-headed Egyptian god oversaw mummification and the weighing of the heart?", a:"Anubis", e:"In the afterlife, the dead person's heart was weighed against the feather of Ma'at." },
-          { q:"In the Ramayana, which old vulture king fought Ravana to stop him carrying Sita away?", a:"Jatayu", e:"Ravana cut off his wings. He lived long enough to tell Rama what had happened." },
-          { q:"Which king of Uruk is the hero of what is often called the world's oldest surviving great work of literature, in which he searches for immortality?", a:"Gilgamesh", e:"The Epic of Gilgamesh comes from ancient Mesopotamia and includes a great flood story." }
+          { q:"Which movement did Gandhi launch in August 1942 with the call 'Do or Die'?", a:"The Quit India Movement", e:"He launched it at Gowalia Tank in Bombay, now known as August Kranti Maidan." },
+          { q:"Which mission made India the first country to land near the Moon's south pole, in August 2023?", a:"Chandrayaan-3", e:"The Vikram lander touched down on 23 August, now celebrated as National Space Day." },
+          { q:"In which year did Indira Gandhi's government declare a national Emergency, which lasted until 1977?", a:"1975", e:"It was declared on 25 June 1975 and lasted about 21 months." },
+          { q:"What was the code name of India's first nuclear test, at Pokhran in May 1974?", a:"Smiling Buddha", e:"The test took place on 18 May 1974, which was Buddha Purnima that year." },
+          { q:"What was the name of India's first satellite, launched by the Soviet Union in 1975?", a:"Aryabhata", e:"It was named after the fifth-century Indian mathematician and astronomer." }
         ]
       ]
     },
     {
       title: 'ROUND 3',
-      topics: ["One Hit Wonders","Musicians & Their Songs","Food Trade","Iconic Fashion Moments","Human Biology"],
+      topics: ["Tech Entrepreneurs","Iconic Hindi Movie Dialogues","Guess the Singer"],
       questions: [
         [
-          { q:"Which Spanish duo's 'Macarena' spent 14 weeks at number one in the United States in 1996?", a:"Los del Río", e:"The dance became a worldwide craze, with a remix by the Bayside Boys taking it to the top." },
-          { q:"Which South Korean singer's 2012 hit 'Gangnam Style' became the first YouTube video to pass one billion views?", a:"PSY", e:"It hit the billion mark in December 2012, and its horse-riding dance went global." },
-          { q:"Which Norwegian band, often called a one-hit wonder in America, had a 1985 hit with 'Take On Me' and its pencil-sketch video?", a:"a-ha", e:"The video mixes live action with rotoscoped animation and won six MTV Video Music Awards." },
-          { q:"Which English anarcho-punk band had a 1997 worldwide hit with 'Tubthumping'?", a:"Chumbawamba", e:"The band had been releasing records since the early 1980s before their one big hit." },
-          { q:"Which Belgian-born Australian singer had a 2011 worldwide number one with 'Somebody That I Used to Know', featuring Kimbra?", a:"Gotye", e:"The song won Record of the Year at the 2013 Grammys." }
+          { q:"Who co-founded Microsoft with Paul Allen in 1975?", a:"Bill Gates", e:"He dropped out of Harvard to start the company in Albuquerque, New Mexico." },
+          { q:"Which Apple co-founder unveiled the iPhone in 2007?", a:"Steve Jobs", e:"He co-founded Apple with Steve Wozniak in 1976, was forced out in 1985, and returned in 1997." },
+          { q:"Which Chennai-raised engineer became CEO of Google in 2015, and later of its parent company, Alphabet?", a:"Sundar Pichai", e:"He studied at IIT Kharagpur and earlier led the team behind the Chrome browser." },
+          { q:"Who co-founded Flipkart with Binny Bansal in 2007, after both had worked at Amazon?", a:"Sachin Bansal", e:"Despite sharing a surname, they are not related. Walmart bought a controlling stake in Flipkart in 2018." },
+          { q:"Who co-founded Nvidia in 1993, reportedly planning it over meals at a Denny's, and is known for his trademark leather jacket?", a:"Jensen Huang", e:"He co-founded the company with Chris Malachowsky and Curtis Priem, and has been CEO ever since." }
         ],
         [
-          { q:"Which singer-songwriter released 'Shape of You' in 2017?", a:"Ed Sheeran", e:"It became one of the most-streamed songs ever on Spotify." },
-          { q:"Which band released 'Hey Jude' in 1968?", a:"The Beatles", e:"Paul McCartney wrote it to comfort John Lennon's son Julian during his parents' divorce." },
-          { q:"Which artist wrote and recorded 'Purple Rain' and starred in the 1984 film of the same name?", a:"Prince", e:"The soundtrack won the Oscar for Best Original Song Score." },
-          { q:"Which Irish band's 1987 album The Joshua Tree includes 'With or Without You'?", a:"U2", e:"It was the band's first number one single in the United States." },
-          { q:"Which singer turned Otis Redding's 'Respect' into a 1967 anthem, adding the famous spelled-out chorus?", a:"Aretha Franklin", e:"She was later called the 'Queen of Soul' and was the first woman inducted into the Rock and Roll Hall of Fame." }
+          { q:"In which 2007 film does Shah Rukh Khan give a famous '70 minute' speech to his hockey team?", a:"Chak De! India", e:"He plays Kabir Khan, coach of the Indian women's hockey team." },
+          { q:"In which 1978 film does the hero hear that catching him is not just difficult, but impossible?", a:"Don", e:"The line is 'Don ko pakadna mushkil hi nahi, naamumkin hai'. Farhan Akhtar remade the film with Shah Rukh Khan in 2006." },
+          { q:"In which 1988 film does the hero announce 'Rishte mein toh hum tumhare baap lagte hain, naam hai...' followed by the film's title?", a:"Shahenshah", e:"Amitabh Bachchan plays a cop by day and a masked vigilante by night." },
+          { q:"In which 1972 film does Rajesh Khanna say 'Pushpa, I hate tears'?", a:"Amar Prem", e:"Shakti Samanta directed it, and it co-starred Sharmila Tagore as Pushpa." },
+          { q:"In which 1971 film does a dying man tell his doctor, 'Babumoshai, zindagi badi honi chahiye, lambi nahi'?", a:"Anand", e:"Hrishikesh Mukherjee directed it, with Rajesh Khanna in the title role and Amitabh Bachchan as the doctor." }
         ],
         [
-          { q:"Which spice, made from the stigmas of a crocus flower, is the most expensive in the world by weight?", a:"Saffron", e:"It takes around 150,000 flowers to produce a kilogram. Kashmir is one of its famous growing regions." },
-          { q:"Which 1773 protest saw American colonists dump East India Company tea into a harbour?", a:"The Boston Tea Party", e:"They protested against taxes set by a parliament they had no vote in." },
-          { q:"Which country is the world's largest producer of cocoa beans?", a:"Côte d'Ivoire (Ivory Coast)", e:"It grows roughly 40 percent of the world's cocoa, with neighbouring Ghana in second place." },
-          { q:"Which Indonesian islands, nicknamed the 'Spice Islands', were once the world's only source of nutmeg and cloves?", a:"The Moluccas (Maluku Islands)", e:"Control of them drove centuries of conflict between the Portuguese, Spanish, Dutch and English." },
-          { q:"Under the 1667 Treaty of Breda, the Dutch kept the tiny nutmeg island of Run. Which colony did England keep in return?", a:"New Amsterdam (Manhattan, now New York)", e:"At the time, a nutmeg island was considered the better deal." }
-        ],
-        [
-          { q:"Which actress wore the little black Givenchy dress in the opening scene of Breakfast at Tiffany's (1961)?", a:"Audrey Hepburn", e:"One of the dresses from the film sold at auction in 2006 for about £467,000." },
-          { q:"Whose white halter-neck dress billowed up over a subway grate in The Seven Year Itch (1955)?", a:"Marilyn Monroe", e:"William Travilla designed the dress, and it sold for $4.6 million in 2011." },
-          { q:"Which singer wore a dress made of raw meat to the 2010 MTV Video Music Awards?", a:"Lady Gaga", e:"Designer Franc Fernandez made it, and it was later preserved and displayed." },
-          { q:"Who wore the so-called 'revenge dress', a black off-the-shoulder Christina Stambolian gown, in 1994?", a:"Princess Diana", e:"She wore it on the night a TV documentary aired in which Prince Charles admitted to adultery." },
-          { q:"Whose plunging green Versace dress at the 2000 Grammys was so searched for online that it led to Google Image Search?", a:"Jennifer Lopez", e:"Google said there was no good way to show people the picture they wanted, so it built image search." }
-        ],
-        [
-          { q:"What is the largest organ of the human body?", a:"The skin", e:"In an adult it covers about 2 square metres and makes up around 15 percent of body weight." },
-          { q:"What is the longest bone in the human body?", a:"The femur (thigh bone)", e:"It is also the strongest bone in the body." },
-          { q:"How many bones are there in a typical adult human skeleton?", a:"206", e:"Babies are born with around 300, and many fuse together as they grow." },
-          { q:"Which pea-sized gland at the base of the brain is often called the 'master gland'?", a:"The pituitary gland", e:"It controls many other glands, including the thyroid and the adrenal glands." },
-          { q:"What is the smallest bone in the human body?", a:"The stapes (stirrup), in the middle ear", e:"It is about 3 mm long, and passes sound vibrations to the inner ear." }
+          { q:"Which singer, known as the 'Queen of Pop', released 'Like a Prayer' in 1989?", a:"Madonna", e:"Its video caused such controversy that Pepsi dropped an advertising deal with her." },
+          { q:"Which singer sang 'Tujhe Dekha To' with Lata Mangeshkar in Dilwale Dulhania Le Jayenge?", a:"Kumar Sanu", e:"He is said to have recorded 28 songs in a single day in 1993." },
+          { q:"Which singer sang 'Pehla Nasha' with Sadhana Sargam, in Jo Jeeta Wohi Sikandar (1992)?", a:"Udit Narayan", e:"The song's music is by Jatin–Lalit, and its video famously plays almost entirely in slow motion." },
+          { q:"Which Pakistani qawwali singer, famous for 'Afreen Afreen', worked with Peter Gabriel and on Hollywood film soundtracks?", a:"Nusrat Fateh Ali Khan", e:"He was often called 'Shahenshah-e-Qawwali', the king of kings of qawwali." },
+          { q:"Which singer-composer's 1998 song 'Breathless' was sung to sound as if it was all done in one breath?", a:"Shankar Mahadevan", e:"Javed Akhtar wrote the words. Mahadevan is also one third of the composer trio Shankar–Ehsaan–Loy." }
         ]
       ]
     }
