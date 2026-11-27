@@ -565,7 +565,7 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'quiz-dashboard-state-v18';
+  var STORAGE_KEY = 'quiz-dashboard-state-v19';
   var DEFAULT_POINTS = [10,20,30,40,50];
   var MIN_TOPICS = 3, MAX_TOPICS = 6;
   var TEAM_LETTERS = ['a','b','c','d','e','f'];
@@ -575,207 +575,125 @@
 
   var ROUNDS = [
     {
-      title: 'CHRISTMAS ROUND 1',
-      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
+      title: 'ROUND 1',
+      topics: ["Cricket Records","Indian History","Indian Brand Campaigns","Famous Books","Legendary Movie Quotes"],
       questions: [
         [
-          { q:"Which 1990 film's young hero defends his family's Chicago-area house from two burglars who call themselves the 'Wet Bandits'?", a:"Home Alone", e:"Joe Pesci and Daniel Stern played Harry and Marv. The 'Wet Bandits' name comes from Marv's habit of flooding the houses they rob." },
-          { q:"Which 2003 comedy's hero, raised at the North Pole, travels to New York to find his father, a children's book publisher on Santa's naughty list?", a:"Elf", e:"Will Ferrell played Buddy and James Caan played his father, Walter Hobbs. Jon Favreau directed." },
-          { q:"Which 1988 action film, set at a Christmas Eve office party in Los Angeles's Nakatomi Plaza, is the subject of a never-ending argument about whether it counts as a Christmas movie?", a:"Die Hard", e:"Bruce Willis played John McClane, and it was Alan Rickman's first feature film role, as Hans Gruber." },
-          { q:"In It's a Wonderful Life (1946), what does Zuzu say happens every time a bell rings?", a:"An angel gets his wings", e:"George Bailey's guardian angel, Clarence Odbody, is an 'Angel Second Class' trying to earn his wings." },
-          { q:"In Love Actually (2003), which ageing rock star reworks 'Love Is All Around' as a Christmas song and battles for the Christmas number one?", a:"Billy Mack", e:"Bill Nighy played him. The reworked song is 'Christmas Is All Around'." }
+          { q:"Which England bowler, who retired in 2024, became the first fast bowler to take 700 Test wickets?", a:"James Anderson", e:"He finished with 704 Test wickets in 188 Tests, the most by any fast bowler." },
+          { q:"Which opener became the first Indian to score a Test triple century, making 309 against Pakistan at Multan in 2004?", a:"Virender Sehwag", e:"The innings earned him the nickname 'the Sultan of Multan'. He scored a second triple century, 319, against South Africa in 2008." },
+          { q:"Which Sri Lankan pair hold the record for the highest partnership in Test cricket, 624 for the third wicket against South Africa in 2006?", a:"Mahela Jayawardene and Kumar Sangakkara", e:"The stand came at the SSC in Colombo. Jayawardene made 374 and Sangakkara 287." },
+          { q:"Which South African hit the fastest century in one-day internationals, reaching 100 off just 31 balls against the West Indies in 2015?", a:"AB de Villiers", e:"He went on to make 149 off 44 balls in Johannesburg, with 16 sixes." },
+          { q:"Which English batsman, known as 'The Master', holds the records for the most runs and the most centuries in first-class cricket?", a:"Jack Hobbs", e:"He scored over 61,000 first-class runs and around 199 centuries, and was the first professional cricketer to be knighted." }
         ],
         [
-          { q:"What is the name of the snowy owl that Hagrid gives Harry for his eleventh birthday?", a:"Hedwig", e:"Harry chose the name from a book on the history of magic." },
-          { q:"Harry finds which magical mirror over his first Christmas at Hogwarts, and what does it show?", a:"The Mirror of Erised: your deepest desire", e:"'Erised' is 'desire' spelled backwards. Harry sees his parents in it." },
-          { q:"Which Christmas present, sent anonymously in Harry's first year, once belonged to his father?", a:"The Invisibility Cloak", e:"Dumbledore sent it with a note saying, 'Use it well.' It later turns out to be one of the Deathly Hallows." },
-          { q:"What colour is the jumper Mrs Weasley knits for Ron every Christmas, much to his disappointment?", a:"Maroon", e:"Ron complains that his is always maroon. Harry gets an emerald-green one in his first year." },
-          { q:"Which wizarding band plays at the Yule Ball in Goblet of Fire?", a:"The Weird Sisters", e:"The Yule Ball is held on Christmas night during the Triwizard Tournament." }
+          { q:"Which Mughal emperor's garden tomb in Delhi, completed in the early 1570s, is often called an inspiration for the Taj Mahal?", a:"Humayun", e:"His widow, Hamida Banu Begum, commissioned it. It was the first garden tomb on the Indian subcontinent." },
+          { q:"Which Portuguese explorer reached Calicut in 1498, opening a sea route from Europe to India?", a:"Vasco da Gama", e:"He sailed around the Cape of Good Hope and landed at Kappad, near Calicut (Kozhikode)." },
+          { q:"Which 1916 agreement saw the Indian National Congress and the Muslim League agree on joint demands for self-government?", a:"The Lucknow Pact", e:"Bal Gangadhar Tilak and Muhammad Ali Jinnah played key roles in it." },
+          { q:"Which Afghan ruler, who defeated Humayun in 1540, introduced the silver coin called the 'rupiya' and rebuilt the Grand Trunk Road?", a:"Sher Shah Suri", e:"His coin is the ancestor of today's rupee." },
+          { q:"Which Kalinga king's Hathigumpha inscription, carved into a cave near Bhubaneswar, records his military campaigns in the first century BCE?", a:"Kharavela", e:"The inscription is in the Udayagiri caves and is one of the most important records of ancient Odisha." }
         ],
         [
-          { q:"At which Melbourne ground is Australia's Boxing Day Test played each year?", a:"The MCG (Melbourne Cricket Ground)", e:"The Boxing Day Test has been a fixture at the MCG almost every year since 1980." },
-          { q:"Boxing Day has nothing to do with the sport of boxing. Which tradition does its name come from?", a:"Giving Christmas boxes (gifts or money) to servants and tradespeople", e:"In Britain, servants and workers traditionally received their 'Christmas box' the day after Christmas." },
-          { q:"Which ocean race, first sailed in 1945, leaves Sydney Harbour every Boxing Day?", a:"The Sydney to Hobart Yacht Race", e:"It is run by the Cruising Yacht Club of Australia." },
-          { q:"At which racecourse is the King George VI Chase run every Boxing Day?", a:"Kempton Park", e:"It is one of the most prestigious steeplechases in Britain, second only to the Cheltenham Gold Cup." },
-          { q:"On Boxing Day 1963, a record 66 goals were scored in ten First Division games in England. Which club beat Ipswich Town 10–1 that day?", a:"Fulham", e:"It is still Fulham's biggest league win. Ipswich had been league champions only 20 months earlier." }
+          { q:"Which chocolate brand's 'Kuch Meetha Ho Jaaye' campaign pitched it as the sweet for every Indian celebration?", a:"Cadbury Dairy Milk", e:"Amitabh Bachchan fronted the campaign in the 2000s, and it is still one of India's best-known taglines." },
+          { q:"Which detergent brand's 'Daag Achhe Hain' campaign argued that getting dirty is good if it comes from doing good?", a:"Surf Excel", e:"Its ads usually show children getting messy while helping someone." },
+          { q:"Which mobile network's 2003 campaign showed a pug following a little boy everywhere, with the line 'Wherever you go, our network follows'?", a:"Hutch", e:"The pug became so famous that sales of pugs reportedly shot up in India. The brand later became Vodafone." },
+          { q:"Which soft-drink concentrate's 1980s TV jingle had a little girl saying 'I love you' followed by the brand name?", a:"Rasna", e:"The girl was child actor Ankita Jhaveri, and the line became a catchphrase for a generation." },
+          { q:"Which cola brand, launched in 1977 after Coca-Cola left India, uses the tagline 'Taste the Thunder'?", a:"Thums Up", e:"Parle created it. Coca-Cola bought it in 1993 when it returned to India, and it is still one of the company's biggest brands in India." }
         ],
         [
-          { q:"Which singer's 1994 hit 'All I Want for Christmas Is You' finally topped the US Billboard Hot 100 in December 2019, 25 years after it came out?", a:"Mariah Carey", e:"She co-wrote it with Walter Afanasieff, and it climbs back up the charts every December." },
-          { q:"Which charity supergroup's 1984 single 'Do They Know It's Christmas?' was written by Bob Geldof and Midge Ure to raise money for famine relief in Ethiopia?", a:"Band Aid", e:"It led to the Live Aid concerts in July 1985." },
-          { q:"Which glam-rock band, fronted by Noddy Holder, had the 1973 UK Christmas number one with 'Merry Xmas Everybody'?", a:"Slade", e:"It still earns the band royalties every December, decades later." },
-          { q:"Which 1987 Christmas song is a duet between the Pogues' Shane MacGowan and Kirsty MacColl?", a:"Fairytale of New York", e:"Pet Shop Boys' 'Always on My Mind' kept it off the Christmas number one spot." },
-          { q:"Which carol began as a German poem by Joseph Mohr, was set to music by Franz Xaver Gruber, and was first performed in Oberndorf, Austria, on Christmas Eve 1818?", a:"Silent Night ('Stille Nacht')", e:"It was first performed with guitar accompaniment." }
+          { q:"Which George Orwell novel introduced 'Big Brother', 'Room 101' and 'doublethink'?", a:"Nineteen Eighty-Four", e:"It was published in 1949, the year before Orwell died." },
+          { q:"Which Harper Lee novel is narrated by a girl called Scout Finch, whose father defends a Black man accused of a crime in Alabama?", a:"To Kill a Mockingbird", e:"It won the Pulitzer Prize for Fiction in 1961." },
+          { q:"Which novel opens with the words 'Call me Ishmael'?", a:"Moby-Dick", e:"Herman Melville published it in 1851. It sold poorly in his lifetime." },
+          { q:"Which 1958 Chinua Achebe novel follows Okonkwo, a proud Igbo wrestler and leader, as colonial rule arrives?", a:"Things Fall Apart", e:"Its title comes from W. B. Yeats's poem 'The Second Coming'." },
+          { q:"Which 1993 Vikram Seth novel, one of the longest single-volume novels in English, follows a mother's search for a husband for her daughter, Lata?", a:"A Suitable Boy", e:"It runs to roughly 1,350 pages, and Mira Nair adapted it for the BBC in 2020." }
         ],
         [
-          { q:"In which town does Christian tradition place the birth of Jesus?", a:"Bethlehem", e:"The Church of the Nativity there is built over the cave traditionally said to be the birthplace." },
-          { q:"Which Roman winter festival of feasting, role reversal and gift-giving, held in December, shaped many later Christmas customs?", a:"Saturnalia", e:"It honoured the god Saturn, and for a few days masters sometimes served their slaves." },
-          { q:"Which German-born husband of Queen Victoria is credited with popularising the Christmas tree in Britain?", a:"Prince Albert", e:"An 1848 illustration of the royal family around a decorated tree set off the craze." },
-          { q:"In which year did the unofficial 'Christmas Truce' see British and German soldiers meet in no man's land on the Western Front?", a:"1914", e:"Soldiers swapped cigarettes and food, sang carols, and in some places reportedly played football." },
-          { q:"Which fourth-century bishop of Myra, in modern-day Turkey, inspired the legend of Santa Claus?", a:"Saint Nicholas", e:"He was known for secret gift-giving. 'Santa Claus' comes from the Dutch 'Sinterklaas'." }
+          { q:"Which film series made the line 'May the Force be with you' famous?", a:"Star Wars", e:"It was first heard in the original 1977 film." },
+          { q:"In which 1972 film does a character promise to make someone 'an offer he can't refuse'?", a:"The Godfather", e:"Marlon Brando's Vito Corleone says it, and Al Pacino's Michael later repeats it." },
+          { q:"In which 1942 film does Humphrey Bogart say, 'Here's looking at you, kid'?", a:"Casablanca", e:"Bogart's character, Rick Blaine, runs a nightclub in Morocco." },
+          { q:"In which 1975 Hindi film does Shashi Kapoor answer his brother's boast with 'Mere paas Maa hai'?", a:"Deewaar", e:"Salim-Javed wrote it, and Yash Chopra directed." },
+          { q:"In which 1995 film does a character say 'The greatest trick the devil ever pulled was convincing the world he didn't exist'?", a:"The Usual Suspects", e:"Kevin Spacey's character says it about the mysterious crime lord Keyser Söze." }
         ]
       ]
     },
     {
-      title: 'CHRISTMAS ROUND 2',
-      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
+      title: 'ROUND 2',
+      topics: ["Cars & Racing","Harry Potter Quotes","Famous Artists","Logic","Ancient Mythology"],
       questions: [
         [
-          { q:"Which 1993 stop-motion film follows the Pumpkin King of Halloween Town after he stumbles into Christmas Town?", a:"The Nightmare Before Christmas", e:"Henry Selick directed it, from Tim Burton's story and characters. The Pumpkin King is Jack Skellington." },
-          { q:"Which 1983 film follows Ralphie Parker, who wants a Red Ryder BB gun for Christmas but keeps being told he'll shoot his eye out?", a:"A Christmas Story", e:"It is based on Jean Shepherd's stories, and Shepherd narrates it as the grown-up Ralphie." },
-          { q:"Which 1947 film, remade in 1994, puts a department-store Santa on trial in a New York court to prove he is the real Santa Claus?", a:"Miracle on 34th Street", e:"Edmund Gwenn won the Oscar for Best Supporting Actor as Kris Kringle." },
-          { q:"In The Muppet Christmas Carol (1992), which Muppet narrates the story as Charles Dickens?", a:"The Great Gonzo", e:"Rizzo the Rat joins him. Michael Caine played Scrooge, and it was the first Muppet film after Jim Henson's death." },
-          { q:"In Elf, which four foods does Buddy say make up the main elf food groups?", a:"Candy, candy canes, candy corn and syrup", e:"He puts all four on his spaghetti for breakfast." }
+          { q:"Which Italian car brand's logo is a trident, inspired by the Fountain of Neptune in Bologna?", a:"Maserati", e:"The company was founded in Bologna in 1914 by the Maserati brothers." },
+          { q:"Which Swedish car maker's name is Latin for 'I roll'?", a:"Volvo", e:"It began as a ball-bearing company's subsidiary, which explains the name." },
+          { q:"Which race became Formula 1's first night race in 2008, on the Marina Bay Street Circuit?", a:"The Singapore Grand Prix", e:"The track is lit by more than 1,500 floodlights." },
+          { q:"Which British driver won the 2009 Formula 1 world title with Brawn GP, a team that only existed for one season?", a:"Jenson Button", e:"Brawn GP rose out of Honda's withdrawal and was sold to Mercedes after winning both titles." },
+          { q:"Which Scottish driver won three Formula 1 world titles, in 1969, 1971 and 1973, and became a leading campaigner for safety?", a:"Jackie Stewart", e:"He was nicknamed 'the Flying Scot' and retired at the end of the 1973 season." }
         ],
         [
-          { q:"Which position does Harry play for the Gryffindor Quidditch team?", a:"Seeker", e:"He became the youngest house player in a century, picked in his first year." },
-          { q:"Who does Harry take to the Yule Ball?", a:"Parvati Patil", e:"Ron takes her twin sister, Padma. Harry had asked Cho Chang, who was already going with Cedric Diggory." },
-          { q:"Which potion, said to be the most powerful love potion in the world, smells different to each person?", a:"Amortentia", e:"Slughorn shows it to his class in Half-Blood Prince. It gives a powerful infatuation, not real love." },
-          { q:"In Deathly Hallows, which village do Harry and Hermione visit on Christmas Eve, where his parents are buried?", a:"Godric's Hollow", e:"There they are ambushed by Nagini, who had been hiding in Bathilda Bagshot's house." },
-          { q:"On Christmas Day in Chamber of Secrets, Harry and Ron drink Polyjuice Potion to question Malfoy. Whom do they turn into?", a:"Crabbe and Goyle", e:"Hermione was meant to come too, but the hair she used was a cat's, so she became half-cat." }
+          { q:"Who tells Harry, 'You're a wizard, Harry'?", a:"Rubeus Hagrid", e:"He says it on Harry's eleventh birthday, in the hut on the rock." },
+          { q:"Who tells Harry, 'It does not do to dwell on dreams and forget to live'?", a:"Albus Dumbledore", e:"He says it after finding Harry in front of the Mirror of Erised." },
+          { q:"Which character barks 'Constant vigilance!' at his students?", a:"Mad-Eye Moody", e:"In Goblet of Fire it is actually Barty Crouch Jr in disguise, using Polyjuice Potion." },
+          { q:"Which teacher offers Harry a biscuit, saying 'Have a biscuit, Potter', after Umbridge sends him to her office with a note?", a:"Professor McGonagall", e:"In Order of the Phoenix, Harry had shouted at Umbridge in class that Voldemort was back. McGonagall then warns him to keep his head down." },
+          { q:"Who tells Harry that 'things we lose have a way of coming back to us in the end'?", a:"Luna Lovegood", e:"She says it in Order of the Phoenix, about the belongings other students have hidden from her." }
         ],
         [
-          { q:"Which Australian spin bowler took his 700th Test wicket on Boxing Day 2006 at the MCG, his home ground?", a:"Shane Warne", e:"He bowled England's Andrew Strauss to become the first bowler to reach 700 Test wickets." },
-          { q:"Which international ice hockey tournament for under-20 players, hugely popular in Canada, traditionally starts on Boxing Day?", a:"The World Junior Championship", e:"The IIHF tournament runs from 26 December into early January." },
-          { q:"The Sydney to Hobart race finishes at which dock in Hobart?", a:"Constitution Dock", e:"Crews traditionally celebrate on the waterfront there, often on New Year's Eve." },
-          { q:"Which horse won the King George VI Chase a record five times between 2006 and 2011?", a:"Kauto Star", e:"He won in 2006, 2007, 2008, 2009 and 2011, and also won the Cheltenham Gold Cup twice." },
-          { q:"In the 1982 Boxing Day Test at the MCG, England beat Australia by what margin?", a:"3 runs", e:"Australia's last pair added 70 before Jeff Thomson edged Botham. Tavaré fumbled the catch and Geoff Miller caught the rebound." }
+          { q:"Which American pop artist made '32 Campbell's Soup Cans' in 1962?", a:"Andy Warhol", e:"He also made famous silkscreen portraits of Marilyn Monroe." },
+          { q:"Which French Impressionist painted around 250 'Water Lilies' pictures of his garden pond at Giverny?", a:"Claude Monet", e:"His painting 'Impression, Sunrise' gave Impressionism its name." },
+          { q:"Which Dutch artist painted 'Girl with a Pearl Earring'?", a:"Johannes Vermeer", e:"Only about 35 paintings are firmly credited to him." },
+          { q:"Which Indian painter, famous for his oil paintings of Hindu gods and scenes from the epics, set up a printing press so ordinary people could buy copies?", a:"Raja Ravi Varma", e:"His press opened near Bombay in the 1890s, and his images shaped how many Indians picture the gods." },
+          { q:"Which Spanish court painter made 'Las Meninas' in 1656, including himself at his easel in the picture?", a:"Diego Velázquez", e:"It hangs in the Prado in Madrid. Picasso painted 58 variations of it." }
         ],
         [
-          { q:"Which duo's 'Last Christmas' finally reached UK number one on 1 January 2021, 36 years after it was released?", a:"Wham!", e:"George Michael wrote it. In 1984 it peaked at number two behind Band Aid, and he gave his royalties to that cause." },
-          { q:"Which former Beatle released 'Happy Xmas (War Is Over)' with Yoko Ono in 1971?", a:"John Lennon", e:"The Harlem Community Choir sang on the record." },
-          { q:"Which Christmas song did Mel Tormé and Bob Wells write during a 1945 summer heatwave? Nat King Cole made the best-known recording.", a:"The Christmas Song ('Chestnuts Roasting on an Open Fire')", e:"They reportedly wrote it in about 40 minutes while trying to 'think cool'." },
-          { q:"Which Tchaikovsky ballet, first performed in St Petersburg in 1892, is set on Christmas Eve?", a:"The Nutcracker", e:"It includes the 'Dance of the Sugar Plum Fairy', which features a celesta, then a newly invented instrument." },
-          { q:"Which festive favourite did James Lord Pierpont publish in 1857 under the title 'One Horse Open Sleigh'?", a:"Jingle Bells", e:"In 1965 it became one of the first songs played in space, on harmonica and bells by the Gemini 6 astronauts." }
+          { q:"What number comes next in this sequence: 1, 4, 9, 16, 25, ...?", a:"36", e:"They are the square numbers: 1×1, 2×2, 3×3 and so on, so next is 6×6." },
+          { q:"A farmer must cross a river with a wolf, a goat and a cabbage. His boat holds him and one item, and he can't leave the wolf with the goat, or the goat with the cabbage. What does he take across first?", a:"The goat", e:"Then the wolf, bringing the goat back; then the cabbage; then the goat again." },
+          { q:"A patch of lily pads doubles in size every day. If it takes 48 days to cover the whole lake, how many days does it take to cover half of it?", a:"47 days", e:"It doubles every day, so it is half-covered the day before it is fully covered." },
+          { q:"You have a 3-litre jug and a 5-litre jug, and unlimited water. How do you measure exactly 4 litres?", a:"Fill the 5, pour into the 3 (leaving 2), empty the 3, pour the 2 into it, refill the 5, then top up the 3. The 5-litre jug is left with 4.", e:"Topping up the 3-litre jug takes exactly 1 litre from the full 5." },
+          { q:"Using only a 7-minute and an 11-minute sand timer, how can you time exactly 15 minutes?", a:"Start both. When the 7 runs out, flip it. When the 11 runs out, flip the 7 again: it runs 4 more minutes, ending at 15.", e:"At 11 minutes, the 7-minute timer has 4 minutes of sand in its bottom half, so flipping it gives exactly 4 more." }
         ],
         [
-          { q:"Which Charles Dickens novella, published in December 1843, introduced Ebenezer Scrooge?", a:"A Christmas Carol", e:"Dickens paid for the publication himself, and the first print run sold out within days." },
-          { q:"Which Frankish king was crowned Emperor of the Romans by Pope Leo III on Christmas Day 800?", a:"Charlemagne", e:"The coronation took place in St Peter's Basilica in Rome." },
-          { q:"Who is credited with sending the first commercial Christmas card, in London in 1843?", a:"Sir Henry Cole", e:"John Callcott Horsley designed it, and Cole later helped found the Victoria and Albert Museum." },
-          { q:"Which king was crowned at Westminster Abbey on Christmas Day 1066?", a:"William the Conqueror", e:"Shouts from inside were mistaken for an attack, and Norman guards set fire to nearby houses." },
-          { q:"Christmas celebrations were banned in England in the 1640s and 1650s by Parliament, under the influence of which religious group?", a:"The Puritans", e:"The ban came in during the Civil War and Cromwell's era. Christmas was restored with Charles II in 1660." }
+          { q:"Which Greek hero was invulnerable everywhere except his heel?", a:"Achilles", e:"His mother dipped him in the River Styx, holding him by the heel. Paris killed him with an arrow at Troy." },
+          { q:"In Norse mythology, what is the name of Thor's hammer?", a:"Mjölnir", e:"It was forged by dwarves and always came back to Thor's hand after he threw it." },
+          { q:"Which jackal-headed Egyptian god oversaw mummification and the weighing of the heart?", a:"Anubis", e:"In the afterlife, the dead person's heart was weighed against the feather of Ma'at." },
+          { q:"In the Ramayana, which old vulture king fought Ravana to stop him carrying Sita away?", a:"Jatayu", e:"Ravana cut off his wings. He lived long enough to tell Rama what had happened." },
+          { q:"Which king of Uruk is the hero of what is often called the world's oldest surviving great work of literature, in which he searches for immortality?", a:"Gilgamesh", e:"The Epic of Gilgamesh comes from ancient Mesopotamia and includes a great flood story." }
         ]
       ]
     },
     {
-      title: 'CHRISTMAS ROUND 3',
-      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
+      title: 'ROUND 3',
+      topics: ["One Hit Wonders","Musicians & Their Songs","Food Trade","Iconic Fashion Moments","Human Biology"],
       questions: [
         [
-          { q:"Which 2004 animated film, based on a Chris Van Allsburg book, follows a boy who boards a magical train to the North Pole on Christmas Eve?", a:"The Polar Express", e:"Robert Zemeckis directed it with motion capture, and Tom Hanks played several roles, including the conductor and Santa." },
-          { q:"Which 1984 horror-comedy is set off by a Christmas present that must never get wet, see bright light or be fed after midnight?", a:"Gremlins", e:"The present is a mogwai named Gizmo. Joe Dante directed and Steven Spielberg was executive producer." },
-          { q:"In which 1989 comedy does Clark Griswold cover his house in 25,000 imported Italian twinkle lights?", a:"National Lampoon's Christmas Vacation", e:"Chevy Chase played Clark, and John Hughes wrote it." },
-          { q:"Which 2006 romantic comedy has Cameron Diaz and Kate Winslet swap homes in Los Angeles and Surrey over Christmas?", a:"The Holiday", e:"Nancy Meyers wrote and directed it. Jude Law and Jack Black are their love interests." },
-          { q:"In Home Alone, what is the name of the black-and-white gangster film Kevin plays to scare off the pizza delivery boy?", a:"Angels with Filthy Souls", e:"The film was made up for Home Alone and gave us 'Keep the change, ya filthy animal.'" }
+          { q:"Which Spanish duo's 'Macarena' spent 14 weeks at number one in the United States in 1996?", a:"Los del Río", e:"The dance became a worldwide craze, with a remix by the Bayside Boys taking it to the top." },
+          { q:"Which South Korean singer's 2012 hit 'Gangnam Style' became the first YouTube video to pass one billion views?", a:"PSY", e:"It hit the billion mark in December 2012, and its horse-riding dance went global." },
+          { q:"Which Norwegian band, often called a one-hit wonder in America, had a 1985 hit with 'Take On Me' and its pencil-sketch video?", a:"a-ha", e:"The video mixes live action with rotoscoped animation and won six MTV Video Music Awards." },
+          { q:"Which English anarcho-punk band had a 1997 worldwide hit with 'Tubthumping'?", a:"Chumbawamba", e:"The band had been releasing records since the early 1980s before their one big hit." },
+          { q:"Which Belgian-born Australian singer had a 2011 worldwide number one with 'Somebody That I Used to Know', featuring Kimbra?", a:"Gotye", e:"The song won Record of the Year at the 2013 Grammys." }
         ],
         [
-          { q:"What is the name of the Weasley family home?", a:"The Burrow", e:"Harry spends part of several summers there, and in Half-Blood Prince he spends Christmas there too." },
-          { q:"What is the name of the all-wizarding village near Hogwarts that students can visit from third year?", a:"Hogsmeade", e:"Students need a permission slip signed by a parent or guardian to go." },
-          { q:"Which Hogsmeade sweet shop sells Fizzing Whizzbees and Chocolate Frogs?", a:"Honeydukes", e:"Its cellar has a trapdoor at the end of a secret passage from Hogwarts." },
-          { q:"What is the name of the scruffy Hogsmeade pub run by Dumbledore's brother, Aberforth?", a:"The Hog's Head", e:"Dumbledore's Army holds its first meeting there in Order of the Phoenix." },
-          { q:"In Prisoner of Azkaban, which anonymous Christmas present does Hermione report to Professor McGonagall?", a:"A Firebolt broomstick", e:"McGonagall had it stripped down to check for jinxes. Sirius Black had sent it." }
+          { q:"Which singer-songwriter released 'Shape of You' in 2017?", a:"Ed Sheeran", e:"It became one of the most-streamed songs ever on Spotify." },
+          { q:"Which band released 'Hey Jude' in 1968?", a:"The Beatles", e:"Paul McCartney wrote it to comfort John Lennon's son Julian during his parents' divorce." },
+          { q:"Which artist wrote and recorded 'Purple Rain' and starred in the 1984 film of the same name?", a:"Prince", e:"The soundtrack won the Oscar for Best Original Song Score." },
+          { q:"Which Irish band's 1987 album The Joshua Tree includes 'With or Without You'?", a:"U2", e:"It was the band's first number one single in the United States." },
+          { q:"Which singer turned Otis Redding's 'Respect' into a 1967 anthem, adding the famous spelled-out chorus?", a:"Aretha Franklin", e:"She was later called the 'Queen of Soul' and was the first woman inducted into the Rock and Roll Hall of Fame." }
         ],
         [
-          { q:"In the 2010 Boxing Day Test at the MCG, which touring side bowled Australia out for 98 on the first day?", a:"England", e:"England won by an innings to retain the Ashes, and went on to their first series win in Australia in 24 years." },
-          { q:"Which Indian fast bowler took 6 for 33 in the 2018 Boxing Day Test, as India won at the MCG on their way to a first-ever Test series win in Australia?", a:"Jasprit Bumrah", e:"He took nine wickets in the match, and India won the series 2–1." },
-          { q:"Which much-loved grey won the King George VI Chase four times between 1986 and 1990?", a:"Desert Orchid", e:"He won in 1986, 1988, 1989 and 1990, and won the 1989 Cheltenham Gold Cup." },
-          { q:"On Boxing Day 2019, which team won 4–0 away at second-placed Leicester City to go well clear at the top of the Premier League?", a:"Liverpool", e:"Roberto Firmino scored twice, and Liverpool went on to win their first league title in 30 years." },
-          { q:"Which supermaxi has taken Sydney to Hobart line honours a record nine times?", a:"Wild Oats XI", e:"Its first line honours came in 2005, and it won four in a row from 2005 to 2008." }
+          { q:"Which spice, made from the stigmas of a crocus flower, is the most expensive in the world by weight?", a:"Saffron", e:"It takes around 150,000 flowers to produce a kilogram. Kashmir is one of its famous growing regions." },
+          { q:"Which 1773 protest saw American colonists dump East India Company tea into a harbour?", a:"The Boston Tea Party", e:"They protested against taxes set by a parliament they had no vote in." },
+          { q:"Which country is the world's largest producer of cocoa beans?", a:"Côte d'Ivoire (Ivory Coast)", e:"It grows roughly 40 percent of the world's cocoa, with neighbouring Ghana in second place." },
+          { q:"Which Indonesian islands, nicknamed the 'Spice Islands', were once the world's only source of nutmeg and cloves?", a:"The Moluccas (Maluku Islands)", e:"Control of them drove centuries of conflict between the Portuguese, Spanish, Dutch and English." },
+          { q:"Under the 1667 Treaty of Breda, the Dutch kept the tiny nutmeg island of Run. Which colony did England keep in return?", a:"New Amsterdam (Manhattan, now New York)", e:"At the time, a nutmeg island was considered the better deal." }
         ],
         [
-          { q:"Which reindeer song was a huge 1949 hit for the singing cowboy Gene Autry?", a:"Rudolph the Red-Nosed Reindeer", e:"Johnny Marks wrote the song, based on a 1939 booklet his brother-in-law wrote for the Montgomery Ward department store." },
-          { q:"Which singer's 1957 Christmas Album included his much-loved version of 'Blue Christmas'?", a:"Elvis Presley", e:"Elvis' Christmas Album became one of the best-selling Christmas albums of all time." },
-          { q:"Which singer had the 1988 UK Christmas number one with 'Mistletoe and Wine'?", a:"Cliff Richard", e:"He has had Christmas number ones in three different decades, including 'Saviour's Day' (1990)." },
-          { q:"Which Roy Wood-led band released 'I Wish It Could Be Christmas Everyday' in 1973?", a:"Wizzard", e:"It came out the same December as Slade's 'Merry Xmas Everybody', which beat it to number one." },
-          { q:"Which Handel oratorio, first performed in Dublin in 1742 and now a Christmas staple, includes the 'Hallelujah' chorus?", a:"Messiah", e:"The tradition of standing for the 'Hallelujah' chorus is said to date back to London performances in the 1740s." }
+          { q:"Which actress wore the little black Givenchy dress in the opening scene of Breakfast at Tiffany's (1961)?", a:"Audrey Hepburn", e:"One of the dresses from the film sold at auction in 2006 for about £467,000." },
+          { q:"Whose white halter-neck dress billowed up over a subway grate in The Seven Year Itch (1955)?", a:"Marilyn Monroe", e:"William Travilla designed the dress, and it sold for $4.6 million in 2011." },
+          { q:"Which singer wore a dress made of raw meat to the 2010 MTV Video Music Awards?", a:"Lady Gaga", e:"Designer Franc Fernandez made it, and it was later preserved and displayed." },
+          { q:"Who wore the so-called 'revenge dress', a black off-the-shoulder Christina Stambolian gown, in 1994?", a:"Princess Diana", e:"She wore it on the night a TV documentary aired in which Prince Charles admitted to adultery." },
+          { q:"Whose plunging green Versace dress at the 2000 Grammys was so searched for online that it led to Google Image Search?", a:"Jennifer Lopez", e:"Google said there was no good way to show people the picture they wanted, so it built image search." }
         ],
         [
-          { q:"Which drinks company's 1930s adverts, painted by Haddon Sundblom, helped fix the image of a jolly Santa in red?", a:"Coca-Cola", e:"Contrary to popular myth, Coca-Cola did not invent the red suit, which had appeared in earlier illustrations." },
-          { q:"What was the original title of the 1823 poem better known as 'The Night Before Christmas'?", a:"A Visit from St. Nicholas", e:"It is usually credited to Clement Clarke Moore, and it gave the reindeer their names." },
-          { q:"Which British monarch gave the first royal Christmas broadcast, on radio, in 1932?", a:"King George V", e:"Rudyard Kipling wrote the speech." },
-          { q:"In which year was the Queen's Christmas message first shown on television?", a:"1957", e:"Elizabeth II broadcast it live from Sandringham." },
-          { q:"Which country sends the Christmas tree that stands in London's Trafalgar Square each year, as thanks for Britain's help during the Second World War?", a:"Norway", e:"The city of Oslo has sent a Norwegian spruce every year since 1947." }
-        ]
-      ]
-    },
-    {
-      title: 'CHRISTMAS ROUND 4',
-      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
-      questions: [
-        [
-          { q:"In How the Grinch Stole Christmas, what is the name of the Grinch's long-suffering dog?", a:"Max", e:"The Grinch ties an antler to Max's head to turn him into a 'reindeer'." },
-          { q:"In Love Actually, which actor plays the Prime Minister who falls for a member of his household staff?", a:"Hugh Grant", e:"His dance through 10 Downing Street to the Pointer Sisters' 'Jump (For My Love)' is the film's best-known scene." },
-          { q:"Which 1988 comedy stars Bill Murray as a cynical TV executive visited by three ghosts while he produces a live Christmas Eve broadcast of A Christmas Carol?", a:"Scrooged", e:"Murray plays Frank Cross, and Richard Donner directed." },
-          { q:"Which 2019 animated Netflix film tells an origin story for Santa Claus through a spoiled postman sent to a frozen Arctic island?", a:"Klaus", e:"Sergio Pablos directed it. It won the BAFTA for Best Animated Film and was nominated for the Oscar." },
-          { q:"In which 1942 film did Bing Crosby first sing 'White Christmas', twelve years before it became the title of a film of its own?", a:"Holiday Inn", e:"Irving Berlin's song won the Oscar for Best Original Song. Guinness lists Crosby's recording as the best-selling single of all time." }
-        ],
-        [
-          { q:"From which platform at King's Cross does the Hogwarts Express leave?", a:"Platform Nine and Three-Quarters", e:"You reach it by walking straight at the barrier between platforms nine and ten." },
-          { q:"What is the name of Hagrid's three-headed dog, who guards the Philosopher's Stone?", a:"Fluffy", e:"Hagrid bought him from 'a Greek chappie' he met in a pub. Fluffy falls asleep to music." },
-          { q:"What are the three Deathly Hallows?", a:"The Elder Wand, the Resurrection Stone and the Invisibility Cloak", e:"In The Tale of the Three Brothers, Death made one of them for each brother." },
-          { q:"What is the name of the old house-elf who serves the Black family?", a:"Kreacher", e:"Sirius left him to Harry. He later leads the house-elves of Hogwarts into the Battle of Hogwarts." },
-          { q:"What animal is Hermione's Patronus?", a:"An otter", e:"J.K. Rowling has said otters are her favourite animal." }
-        ],
-        [
-          { q:"Which stand-in captain scored a century in the 2020 Boxing Day Test at the MCG, as India bounced back after being bowled out for 36 in the previous match?", a:"Ajinkya Rahane", e:"He made 112, India won by eight wickets, and they went on to win the series 2–1." },
-          { q:"Which Swiss ski town hosts the Spengler Cup, an ice hockey tournament that starts on Boxing Day and has been held since 1923?", a:"Davos", e:"Its host club is HC Davos, and it is one of the oldest invitational tournaments in the sport." },
-          { q:"In which year did a violent storm hit the Sydney to Hobart fleet, sinking five yachts and killing six sailors?", a:"1998", e:"Only 44 of the 115 starters finished. The disaster led to major changes in ocean-racing safety rules." },
-          { q:"Which supermaxi set the Sydney to Hobart record in 2017, finishing in 1 day, 9 hours and 15 minutes?", a:"LDV Comanche", e:"Wild Oats XI crossed the line first, but a time penalty for a near-collision gave Comanche line honours and the record." },
-          { q:"Which club, recognised as the world's oldest football club, played the first-ever match between two clubs against Hallam FC on Boxing Day 1860?", a:"Sheffield FC", e:"Sheffield won 2–0 at Sandygate Road, which is still Hallam FC's home ground." }
-        ],
-        [
-          { q:"Which Canadian crooner's 2011 album 'Christmas' became one of the best-selling Christmas albums of the century?", a:"Michael Bublé", e:"He has become so linked with the season that 'defrosting Bublé' is an annual internet joke." },
-          { q:"In 'The Twelve Days of Christmas', what does my true love give me on the fifth day?", a:"Five gold rings", e:"Altogether the song lists 364 gifts." },
-          { q:"Which pop star released the Christmas song 'Santa Tell Me' in 2014?", a:"Ariana Grande", e:"It first appeared on a reissue of her album My Everything." },
-          { q:"Which Emerson, Lake & Palmer member's 1975 solo single 'I Believe in Father Christmas' was kept off the Christmas number one by 'Bohemian Rhapsody'?", a:"Greg Lake", e:"Lake wrote it as a protest against the commercialisation of Christmas." },
-          { q:"Which star joined Bing Crosby for a 1977 TV duet of 'Peace on Earth/Little Drummer Boy', recorded weeks before Crosby's death?", a:"David Bowie", e:"The 'Peace on Earth' counter-melody was written at short notice, reportedly because Bowie didn't like 'The Little Drummer Boy'." }
-        ],
-        [
-          { q:"In which country did the tradition of the Advent calendar begin?", a:"Germany", e:"The first printed Advent calendars appeared there in the early 1900s." },
-          { q:"What three gifts did the Magi bring?", a:"Gold, frankincense and myrrh", e:"The Bible never says there were three Magi. The number comes from the three gifts." },
-          { q:"Which spacecraft's crew read from the Book of Genesis while orbiting the Moon on Christmas Eve 1968?", a:"Apollo 8", e:"Frank Borman, Jim Lovell and Bill Anders were the first humans to orbit the Moon." },
-          { q:"Why do many Orthodox churches celebrate Christmas on 7 January?", a:"They follow the Julian calendar", e:"The Julian calendar now runs 13 days behind the Gregorian calendar that Pope Gregory XIII brought in in 1582." },
-          { q:"Which saint is credited with staging the first nativity scene, in Greccio, Italy, in 1223?", a:"Saint Francis of Assisi", e:"He reportedly used a real ox and donkey in a cave." }
-        ]
-      ]
-    },
-    {
-      title: 'CHRISTMAS ROUND 5',
-      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
-      questions: [
-        [
-          { q:"In Home Alone, which actress plays Kevin's frantic mother, Kate McCallister?", a:"Catherine O'Hara", e:"She later starred as Moira Rose in Schitt's Creek." },
-          { q:"In Elf, which actor plays Papa Elf, who raises Buddy at the North Pole?", a:"Bob Newhart", e:"Papa Elf also narrates parts of the story." },
-          { q:"In It's a Wonderful Life, what is the name of the town where George Bailey lives?", a:"Bedford Falls", e:"In the world where George was never born, it becomes Pottersville." },
-          { q:"In Die Hard, what does John McClane write on the sweatshirt of the dead terrorist he sends down in the lift?", a:"'Now I have a machine gun. Ho-ho-ho.'", e:"He sends the body down to Hans Gruber with a Santa hat on." },
-          { q:"Under what title was the 1951 British film with Alastair Sim, often called the best version of A Christmas Carol, released in the UK?", a:"Scrooge", e:"It was released in the United States as A Christmas Carol." }
-        ],
-        [
-          { q:"What was Lord Voldemort's name at birth?", a:"Tom Marvolo Riddle", e:"'I am Lord Voldemort' is an anagram of it." },
-          { q:"What kind of creature is Buckbeak?", a:"A hippogriff", e:"Hippogriffs are half horse, half eagle, and you must bow to one before approaching it." },
-          { q:"Which Ministry of Magic office does Arthur Weasley work in at the start of the series?", a:"The Misuse of Muggle Artefacts Office", e:"He is later promoted to head a new office for detecting fake defensive spells and protective objects." },
-          { q:"After Nagini attacks him in Order of the Phoenix, Mr Weasley spends Christmas in which wizarding hospital?", a:"St Mungo's Hospital for Magical Maladies and Injuries", e:"Harry, Ron, Ginny and Hermione visit him there on Christmas Day, and run into Neville visiting his parents." },
-          { q:"What is the address of the Black family home, which becomes the Order of the Phoenix's headquarters?", a:"Number 12, Grimmauld Place", e:"Sirius spends his last Christmas there with the Weasleys and Harry." }
-        ],
-        [
-          { q:"England's top football division plays a full round on Boxing Day. What do most other big European leagues do over the festive period?", a:"Take a winter break", e:"Spain, Germany, France and Italy all take some form of break, while English football carries on." },
-          { q:"In the Sydney to Hobart, what is the term for being the first yacht across the finish line, whatever its handicap?", a:"Line honours", e:"The overall winner, decided on handicap, gets the Tattersall Cup." },
-          { q:"What record was set at the MCG on the first day of the 2013 Boxing Day Ashes Test?", a:"The biggest crowd for a single day of Test cricket (91,112)", e:"It broke a record that had stood since the 1961 Test against the West Indies at the same ground." },
-          { q:"Roughly how many nautical miles is the Sydney to Hobart course?", a:"About 628 nautical miles", e:"The course goes down the New South Wales coast, across Bass Strait and up the Derwent River to Hobart." },
-          { q:"On Boxing Day 1963, which London club lost 8–2 at home to Blackburn Rovers, then won the return game at Ewood Park two days later?", a:"West Ham United", e:"They won 3–1 at Blackburn on 28 December, and went on to win the FA Cup that season." }
-        ],
-        [
-          { q:"Which singer recorded 'Rockin' Around the Christmas Tree' in 1958, when she was just 13?", a:"Brenda Lee", e:"It reached the US top ten for the first time in 2019, and hit number one in December 2023." },
-          { q:"Which 1957 Christmas song by Bobby Helms mixes sleigh bells with rock and roll?", a:"Jingle Bell Rock", e:"It has been covered by everyone from Hall & Oates to the cast of Mean Girls." },
-          { q:"Which band's 'Killing in the Name' took the 2009 UK Christmas number one, after a Facebook campaign against that year's X Factor winner?", a:"Rage Against the Machine", e:"It beat Joe McElderry's 'The Climb', and the band played a free thank-you gig in London the next year." },
-          { q:"Which Ukrainian composer's 1914 folk chant 'Shchedryk' became the tune of 'Carol of the Bells'?", a:"Mykola Leontovych", e:"Peter J. Wilhousky wrote the English Christmas lyrics in 1936." },
-          { q:"Which YouTube family act set a record with five UK Christmas number ones in a row, from 2018 to 2022, all charity songs about sausage rolls?", a:"LadBaby", e:"The run broke the record of three in a row, held jointly by the Beatles and the Spice Girls." }
-        ],
-        [
-          { q:"Which red-leaved Christmas plant is native to Mexico?", a:"The poinsettia", e:"It is named after Joel Roberts Poinsett, the first US minister to Mexico, who brought it to the United States." },
-          { q:"Which London confectioner invented the Christmas cracker in the 1840s?", a:"Tom Smith", e:"He started out wrapping sweets in twists of paper, and later added the 'snap', inspired by a crackling log fire." },
-          { q:"Which US president lit the first National Christmas Tree, in 1923?", a:"Calvin Coolidge", e:"The tree, from his home state of Vermont, was lit on the Ellipse south of the White House." },
-          { q:"Which Indian Ocean territory, now part of Australia, was named by an East India Company captain who sighted it on 25 December 1643?", a:"Christmas Island", e:"Captain William Mynors named it. The island is famous for its yearly red crab migration." },
-          { q:"Because of the Presbyterian Church's opposition, Christmas Day did not become a public holiday in Scotland until which decade?", a:"The 1950s (1958)", e:"Hogmanay was traditionally the bigger winter celebration in Scotland." }
+          { q:"What is the largest organ of the human body?", a:"The skin", e:"In an adult it covers about 2 square metres and makes up around 15 percent of body weight." },
+          { q:"What is the longest bone in the human body?", a:"The femur (thigh bone)", e:"It is also the strongest bone in the body." },
+          { q:"How many bones are there in a typical adult human skeleton?", a:"206", e:"Babies are born with around 300, and many fuse together as they grow." },
+          { q:"Which pea-sized gland at the base of the brain is often called the 'master gland'?", a:"The pituitary gland", e:"It controls many other glands, including the thyroid and the adrenal glands." },
+          { q:"What is the smallest bone in the human body?", a:"The stapes (stirrup), in the middle ear", e:"It is about 3 mm long, and passes sound vibrations to the inner ear." }
         ]
       ]
     }
