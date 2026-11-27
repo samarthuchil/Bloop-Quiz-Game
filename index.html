@@ -565,7 +565,7 @@
 
 <script>
 (function(){
-  var STORAGE_KEY = 'quiz-dashboard-state-v16';
+  var STORAGE_KEY = 'quiz-dashboard-state-v18';
   var DEFAULT_POINTS = [10,20,30,40,50];
   var MIN_TOPICS = 3, MAX_TOPICS = 6;
   var TEAM_LETTERS = ['a','b','c','d','e','f'];
@@ -575,207 +575,207 @@
 
   var ROUNDS = [
     {
-      title: 'ROUND 1',
-      topics: ["Origins of English Words","Bollywood Theme","Indian Sports","Guess the Actor","Guess the Brand"],
+      title: 'CHRISTMAS ROUND 1',
+      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
       questions: [
         [
-          { q:"Which English word for a dull brownish-yellow fabric, first adopted for uniforms by a British Indian Army unit in the 1840s, comes from an Urdu word that itself comes from the Persian word for 'dust'?", a:"Khaki", e:"The Persian word is 'khak' (dust). The Corps of Guides adopted dust-colored uniforms for better camouflage on the frontier." },
-          { q:"Which English word for a plain, coarse cotton cloth takes its name from an Indian port city on the Malabar coast from which the fabric was exported to Europe?", a:"Calico", e:"The port is Calicut (Kozhikode) in Kerala." },
-          { q:"Which English word for a broad sash worn around the waist, now associated with formal dinner wear, comes from a Hindi and Urdu word combining the Persian words for 'waist' and 'something that binds'?", a:"Cummerbund", e:"The Urdu word is 'kamarband' (kamar: waist, band: tie). British officers in India adopted it as a cooler alternative to a waistcoat." },
-          { q:"Which English word for a lightweight, puckered, striped fabric comes from a Persian phrase meaning 'milk and sugar,' describing the contrast between its smooth and bumpy stripes?", a:"Seersucker", e:"The Persian phrase 'shir o shakar' reached English via Hindi." },
-          { q:"Which English word for a spiced soup created for British diners in colonial India comes from a Tamil phrase meaning 'pepper water'?", a:"Mulligatawny", e:"The Tamil phrase is 'milagu-thanni.'" }
+          { q:"Which 1990 film's young hero defends his family's Chicago-area house from two burglars who call themselves the 'Wet Bandits'?", a:"Home Alone", e:"Joe Pesci and Daniel Stern played Harry and Marv. The 'Wet Bandits' name comes from Marv's habit of flooding the houses they rob." },
+          { q:"Which 2003 comedy's hero, raised at the North Pole, travels to New York to find his father, a children's book publisher on Santa's naughty list?", a:"Elf", e:"Will Ferrell played Buddy and James Caan played his father, Walter Hobbs. Jon Favreau directed." },
+          { q:"Which 1988 action film, set at a Christmas Eve office party in Los Angeles's Nakatomi Plaza, is the subject of a never-ending argument about whether it counts as a Christmas movie?", a:"Die Hard", e:"Bruce Willis played John McClane, and it was Alan Rickman's first feature film role, as Hans Gruber." },
+          { q:"In It's a Wonderful Life (1946), what does Zuzu say happens every time a bell rings?", a:"An angel gets his wings", e:"George Bailey's guardian angel, Clarence Odbody, is an 'Angel Second Class' trying to earn his wings." },
+          { q:"In Love Actually (2003), which ageing rock star reworks 'Love Is All Around' as a Christmas song and battles for the Christmas number one?", a:"Billy Mack", e:"Bill Nighy played him. The reworked song is 'Christmas Is All Around'." }
         ],
         [
-          { q:"Which 2007 film follows an eight-year-old whose struggles with reading are mistaken for laziness, until a new art teacher recognizes an undiagnosed learning difficulty?", a:"Taare Zameen Par", e:"It was Aamir Khan's directorial debut, and it brought dyslexia into mainstream conversation in India." },
-          { q:"Which 2013 comedy-drama follows a young woman from Delhi who, after her fiance calls off the wedding days before the ceremony, decides to take her honeymoon trip alone?", a:"Queen", e:"The journey takes her to Paris and Amsterdam, and the film won a National Award for its lead performance." },
-          { q:"Which 2012 film, set in 1970s Darjeeling and Kolkata, is built around a cheerful man who cannot hear or speak and the two very different women who love him?", a:"Barfi!", e:"It was India's official submission to the 85th Academy Awards." },
-          { q:"Which 2018 black-comedy thriller revolves around a pianist who claims to be blind and ends up entangled in a murder he witnessed?", a:"Andhadhun", e:"Directed by Sriram Raghavan, it won the National Award for Best Hindi Film." },
-          { q:"Which 1983 satire follows two struggling photographers who stumble onto evidence of corruption, and climaxes with a chaotic stage performance of a scene from an ancient epic?", a:"Jaane Bhi Do Yaaro", e:"Directed by Kundan Shah, it is a cult classic of Indian comedy, and the climax stages a scene from the Mahabharata." }
+          { q:"What is the name of the snowy owl that Hagrid gives Harry for his eleventh birthday?", a:"Hedwig", e:"Harry chose the name from a book on the history of magic." },
+          { q:"Harry finds which magical mirror over his first Christmas at Hogwarts, and what does it show?", a:"The Mirror of Erised: your deepest desire", e:"'Erised' is 'desire' spelled backwards. Harry sees his parents in it." },
+          { q:"Which Christmas present, sent anonymously in Harry's first year, once belonged to his father?", a:"The Invisibility Cloak", e:"Dumbledore sent it with a note saying, 'Use it well.' It later turns out to be one of the Deathly Hallows." },
+          { q:"What colour is the jumper Mrs Weasley knits for Ron every Christmas, much to his disappointment?", a:"Maroon", e:"Ron complains that his is always maroon. Harry gets an emerald-green one in his first year." },
+          { q:"Which wizarding band plays at the Yule Ball in Goblet of Fire?", a:"The Weird Sisters", e:"The Yule Ball is held on Christmas night during the Triwizard Tournament." }
         ],
         [
-          { q:"Which captain removed his shirt and swung it above his head on the Lord's balcony after his team chased down 326 in a 2002 one-day final?", a:"Sourav Ganguly", e:"India beat England by two wickets in the NatWest Series final on 13 July 2002." },
-          { q:"Which opening batsman became the first to score 10,000 Test runs, reaching the milestone against Pakistan at Ahmedabad in 1987?", a:"Sunil Gavaskar", e:"He retired with 10,122 Test runs and 34 centuries, which was then a world record." },
-          { q:"Which athlete, teased as a child about his weight, won India's first Olympic gold in athletics with a throw of 87.58 metres in Tokyo?", a:"Neeraj Chopra", e:"He was sent to a gym in Panipat at around age 11 and later took up the javelin." },
-          { q:"Which tennis player, whose father won an Olympic hockey bronze in 1972, won India's first individual Olympic medal in 44 years at Atlanta in 1996?", a:"Leander Paes", e:"His father, Vece Paes, played in the 1972 bronze-winning team. Leander later won 18 Grand Slam doubles and mixed titles." },
-          { q:"Which All England badminton champion, who reportedly turned down a lucrative soft-drink endorsement because he did not want to promote it to children, later became a renowned coach?", a:"Pullela Gopichand", e:"He won the All England title in 2001 and runs an academy in Hyderabad that has trained several Olympic medallists." }
+          { q:"At which Melbourne ground is Australia's Boxing Day Test played each year?", a:"The MCG (Melbourne Cricket Ground)", e:"The Boxing Day Test has been a fixture at the MCG almost every year since 1980." },
+          { q:"Boxing Day has nothing to do with the sport of boxing. Which tradition does its name come from?", a:"Giving Christmas boxes (gifts or money) to servants and tradespeople", e:"In Britain, servants and workers traditionally received their 'Christmas box' the day after Christmas." },
+          { q:"Which ocean race, first sailed in 1945, leaves Sydney Harbour every Boxing Day?", a:"The Sydney to Hobart Yacht Race", e:"It is run by the Cruising Yacht Club of Australia." },
+          { q:"At which racecourse is the King George VI Chase run every Boxing Day?", a:"Kempton Park", e:"It is one of the most prestigious steeplechases in Britain, second only to the Cheltenham Gold Cup." },
+          { q:"On Boxing Day 1963, a record 66 goals were scored in ten First Division games in England. Which club beat Ipswich Town 10–1 that day?", a:"Fulham", e:"It is still Fulham's biggest league win. Ipswich had been league champions only 20 months earlier." }
         ],
         [
-          { q:"Which actor holds an engineering degree and worked as an assistant director on a two-part crime saga before acting, and is the son of a veteran stunt coordinator?", a:"Vicky Kaushal", e:"He assisted on Gangs of Wasseypur. His father, Sham Kaushal, is a well-known action director." },
-          { q:"Which actor, after studying at a university in the United States, worked as a junior copywriter at an advertising agency before auditioning for his debut film?", a:"Ranveer Singh", e:"His debut was Band Baaja Baaraat (2010), made by Yash Raj Films." },
-          { q:"Which actress made her screen debut in the mid-1990s on a long-running sitcom about a mother of five daughters, years before her first film role?", a:"Vidya Balan", e:"The sitcom was Hum Paanch. Her film debut came with Parineeta (2005)." },
-          { q:"Which actor, the son of a celebrated character actor, was a background dancer in a 1997 romantic musical before moving on to leading roles?", a:"Shahid Kapoor", e:"He danced in Dil To Pagal Hai and Taal. His father is Pankaj Kapur." },
-          { q:"Which actor with an engineering degree worked as a public-speaking trainer before acting, and later wrote, directed and starred in a film about a rocket scientist who was falsely accused of espionage?", a:"R. Madhavan", e:"The film is Rocketry: The Nambi Effect (2022)." }
+          { q:"Which singer's 1994 hit 'All I Want for Christmas Is You' finally topped the US Billboard Hot 100 in December 2019, 25 years after it came out?", a:"Mariah Carey", e:"She co-wrote it with Walter Afanasieff, and it climbs back up the charts every December." },
+          { q:"Which charity supergroup's 1984 single 'Do They Know It's Christmas?' was written by Bob Geldof and Midge Ure to raise money for famine relief in Ethiopia?", a:"Band Aid", e:"It led to the Live Aid concerts in July 1985." },
+          { q:"Which glam-rock band, fronted by Noddy Holder, had the 1973 UK Christmas number one with 'Merry Xmas Everybody'?", a:"Slade", e:"It still earns the band royalties every December, decades later." },
+          { q:"Which 1987 Christmas song is a duet between the Pogues' Shane MacGowan and Kirsty MacColl?", a:"Fairytale of New York", e:"Pet Shop Boys' 'Always on My Mind' kept it off the Christmas number one spot." },
+          { q:"Which carol began as a German poem by Joseph Mohr, was set to music by Franz Xaver Gruber, and was first performed in Oberndorf, Austria, on Christmas Eve 1818?", a:"Silent Night ('Stille Nacht')", e:"It was first performed with guitar accompaniment." }
         ],
         [
-          { q:"Which brand's tagline is 'Taste the Rainbow'?", a:"Skittles", e:"The campaign began in the mid-1990s and has run for decades." },
-          { q:"Which brand's tagline is 'Have It Your Way'?", a:"Burger King", e:"Introduced in 1974, it reflects the chain's promise to customize orders." },
-          { q:"Which brand's tagline is 'The Quicker Picker-Upper'?", a:"Bounty", e:"The paper-towel brand's slogan dates to the 1970s and was voiced in TV ads by actress Nancy Walker." },
-          { q:"Which brand's tagline is 'Breakfast of Champions'?", a:"Wheaties", e:"The line dates to the 1930s, and athletes have appeared on its cereal boxes ever since." },
-          { q:"Which brand's tagline is 'Don't Leave Home Without It'?", a:"American Express", e:"The slogan was popularized in 1970s TV ads featuring actor Karl Malden." }
+          { q:"In which town does Christian tradition place the birth of Jesus?", a:"Bethlehem", e:"The Church of the Nativity there is built over the cave traditionally said to be the birthplace." },
+          { q:"Which Roman winter festival of feasting, role reversal and gift-giving, held in December, shaped many later Christmas customs?", a:"Saturnalia", e:"It honoured the god Saturn, and for a few days masters sometimes served their slaves." },
+          { q:"Which German-born husband of Queen Victoria is credited with popularising the Christmas tree in Britain?", a:"Prince Albert", e:"An 1848 illustration of the royal family around a decorated tree set off the craze." },
+          { q:"In which year did the unofficial 'Christmas Truce' see British and German soldiers meet in no man's land on the Western Front?", a:"1914", e:"Soldiers swapped cigarettes and food, sang carols, and in some places reportedly played football." },
+          { q:"Which fourth-century bishop of Myra, in modern-day Turkey, inspired the legend of Santa Claus?", a:"Saint Nicholas", e:"He was known for secret gift-giving. 'Santa Claus' comes from the Dutch 'Sinterklaas'." }
         ]
       ]
     },
     {
-      title: 'ROUND 2',
-      topics: ["Indian History","Women of India","F.R.I.E.N.D.S","Guess the Sportsman","Game of Thrones"],
+      title: 'CHRISTMAS ROUND 2',
+      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
       questions: [
         [
-          { q:"Which Mughal emperor, believed never to have learned to read or write, built a royal library of tens of thousands of manuscripts and had books read aloud to him daily?", a:"Akbar", e:"He ruled from 1556 to 1605 and founded a short-lived syncretic faith called Din-i Ilahi." },
-          { q:"Which revolutionary, executed in March 1931 at the age of 23, threw non-lethal bombs in the Central Legislative Assembly in 1929 and later asked to be shot rather than hanged?", a:"Bhagat Singh", e:"His request for a firing squad was refused. He was hanged in Lahore along with Sukhdev and Rajguru." },
-          { q:"Which 1764 battle, fought against the combined forces of the Nawab of Awadh, the deposed Nawab of Bengal and the Mughal emperor, led to the East India Company winning the right to collect revenue in Bengal the following year?", a:"The Battle of Buxar", e:"The 1765 Treaty of Allahabad granted the Company the diwani rights." },
-          { q:"Which Delhi sultan controlled the market prices of grain and cloth by decree, and repelled several Mongol invasions in the early 1300s?", a:"Alauddin Khilji", e:"He also began building the Alai Minar, which was never completed." },
-          { q:"Which Gupta ruler, whose conquests are recorded on an inscribed pillar at Allahabad, was nicknamed the 'Napoleon of India' by a British historian?", a:"Samudragupta", e:"The historian was Vincent Smith. The pillar carries a long Sanskrit inscription by the court poet Harishena." }
+          { q:"Which 1993 stop-motion film follows the Pumpkin King of Halloween Town after he stumbles into Christmas Town?", a:"The Nightmare Before Christmas", e:"Henry Selick directed it, from Tim Burton's story and characters. The Pumpkin King is Jack Skellington." },
+          { q:"Which 1983 film follows Ralphie Parker, who wants a Red Ryder BB gun for Christmas but keeps being told he'll shoot his eye out?", a:"A Christmas Story", e:"It is based on Jean Shepherd's stories, and Shepherd narrates it as the grown-up Ralphie." },
+          { q:"Which 1947 film, remade in 1994, puts a department-store Santa on trial in a New York court to prove he is the real Santa Claus?", a:"Miracle on 34th Street", e:"Edmund Gwenn won the Oscar for Best Supporting Actor as Kris Kringle." },
+          { q:"In The Muppet Christmas Carol (1992), which Muppet narrates the story as Charles Dickens?", a:"The Great Gonzo", e:"Rizzo the Rat joins him. Michael Caine played Scrooge, and it was the first Muppet film after Jim Henson's death." },
+          { q:"In Elf, which four foods does Buddy say make up the main elf food groups?", a:"Candy, candy canes, candy corn and syrup", e:"He puts all four on his spaghetti for breakfast." }
         ],
         [
-          { q:"Which tennis player, at 17, became the first Indian woman to win a WTA singles title, doing so in her home city in 2004?", a:"Sania Mirza", e:"She later reached world No. 1 in women's doubles and won six Grand Slam titles." },
-          { q:"Which author and philanthropist became the first woman engineer hired at TELCO after sending a postcard to its chairman, protesting a job advertisement that sought only male candidates?", a:"Sudha Murty", e:"She later chaired the Infosys Foundation. Her daughter Akshata is married to former UK Prime Minister Rishi Sunak." },
-          { q:"Which singer, who owns a chain of restaurants in the Gulf and the UK, was cited by Guinness as the most recorded artist in music history?", a:"Asha Bhosle", e:"Guinness counted more than 11,000 songs, in over twenty languages." },
-          { q:"Which former CEO of a global beverage and snacks company played guitar in an all-girl rock band as a student in Chennai?", a:"Indra Nooyi", e:"Her college band was called Logical Fallacies. She led PepsiCo from 2006 to 2018." },
-          { q:"Which novelist, who trained as an architect and once acted in a film, won the Booker Prize in 1997 for her debut novel?", a:"Arundhati Roy", e:"She acted in Massey Sahib (1985). Her debut novel is The God of Small Things." }
+          { q:"Which position does Harry play for the Gryffindor Quidditch team?", a:"Seeker", e:"He became the youngest house player in a century, picked in his first year." },
+          { q:"Who does Harry take to the Yule Ball?", a:"Parvati Patil", e:"Ron takes her twin sister, Padma. Harry had asked Cho Chang, who was already going with Cedric Diggory." },
+          { q:"Which potion, said to be the most powerful love potion in the world, smells different to each person?", a:"Amortentia", e:"Slughorn shows it to his class in Half-Blood Prince. It gives a powerful infatuation, not real love." },
+          { q:"In Deathly Hallows, which village do Harry and Hermione visit on Christmas Eve, where his parents are buried?", a:"Godric's Hollow", e:"There they are ambushed by Nagini, who had been hiding in Bathilda Bagshot's house." },
+          { q:"On Christmas Day in Chamber of Secrets, Harry and Ron drink Polyjuice Potion to question Malfoy. Whom do they turn into?", a:"Crabbe and Goyle", e:"Hermione was meant to come too, but the hair she used was a cat's, so she became half-cat." }
         ],
         [
-          { q:"Which working title did the pilot script carry before it became the show's final title?", a:"Insomnia Cafe", e:"It was also developed as 'Six of One' and 'Friends Like Us' before the final title was chosen." },
-          { q:"In which year did the show win its only Emmy for Outstanding Comedy Series?", a:"2002", e:"It had been nominated several times before. One of its leads also won Outstanding Lead Actress that year." },
-          { q:"Which actor, later the director of a 2008 superhero film, played a wealthy man who dated Monica and wanted to become an Ultimate Fighting competitor?", a:"Jon Favreau", e:"He played Pete Becker across several episodes, and later directed Iron Man." },
-          { q:"Which Oscar-nominated actress played Chandler's father, a Las Vegas drag performer?", a:"Kathleen Turner", e:"She was nominated for the Best Actress Oscar for Peggy Sue Got Married." },
-          { q:"In which episode do the six lead characters play a trivia game with their apartments at stake?", a:"The One with the Embryos", e:"It is season 4, episode 12, and pits Monica and Rachel against Chandler and Joey." }
+          { q:"Which Australian spin bowler took his 700th Test wicket on Boxing Day 2006 at the MCG, his home ground?", a:"Shane Warne", e:"He bowled England's Andrew Strauss to become the first bowler to reach 700 Test wickets." },
+          { q:"Which international ice hockey tournament for under-20 players, hugely popular in Canada, traditionally starts on Boxing Day?", a:"The World Junior Championship", e:"The IIHF tournament runs from 26 December into early January." },
+          { q:"The Sydney to Hobart race finishes at which dock in Hobart?", a:"Constitution Dock", e:"Crews traditionally celebrate on the waterfront there, often on New Year's Eve." },
+          { q:"Which horse won the King George VI Chase a record five times between 2006 and 2011?", a:"Kauto Star", e:"He won in 2006, 2007, 2008, 2009 and 2011, and also won the Cheltenham Gold Cup twice." },
+          { q:"In the 1982 Boxing Day Test at the MCG, England beat Australia by what margin?", a:"3 runs", e:"Australia's last pair added 70 before Jeff Thomson edged Botham. Tavaré fumbled the catch and Geoff Miller caught the rebound." }
         ],
         [
-          { q:"Which footballer is the only player to have won three FIFA World Cups, collecting his first at the age of 17?", a:"Pelé", e:"He won in 1958, 1962 and 1970, and remains the youngest World Cup winner." },
-          { q:"Which tennis player has spent more than 400 weeks ranked world No. 1, the most in men's history?", a:"Novak Djokovic", e:"He passed Steffi Graf's all-time mark of 377 weeks in 2021." },
-          { q:"Which golfer equalled Sam Snead's record of 82 PGA Tour wins at a tournament in Japan in 2019?", a:"Tiger Woods", e:"He won the Zozo Championship, held near Tokyo." },
-          { q:"Which driver holds the Formula 1 record for the most Grand Prix victories, with more than 100?", a:"Lewis Hamilton", e:"He also shares the record of seven world titles with Michael Schumacher." },
-          { q:"Which squash player went unbeaten for more than five years, winning 555 consecutive matches?", a:"Jahangir Khan", e:"The streak ran from April 1981 to November 1986 and is widely cited as the longest in professional sport." }
+          { q:"Which duo's 'Last Christmas' finally reached UK number one on 1 January 2021, 36 years after it was released?", a:"Wham!", e:"George Michael wrote it. In 1984 it peaked at number two behind Band Aid, and he gave his royalties to that cause." },
+          { q:"Which former Beatle released 'Happy Xmas (War Is Over)' with Yoko Ono in 1971?", a:"John Lennon", e:"The Harlem Community Choir sang on the record." },
+          { q:"Which Christmas song did Mel Tormé and Bob Wells write during a 1945 summer heatwave? Nat King Cole made the best-known recording.", a:"The Christmas Song ('Chestnuts Roasting on an Open Fire')", e:"They reportedly wrote it in about 40 minutes while trying to 'think cool'." },
+          { q:"Which Tchaikovsky ballet, first performed in St Petersburg in 1892, is set on Christmas Eve?", a:"The Nutcracker", e:"It includes the 'Dance of the Sugar Plum Fairy', which features a celesta, then a newly invented instrument." },
+          { q:"Which festive favourite did James Lord Pierpont publish in 1857 under the title 'One Horse Open Sleigh'?", a:"Jingle Bells", e:"In 1965 it became one of the first songs played in space, on harmonica and bells by the Gemini 6 astronauts." }
         ],
         [
-          { q:"Which character is stabbed repeatedly by fellow members of his own order at a northern fortress, and is later brought back to life by a priestess of a foreign fire god?", a:"Jon Snow", e:"After returning, he is eventually named Lord Commander and later King in the North." },
-          { q:"Which character, after repeatedly boasting that he will win back the Iron Throne with an army bought through his sister's marriage, is killed when molten metal is poured over his head?", a:"Viserys Targaryen", e:"Khal Drogo killed him with a pot of molten gold." },
-          { q:"Which character, sent to the Night's Watch by a father who threatened to kill him, later heals a knight's greyscale at the Citadel using a forbidden treatment?", a:"Samwell Tarly", e:"He also steals his family's Valyrian steel sword, Heartsbane, when he leaves." },
-          { q:"Which would-be king burns his own daughter at the stake after being convinced it will turn the tide of his campaign?", a:"Stannis Baratheon", e:"A priestess of the Lord of Light had told him the sacrifice would bring victory." },
-          { q:"Which character promised his dying sister, at a remote tower, that he would keep a secret about her child for the rest of his life?", a:"Ned Stark", e:"The place is called the Tower of Joy, and the child's true parentage is only revealed years later." }
+          { q:"Which Charles Dickens novella, published in December 1843, introduced Ebenezer Scrooge?", a:"A Christmas Carol", e:"Dickens paid for the publication himself, and the first print run sold out within days." },
+          { q:"Which Frankish king was crowned Emperor of the Romans by Pope Leo III on Christmas Day 800?", a:"Charlemagne", e:"The coronation took place in St Peter's Basilica in Rome." },
+          { q:"Who is credited with sending the first commercial Christmas card, in London in 1843?", a:"Sir Henry Cole", e:"John Callcott Horsley designed it, and Cole later helped found the Victoria and Albert Museum." },
+          { q:"Which king was crowned at Westminster Abbey on Christmas Day 1066?", a:"William the Conqueror", e:"Shouts from inside were mistaken for an attack, and Norman guards set fire to nearby houses." },
+          { q:"Christmas celebrations were banned in England in the 1640s and 1650s by Parliament, under the influence of which religious group?", a:"The Puritans", e:"The ban came in during the Civil War and Cromwell's era. Christmas was restored with Charles II in 1660." }
         ]
       ]
     },
     {
-      title: 'ROUND 3',
-      topics: ["Origins of English Words","Indian Brands","Indian Sports","F.R.I.E.N.D.S","Guess the Singer"],
+      title: 'CHRISTMAS ROUND 3',
+      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
       questions: [
         [
-          { q:"Which English word for an overland expedition to observe wildlife comes from a Swahili word that was itself borrowed from an Arabic word meaning 'journey'?", a:"Safari", e:"The Arabic word is 'safar.'" },
-          { q:"Which English word for a common sweetener traces back, through Persian and Arabic, to a Sanskrit word that originally meant 'grit' or 'gravel'?", a:"Sugar", e:"The Sanskrit word is 'sharkara,' and sugar crystallization techniques were developed in India." },
-          { q:"Which English word for the number that holds a place with no value comes, through Arabic and Italian, from the Sanskrit word for 'empty' or 'void'?", a:"Zero", e:"The Sanskrit word is 'shunya.' Arabic rendered it as 'sifr,' which also gave English 'cipher.'" },
-          { q:"Which English word for a step-by-step procedure for solving a problem comes from the Latinized name of a ninth-century Persian scholar whose book on calculation introduced Hindu-Arabic numerals to Europe?", a:"Algorithm", e:"He was Muhammad ibn Musa al-Khwarizmi. The word 'algebra' also traces to the title of one of his books." },
-          { q:"Which English word for a killer who targets a prominent person, usually for political reasons, is widely believed to come from an Arabic word linked to a medieval Ismaili sect and the drug hashish?", a:"Assassin", e:"It is believed to derive from 'hashishin,' a name applied to the Nizari Ismailis, though the link to the drug is debated by historians." }
+          { q:"Which 2004 animated film, based on a Chris Van Allsburg book, follows a boy who boards a magical train to the North Pole on Christmas Eve?", a:"The Polar Express", e:"Robert Zemeckis directed it with motion capture, and Tom Hanks played several roles, including the conductor and Santa." },
+          { q:"Which 1984 horror-comedy is set off by a Christmas present that must never get wet, see bright light or be fed after midnight?", a:"Gremlins", e:"The present is a mogwai named Gizmo. Joe Dante directed and Steven Spielberg was executive producer." },
+          { q:"In which 1989 comedy does Clark Griswold cover his house in 25,000 imported Italian twinkle lights?", a:"National Lampoon's Christmas Vacation", e:"Chevy Chase played Clark, and John Hughes wrote it." },
+          { q:"Which 2006 romantic comedy has Cameron Diaz and Kate Winslet swap homes in Los Angeles and Surrey over Christmas?", a:"The Holiday", e:"Nancy Meyers wrote and directed it. Jude Law and Jack Black are their love interests." },
+          { q:"In Home Alone, what is the name of the black-and-white gangster film Kevin plays to scare off the pizza delivery boy?", a:"Angels with Filthy Souls", e:"The film was made up for Home Alone and gave us 'Keep the change, ya filthy animal.'" }
         ],
         [
-          { q:"Which Indian coffee chain opened its first outlet on Bengaluru's Brigade Road in 1996, backed by a family of coffee planters?", a:"Cafe Coffee Day", e:"It was founded by V. G. Siddhartha, whose family owned coffee estates in Chikmagalur." },
-          { q:"Which bottled-water brand, begun by an Italian businessman, was bought by an Indian soft-drink company in 1969?", a:"Bisleri", e:"It was originally sold in glass bottles in Mumbai." },
-          { q:"Which motorcycle brand, founded in England in 1901, is regarded as the world's oldest still in continuous production, and is now made in Chennai?", a:"Royal Enfield", e:"Its Indian arm began assembling motorcycles in Madras in 1955." },
-          { q:"Which soap brand traces its origin to a sandalwood oil factory set up by a princely state after World War I disrupted its exports?", a:"Mysore Sandal Soap", e:"The princely state of Mysore set up its sandalwood oil factory in the late 1910s, and the soap followed soon after." },
-          { q:"Which cosmetics brand, launched by a Tata company in 1952 at the prime minister's urging to stem imports of foreign beauty products, takes its name from a French opera?", a:"Lakme", e:"Its name is the French form of Lakshmi. The opera is Leo Delibes's Lakme." }
+          { q:"What is the name of the Weasley family home?", a:"The Burrow", e:"Harry spends part of several summers there, and in Half-Blood Prince he spends Christmas there too." },
+          { q:"What is the name of the all-wizarding village near Hogwarts that students can visit from third year?", a:"Hogsmeade", e:"Students need a permission slip signed by a parent or guardian to go." },
+          { q:"Which Hogsmeade sweet shop sells Fizzing Whizzbees and Chocolate Frogs?", a:"Honeydukes", e:"Its cellar has a trapdoor at the end of a secret passage from Hogwarts." },
+          { q:"What is the name of the scruffy Hogsmeade pub run by Dumbledore's brother, Aberforth?", a:"The Hog's Head", e:"Dumbledore's Army holds its first meeting there in Order of the Phoenix." },
+          { q:"In Prisoner of Azkaban, which anonymous Christmas present does Hermione report to Professor McGonagall?", a:"A Firebolt broomstick", e:"McGonagall had it stripped down to check for jinxes. Sirius Black had sent it." }
         ],
         [
-          { q:"Which Indian batsman has faced more balls in Test cricket than anyone else in history, over 31,000?", a:"Rahul Dravid", e:"He faced 31,258 balls and retired with 13,288 Test runs." },
-          { q:"Which hockey legend, whose birthday on 29 August is observed as National Sports Day, won Olympic golds in 1928, 1932 and 1936?", a:"Dhyan Chand", e:"India won all three of those Olympic hockey finals, including 8-1 against Germany in 1936." },
-          { q:"Which chess player became India's first grandmaster in 1988, and has held the world title in knockout, tournament and match formats?", a:"Viswanathan Anand", e:"He was undisputed world champion from 2007 to 2013." },
-          { q:"Which cricketer, trained in classical dance as a child, became the first woman to score 7,000 runs in one-day internationals?", a:"Mithali Raj", e:"She trained in Bharatanatyam and captained India for over a decade." },
-          { q:"Which wrestler became the first Indian to win individual Olympic medals at two successive Games, bronze at Beijing 2008 and silver at London 2012?", a:"Sushil Kumar", e:"It was a feat later matched by a badminton player." }
+          { q:"In the 2010 Boxing Day Test at the MCG, which touring side bowled Australia out for 98 on the first day?", a:"England", e:"England won by an innings to retain the Ashes, and went on to their first series win in Australia in 24 years." },
+          { q:"Which Indian fast bowler took 6 for 33 in the 2018 Boxing Day Test, as India won at the MCG on their way to a first-ever Test series win in Australia?", a:"Jasprit Bumrah", e:"He took nine wickets in the match, and India won the series 2–1." },
+          { q:"Which much-loved grey won the King George VI Chase four times between 1986 and 1990?", a:"Desert Orchid", e:"He won in 1986, 1988, 1989 and 1990, and won the 1989 Cheltenham Gold Cup." },
+          { q:"On Boxing Day 2019, which team won 4–0 away at second-placed Leicester City to go well clear at the top of the Premier League?", a:"Liverpool", e:"Roberto Firmino scored twice, and Liverpool went on to win their first league title in 30 years." },
+          { q:"Which supermaxi has taken Sydney to Hobart line honours a record nine times?", a:"Wild Oats XI", e:"Its first line honours came in 2005, and it won four in a row from 2005 to 2008." }
         ],
         [
-          { q:"Which cast member was originally cast as the radio producer Roz on Frasier, but was let go from that show before it aired?", a:"Lisa Kudrow", e:"She was soon cast in this sitcom instead, and won a Supporting Actress Emmy for it in 1998." },
-          { q:"Which cast member directed ten episodes of the series?", a:"David Schwimmer", e:"He directed episodes across several seasons in addition to starring in the show." },
-          { q:"Which actor, first hired as an uncredited extra, played the Central Perk manager across most of the show's run?", a:"James Michael Tyler", e:"His character began as a background figure before becoming a recurring role." },
-          { q:"Roughly how many millions of US viewers tuned in to watch the series finale in May 2004?", a:"About 52.5 million", e:"It ranks among the most-watched TV finales in US history." },
-          { q:"In which season 3 episode does the central couple's famous dispute, over whether they were separated at the time of a certain betrayal, reach its climax?", a:"The One with the Morning After", e:"It is season 3, episode 15." }
+          { q:"Which reindeer song was a huge 1949 hit for the singing cowboy Gene Autry?", a:"Rudolph the Red-Nosed Reindeer", e:"Johnny Marks wrote the song, based on a 1939 booklet his brother-in-law wrote for the Montgomery Ward department store." },
+          { q:"Which singer's 1957 Christmas Album included his much-loved version of 'Blue Christmas'?", a:"Elvis Presley", e:"Elvis' Christmas Album became one of the best-selling Christmas albums of all time." },
+          { q:"Which singer had the 1988 UK Christmas number one with 'Mistletoe and Wine'?", a:"Cliff Richard", e:"He has had Christmas number ones in three different decades, including 'Saviour's Day' (1990)." },
+          { q:"Which Roy Wood-led band released 'I Wish It Could Be Christmas Everyday' in 1973?", a:"Wizzard", e:"It came out the same December as Slade's 'Merry Xmas Everybody', which beat it to number one." },
+          { q:"Which Handel oratorio, first performed in Dublin in 1742 and now a Christmas staple, includes the 'Hallelujah' chorus?", a:"Messiah", e:"The tradition of standing for the 'Hallelujah' chorus is said to date back to London performances in the 1740s." }
         ],
         [
-          { q:"Which artist's 2008 single reimagines a famous Shakespearean romance with a happy ending, with the narrator pleading with a disapproving father not to send her suitor away?", a:"Taylor Swift", e:"The song is 'Love Story,' from her 2008 album Fearless." },
-          { q:"Which British band's 2000 breakthrough single has a narrator who would do anything for a loved one beneath a sky of stars, and was filmed with its singer walking along a beach in one continuous take?", a:"Coldplay", e:"The song is 'Yellow,' and the video was shot at Studland Bay in Dorset." },
-          { q:"Which band's 1979 single, a UK Christmas number one, features a choir of north London schoolchildren protesting against rigid teaching and thought control?", a:"Pink Floyd", e:"The song is 'Another Brick in the Wall (Part 2),' from the album The Wall, with the Islington Green School choir." },
-          { q:"Which band's eight-minute 1971 epic, never released as a single, begins as a gentle acoustic and recorder piece about a woman convinced she can buy her way to heaven, before erupting into a hard-rock finale?", a:"Led Zeppelin", e:"The song is 'Stairway to Heaven,' from the band's untitled fourth album." },
-          { q:"Which artist's song, best known through a live recording from a 1975 London concert, recalls evenings in a poor Kingston neighbourhood and comforts a woman, telling her to stop weeping?", a:"Bob Marley", e:"The song is 'No Woman, No Cry,' recorded live at the Lyceum Theatre with the Wailers." }
+          { q:"Which drinks company's 1930s adverts, painted by Haddon Sundblom, helped fix the image of a jolly Santa in red?", a:"Coca-Cola", e:"Contrary to popular myth, Coca-Cola did not invent the red suit, which had appeared in earlier illustrations." },
+          { q:"What was the original title of the 1823 poem better known as 'The Night Before Christmas'?", a:"A Visit from St. Nicholas", e:"It is usually credited to Clement Clarke Moore, and it gave the reindeer their names." },
+          { q:"Which British monarch gave the first royal Christmas broadcast, on radio, in 1932?", a:"King George V", e:"Rudyard Kipling wrote the speech." },
+          { q:"In which year was the Queen's Christmas message first shown on television?", a:"1957", e:"Elizabeth II broadcast it live from Sandringham." },
+          { q:"Which country sends the Christmas tree that stands in London's Trafalgar Square each year, as thanks for Britain's help during the Second World War?", a:"Norway", e:"The city of Oslo has sent a Norwegian spruce every year since 1947." }
         ]
       ]
     },
     {
-      title: 'ROUND 4',
-      topics: ["Bollywood Theme","Who is X","Game of Thrones","Guess the Actor","Guess the Sportsman"],
+      title: 'CHRISTMAS ROUND 4',
+      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
       questions: [
         [
-          { q:"Which 2006 film follows a group of college friends in Delhi who are cast in a British filmmaker's documentary about independence-era revolutionaries, and later take up the cause themselves after a personal tragedy?", a:"Rang De Basanti", e:"Directed by Rakeysh Omprakash Mehra, it was chosen as India's entry for the Best Foreign Language Film Oscar." },
-          { q:"Which 2013 film is set in Mumbai and begins with a delivery error by the city's tiffin-carrier network, leading a housewife and a soon-to-retire accountant to exchange handwritten notes?", a:"The Lunchbox", e:"Directed by Ritesh Batra, it stars Irrfan Khan and Nimrat Kaur." },
-          { q:"Which 2012 thriller follows a pregnant woman from London who searches Kolkata for her missing husband?", a:"Kahaani", e:"Directed by Sujoy Ghosh, it is famous for its final twist, set during Durga Puja." },
-          { q:"Which 2012 biographical film tells the story of a champion steeplechase runner from the Indian Army who takes to banditry in the Chambal ravines after a land dispute?", a:"Paan Singh Tomar", e:"Irrfan Khan won the National Award for Best Actor for the title role." },
-          { q:"Which 2003 crime drama transplants a famous tragedy about a Scottish nobleman's rise and fall into the Mumbai underworld?", a:"Maqbool", e:"Directed by Vishal Bhardwaj, it was followed by his Shakespeare adaptations Omkara and Haider." }
+          { q:"In How the Grinch Stole Christmas, what is the name of the Grinch's long-suffering dog?", a:"Max", e:"The Grinch ties an antler to Max's head to turn him into a 'reindeer'." },
+          { q:"In Love Actually, which actor plays the Prime Minister who falls for a member of his household staff?", a:"Hugh Grant", e:"His dance through 10 Downing Street to the Pointer Sisters' 'Jump (For My Love)' is the film's best-known scene." },
+          { q:"Which 1988 comedy stars Bill Murray as a cynical TV executive visited by three ghosts while he produces a live Christmas Eve broadcast of A Christmas Carol?", a:"Scrooged", e:"Murray plays Frank Cross, and Richard Donner directed." },
+          { q:"Which 2019 animated Netflix film tells an origin story for Santa Claus through a spoiled postman sent to a frozen Arctic island?", a:"Klaus", e:"Sergio Pablos directed it. It won the BAFTA for Best Animated Film and was nominated for the Oscar." },
+          { q:"In which 1942 film did Bing Crosby first sing 'White Christmas', twelve years before it became the title of a film of its own?", a:"Holiday Inn", e:"Irving Berlin's song won the Oscar for Best Original Song. Guinness lists Crosby's recording as the best-selling single of all time." }
         ],
         [
-          { q:"Which email service, launched in 1996 by two engineers, originally capitalized letters in its name to highlight the markup language it was built on?", a:"Hotmail", e:"It was styled HoTMaiL. Microsoft bought it in 1997 for a reported 400 million US dollars, and co-founder Sabeer Bhatia was born in Chandigarh." },
-          { q:"Which snack's inventor, a food-storage chemist, asked for some of his ashes to be buried inside the tall can he designed for it?", a:"Pringles", e:"Fredric Baur designed the stackable crisp's can, and his family honored his request." },
-          { q:"Which tissue brand's original material, cellucotton, was developed during World War I as a cheaper substitute for cotton in wound dressings?", a:"Kleenex", e:"It was relaunched in 1924 as a disposable cold-cream remover." },
-          { q:"Which candy's name comes from the first, middle and last letters of the German word for peppermint, and was originally marketed to adult smokers?", a:"Pez", e:"It was launched in Austria in 1927, and the character-topped dispensers came decades later." },
-          { q:"Which skincare staple's inventor, a chemist who had noticed oil-rig workers using a waxy residue on their cuts, reportedly swallowed a spoonful of it every day to prove it was safe?", a:"Vaseline", e:"Robert Chesebrough patented the process in 1872 and lived to the age of 96." }
+          { q:"From which platform at King's Cross does the Hogwarts Express leave?", a:"Platform Nine and Three-Quarters", e:"You reach it by walking straight at the barrier between platforms nine and ten." },
+          { q:"What is the name of Hagrid's three-headed dog, who guards the Philosopher's Stone?", a:"Fluffy", e:"Hagrid bought him from 'a Greek chappie' he met in a pub. Fluffy falls asleep to music." },
+          { q:"What are the three Deathly Hallows?", a:"The Elder Wand, the Resurrection Stone and the Invisibility Cloak", e:"In The Tale of the Three Brothers, Death made one of them for each brother." },
+          { q:"What is the name of the old house-elf who serves the Black family?", a:"Kreacher", e:"Sirius left him to Harry. He later leads the house-elves of Hogwarts into the Battle of Hogwarts." },
+          { q:"What animal is Hermione's Patronus?", a:"An otter", e:"J.K. Rowling has said otters are her favourite animal." }
         ],
         [
-          { q:"Which character learns to wear other people's faces while training with a guild of assassins, and is told she must give up her own name?", a:"Arya Stark", e:"She trained at the House of Black and White in Braavos." },
-          { q:"Which exiled knight secretly reports on a young queen's movements to a spymaster back in Westeros, and is banished by her when she discovers it?", a:"Jorah Mormont", e:"He first reported to Varys, and later became fiercely loyal to her." },
-          { q:"Which character gives birth to a shadow that assassinates a claimant to the throne inside his own tent?", a:"Melisandre", e:"The shadow killed Renly Baratheon." },
-          { q:"Which patriarch, said to be the wealthiest man in the realm, is killed by his own son while sitting on a privy?", a:"Tywin Lannister", e:"He was shot with a crossbow by Tyrion Lannister." },
-          { q:"Which Dornish prince, nicknamed after a venomous snake, uses a poisoned spear in a duel to avenge his sister's murder?", a:"Oberyn Martell", e:"He fought Gregor Clegane, and was killed when his opponent crushed his skull." }
+          { q:"Which stand-in captain scored a century in the 2020 Boxing Day Test at the MCG, as India bounced back after being bowled out for 36 in the previous match?", a:"Ajinkya Rahane", e:"He made 112, India won by eight wickets, and they went on to win the series 2–1." },
+          { q:"Which Swiss ski town hosts the Spengler Cup, an ice hockey tournament that starts on Boxing Day and has been held since 1923?", a:"Davos", e:"Its host club is HC Davos, and it is one of the oldest invitational tournaments in the sport." },
+          { q:"In which year did a violent storm hit the Sydney to Hobart fleet, sinking five yachts and killing six sailors?", a:"1998", e:"Only 44 of the 115 starters finished. The disaster led to major changes in ocean-racing safety rules." },
+          { q:"Which supermaxi set the Sydney to Hobart record in 2017, finishing in 1 day, 9 hours and 15 minutes?", a:"LDV Comanche", e:"Wild Oats XI crossed the line first, but a time penalty for a near-collision gave Comanche line honours and the record." },
+          { q:"Which club, recognised as the world's oldest football club, played the first-ever match between two clubs against Hallam FC on Boxing Day 1860?", a:"Sheffield FC", e:"Sheffield won 2–0 at Sandygate Road, which is still Hallam FC's home ground." }
         ],
         [
-          { q:"Which actor, the son of a stunt choreographer, made his 1991 debut with a scene in which he stood with each foot on a separate moving motorcycle?", a:"Ajay Devgn", e:"The film was Phool Aur Kaante. His father was action director Veeru Devgan." },
-          { q:"Which actress, the daughter of a former All England badminton champion, played the sport at national level as a junior before turning to modelling?", a:"Deepika Padukone", e:"She has also spoken openly about mental health and founded a foundation on the subject." },
-          { q:"Which actor trained at a New York institute known for method acting, and worked as an assistant director on a 2005 Sanjay Leela Bhansali film before his own debut?", a:"Ranbir Kapoor", e:"He assisted on Black before debuting in Saawariya (2007), and trained at the Lee Strasberg Theatre and Film Institute." },
-          { q:"Which actress, whose parents hoped she would become a doctor, left home for Delhi at 16 to pursue modelling before turning to acting?", a:"Kangana Ranaut", e:"She later also moved into directing." },
-          { q:"Which actor won the 'Sword of Honour' at his Delhi school, and was later made a Chevalier of France's Legion of Honour?", a:"Shah Rukh Khan", e:"He studied economics at Hansraj College before moving to Mumbai, and France awarded him the Legion of Honour in 2014." }
+          { q:"Which Canadian crooner's 2011 album 'Christmas' became one of the best-selling Christmas albums of the century?", a:"Michael Bublé", e:"He has become so linked with the season that 'defrosting Bublé' is an annual internet joke." },
+          { q:"In 'The Twelve Days of Christmas', what does my true love give me on the fifth day?", a:"Five gold rings", e:"Altogether the song lists 364 gifts." },
+          { q:"Which pop star released the Christmas song 'Santa Tell Me' in 2014?", a:"Ariana Grande", e:"It first appeared on a reissue of her album My Everything." },
+          { q:"Which Emerson, Lake & Palmer member's 1975 solo single 'I Believe in Father Christmas' was kept off the Christmas number one by 'Bohemian Rhapsody'?", a:"Greg Lake", e:"Lake wrote it as a protest against the commercialisation of Christmas." },
+          { q:"Which star joined Bing Crosby for a 1977 TV duet of 'Peace on Earth/Little Drummer Boy', recorded weeks before Crosby's death?", a:"David Bowie", e:"The 'Peace on Earth' counter-melody was written at short notice, reportedly because Bowie didn't like 'The Little Drummer Boy'." }
         ],
         [
-          { q:"Which boxer became the youngest heavyweight world champion in history, winning the WBC title in 1986 at the age of 20?", a:"Mike Tyson", e:"He was 20 years and 4 months old when he beat Trevor Berbick." },
-          { q:"Which baseball player hit safely in 56 consecutive games in 1941, a record that still stands?", a:"Joe DiMaggio", e:"The streak ran from 15 May to 16 July 1941, with the New York Yankees." },
-          { q:"Which gymnast held the record for most Olympic medals ever, with 18, for 48 years until it was broken in 2012?", a:"Larisa Latynina", e:"Her haul included nine golds across the 1956, 1960 and 1964 Games. Michael Phelps broke the record." },
-          { q:"Which pole vaulter became the first to clear six metres, and went on to set 35 world records?", a:"Sergey Bubka", e:"He cleared 6.00 m in 1985, and his outdoor record of 6.14 m stood until 2014." },
-          { q:"Which chess player reached the highest rating in history, 2882, in 2014?", a:"Magnus Carlsen", e:"He became world champion in 2013 and held the title until he declined to defend it in 2023." }
+          { q:"In which country did the tradition of the Advent calendar begin?", a:"Germany", e:"The first printed Advent calendars appeared there in the early 1900s." },
+          { q:"What three gifts did the Magi bring?", a:"Gold, frankincense and myrrh", e:"The Bible never says there were three Magi. The number comes from the three gifts." },
+          { q:"Which spacecraft's crew read from the Book of Genesis while orbiting the Moon on Christmas Eve 1968?", a:"Apollo 8", e:"Frank Borman, Jim Lovell and Bill Anders were the first humans to orbit the Moon." },
+          { q:"Why do many Orthodox churches celebrate Christmas on 7 January?", a:"They follow the Julian calendar", e:"The Julian calendar now runs 13 days behind the Gregorian calendar that Pope Gregory XIII brought in in 1582." },
+          { q:"Which saint is credited with staging the first nativity scene, in Greccio, Italy, in 1223?", a:"Saint Francis of Assisi", e:"He reportedly used a real ox and donkey in a cave." }
         ]
       ]
     },
     {
-      title: 'ROUND 5',
-      topics: ["Indian History","Women of India","Cars & Racing","Guess the Brand","Guess the Singer"],
+      title: 'CHRISTMAS ROUND 5',
+      topics: ["Christmas Movies","Harry Potter Trivia","Boxing Day Sports","Christmas Music","Christmas History"],
       questions: [
         [
-          { q:"Which Mughal emperor, who reigned for nearly 50 years and took the empire to its greatest extent, is said to have funded his personal needs by sewing caps and copying the Quran?", a:"Aurangzeb", e:"He ruled from 1658 to 1707." },
-          { q:"Which seventh-century north Indian emperor, himself the author of the play Ratnavali, hosted a grand assembly at Kannauj attended by the Chinese pilgrim Xuanzang?", a:"Harsha (Harshavardhana)", e:"His court poet Banabhatta wrote his biography, the Harshacharita." },
-          { q:"Which Delhi sultan moved his capital roughly 1,100 km south to Daulatabad and issued token coins of brass and copper?", a:"Muhammad bin Tughlaq", e:"Both experiments ultimately failed, and the capital moved back to Delhi." },
-          { q:"Which ruler of Ghazni launched about seventeen raids into northern India, plundering the Somnath temple in 1025?", a:"Mahmud of Ghazni", e:"He raided repeatedly but did not establish lasting rule in India." },
-          { q:"Which princely state, ruled by a Nizam once counted among the world's richest men, was absorbed into India after a five-day military operation in September 1948?", a:"Hyderabad", e:"The operation was codenamed Operation Polo." }
+          { q:"In Home Alone, which actress plays Kevin's frantic mother, Kate McCallister?", a:"Catherine O'Hara", e:"She later starred as Moira Rose in Schitt's Creek." },
+          { q:"In Elf, which actor plays Papa Elf, who raises Buddy at the North Pole?", a:"Bob Newhart", e:"Papa Elf also narrates parts of the story." },
+          { q:"In It's a Wonderful Life, what is the name of the town where George Bailey lives?", a:"Bedford Falls", e:"In the world where George was never born, it becomes Pottersville." },
+          { q:"In Die Hard, what does John McClane write on the sweatshirt of the dead terrorist he sends down in the lift?", a:"'Now I have a machine gun. Ho-ho-ho.'", e:"He sends the body down to Hans Gruber with a Santa hat on." },
+          { q:"Under what title was the 1951 British film with Alastair Sim, often called the best version of A Christmas Carol, released in the UK?", a:"Scrooge", e:"It was released in the United States as A Christmas Carol." }
         ],
         [
-          { q:"Which actress, born Mumtaz Jehan Dehlavi, kept a congenital heart defect secret during her career and died in 1969 at the age of 36?", a:"Madhubala", e:"She played Anarkali in Mughal-E-Azam (1960)." },
-          { q:"Which chief minister, who stood first in her state in school exams and trained as a Bharatanatyam dancer, acted in more than 140 films before entering politics?", a:"Jayalalithaa", e:"She served several terms as Chief Minister of Tamil Nadu between 1991 and 2016." },
-          { q:"Which mathematical prodigy multiplied two randomly chosen 13-digit numbers in 28 seconds in London in 1980, and later contested a Lok Sabha seat against Indira Gandhi?", a:"Shakuntala Devi", e:"The feat took place at Imperial College London and was recorded by Guinness." },
-          { q:"Which filmmaker used earnings from her 1988 Oscar-nominated debut feature about Mumbai street children to set up a charity for street kids?", a:"Mira Nair", e:"The film was Salaam Bombay!, and the charity is the Salaam Baalak Trust." },
-          { q:"Which entrepreneur trained as a master brewer in Australia but, unable to find a brewing job in India as a woman, started a biotechnology company in a garage with Rs 10,000?", a:"Kiran Mazumdar-Shaw", e:"The company is Biocon, founded in Bengaluru in 1978." }
+          { q:"What was Lord Voldemort's name at birth?", a:"Tom Marvolo Riddle", e:"'I am Lord Voldemort' is an anagram of it." },
+          { q:"What kind of creature is Buckbeak?", a:"A hippogriff", e:"Hippogriffs are half horse, half eagle, and you must bow to one before approaching it." },
+          { q:"Which Ministry of Magic office does Arthur Weasley work in at the start of the series?", a:"The Misuse of Muggle Artefacts Office", e:"He is later promoted to head a new office for detecting fake defensive spells and protective objects." },
+          { q:"After Nagini attacks him in Order of the Phoenix, Mr Weasley spends Christmas in which wizarding hospital?", a:"St Mungo's Hospital for Magical Maladies and Injuries", e:"Harry, Ron, Ginny and Hermione visit him there on Christmas Day, and run into Neville visiting his parents." },
+          { q:"What is the address of the Black family home, which becomes the Order of the Phoenix's headquarters?", a:"Number 12, Grimmauld Place", e:"Sirius spends his last Christmas there with the Weasleys and Harry." }
         ],
         [
-          { q:"Which car, launched in Japan in December 1997, was the world's first mass-produced hybrid?", a:"Toyota Prius", e:"'Prius' is Latin for 'to go before.'" },
-          { q:"Which compact car, designed by Alec Issigonis and launched in 1959, mounted its engine sideways to leave about 80 percent of its floorplan for passengers and luggage?", a:"The original Mini", e:"The layout became the template for most small front-wheel-drive cars." },
-          { q:"Which racing circuit near Greater Noida hosted India's only three Formula 1 Grands Prix, from 2011 to 2013?", a:"Buddh International Circuit", e:"Sebastian Vettel won all three races there." },
-          { q:"Which Chennai-born driver became the first Indian to start a Formula 1 Grand Prix, making his debut in Australia in 2005?", a:"Narain Karthikeyan", e:"He drove for Jordan that season." },
-          { q:"Which Formula 1 car, fitted with a large rear fan that pulled it down onto the track, raced only once in 1978, winning before being withdrawn?", a:"Brabham BT46B (the 'fan car')", e:"Niki Lauda won the 1978 Swedish Grand Prix in it, after which the team withdrew it under pressure from rivals." }
+          { q:"England's top football division plays a full round on Boxing Day. What do most other big European leagues do over the festive period?", a:"Take a winter break", e:"Spain, Germany, France and Italy all take some form of break, while English football carries on." },
+          { q:"In the Sydney to Hobart, what is the term for being the first yacht across the finish line, whatever its handicap?", a:"Line honours", e:"The overall winner, decided on handicap, gets the Tattersall Cup." },
+          { q:"What record was set at the MCG on the first day of the 2013 Boxing Day Ashes Test?", a:"The biggest crowd for a single day of Test cricket (91,112)", e:"It broke a record that had stood since the 1961 Test against the West Indies at the same ground." },
+          { q:"Roughly how many nautical miles is the Sydney to Hobart course?", a:"About 628 nautical miles", e:"The course goes down the New South Wales coast, across Bass Strait and up the Derwent River to Hobart." },
+          { q:"On Boxing Day 1963, which London club lost 8–2 at home to Blackburn Rovers, then won the return game at Ewood Park two days later?", a:"West Ham United", e:"They won 3–1 at Blackburn on 28 December, and went on to win the FA Cup that season." }
         ],
         [
-          { q:"Which brand's tagline is 'Betcha Can't Eat Just One'?", a:"Lay's", e:"The slogan dates to the 1960s and was famously fronted by actor Bert Lahr." },
-          { q:"Which brand's tagline is 'Think Outside the Bun'?", a:"Taco Bell", e:"The campaign launched in the late 1990s, alongside its famous chihuahua mascot." },
-          { q:"Which brand's tagline is 'Where's the Beef?'", a:"Wendy's", e:"The 1984 campaign starred Clara Peller and became a national catchphrase, even turning up in a presidential debate." },
-          { q:"Which brand's tagline is 'When It Absolutely, Positively Has to Be There Overnight'?", a:"FedEx", e:"The slogan launched in 1978, when the company was still called Federal Express." },
-          { q:"Which brand's tagline is 'The Best or Nothing'?", a:"Mercedes-Benz", e:"It echoes a motto of co-founder Gottlieb Daimler, 'Das Beste oder nichts.'" }
+          { q:"Which singer recorded 'Rockin' Around the Christmas Tree' in 1958, when she was just 13?", a:"Brenda Lee", e:"It reached the US top ten for the first time in 2019, and hit number one in December 2023." },
+          { q:"Which 1957 Christmas song by Bobby Helms mixes sleigh bells with rock and roll?", a:"Jingle Bell Rock", e:"It has been covered by everyone from Hall & Oates to the cast of Mean Girls." },
+          { q:"Which band's 'Killing in the Name' took the 2009 UK Christmas number one, after a Facebook campaign against that year's X Factor winner?", a:"Rage Against the Machine", e:"It beat Joe McElderry's 'The Climb', and the band played a free thank-you gig in London the next year." },
+          { q:"Which Ukrainian composer's 1914 folk chant 'Shchedryk' became the tune of 'Carol of the Bells'?", a:"Mykola Leontovych", e:"Peter J. Wilhousky wrote the English Christmas lyrics in 1936." },
+          { q:"Which YouTube family act set a record with five UK Christmas number ones in a row, from 2018 to 2022, all charity songs about sausage rolls?", a:"LadBaby", e:"The run broke the record of three in a row, held jointly by the Beatles and the Spice Girls." }
         ],
         [
-          { q:"Which singer's 1969 chartbuster was filmed with a man in an open jeep serenading a woman reading on a toy train in the hills, asking when his dream woman will finally appear?", a:"Kishore Kumar", e:"The song is 'Mere Sapnon Ki Rani' from Aradhana, composed by S. D. Burman." },
-          { q:"Which singer's haunting 1964 song from a suspense film pleads for an embrace because the narrator cannot be sure such a night will ever come again?", a:"Lata Mangeshkar", e:"The song is 'Lag Ja Gale' from Woh Kaun Thi?, composed by Madan Mohan." },
-          { q:"Which singer's 1998 song was filmed with dancers atop a moving steam train in the Nilgiri hills, with words inspired by a Sufi poem from Punjab?", a:"Sukhwinder Singh", e:"The song is 'Chaiyya Chaiyya' from Dil Se.., composed by A. R. Rahman with lyrics by Gulzar." },
-          { q:"Which singer's 2003 title track urges listeners to live each day fully because tomorrow is never guaranteed?", a:"Sonu Nigam", e:"The song is 'Kal Ho Naa Ho,' with music by Shankar-Ehsaan-Loy and lyrics by Javed Akhtar." },
-          { q:"Which singer's 2013 ballad, from a film about a troubled musician and a young aspiring singer, declares that the beloved has become the narrator's whole reason for living?", a:"Arijit Singh", e:"The song is 'Tum Hi Ho,' from Aashiqui 2, which made him a household name." }
+          { q:"Which red-leaved Christmas plant is native to Mexico?", a:"The poinsettia", e:"It is named after Joel Roberts Poinsett, the first US minister to Mexico, who brought it to the United States." },
+          { q:"Which London confectioner invented the Christmas cracker in the 1840s?", a:"Tom Smith", e:"He started out wrapping sweets in twists of paper, and later added the 'snap', inspired by a crackling log fire." },
+          { q:"Which US president lit the first National Christmas Tree, in 1923?", a:"Calvin Coolidge", e:"The tree, from his home state of Vermont, was lit on the Ellipse south of the White House." },
+          { q:"Which Indian Ocean territory, now part of Australia, was named by an East India Company captain who sighted it on 25 December 1643?", a:"Christmas Island", e:"Captain William Mynors named it. The island is famous for its yearly red crab migration." },
+          { q:"Because of the Presbyterian Church's opposition, Christmas Day did not become a public holiday in Scotland until which decade?", a:"The 1950s (1958)", e:"Hogmanay was traditionally the bigger winter celebration in Scotland." }
         ]
       ]
     }
